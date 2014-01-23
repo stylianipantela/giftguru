@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'welcome/css/search.css' %}" />
+    <link rel="stylesheet" type="text/css" href="/html/css/search.css" />
 
 
     <div class="container theme-showcase mainContainer">
