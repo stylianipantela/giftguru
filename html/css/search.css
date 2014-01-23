@@ -1,0 +1,56 @@
+.mainContainer
+{
+    width: 980px;
+}
+.recContainer
+{
+    float:bottom;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.79) 0%,rgba(255,255,255,0.79) 100%);
+    margin-right: auto;
+    text-align: left;
+    margin-left: auto;
+    text-indent: 20px;
+    width: 100%;
+    top: 30px;
+    border-radius: 5px;
+    margin-top:25px;
+}
+
+.tag{ /* for personality categories*/
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 3px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    display: initial;
+    background-color: 'rgba(0, 0, 0, 0)';
+}
+
+.col-md-3 { /*gift grid display*/
+    width: 22%;
+    margin-right: 5px;
+}
+
+.thumbnail{ /*indivual grid*/
+    height: 125px;
+}
+
+.pdtTitle{   
+    text-align: center;
+    overflow: hidden;
+    max-height: 20px;
+    /*position:absolute;
+    top:80px;*/
+}
+
+.pdtPrice
+{
+    text-align: center;
+    overflow: hidden;
+    max-height: 20px;
+    /*margin-top:20px;*/
+}
+
+

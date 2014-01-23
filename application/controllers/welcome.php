@@ -8,10 +8,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function about()
+	public function search()
 	{
 		$this->load->view('templates/header', array('title' => 'About'));
-		$this->load->view('about');
+		$this->load->view('search');
 		$this->load->view('templates/footer');
 	}
 
