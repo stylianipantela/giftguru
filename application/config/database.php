@@ -48,13 +48,14 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$heroku_postgre_url = parse_url($_SERVER['DATABASE_URL']);
+// $heroku_postgre_url = parse_url($_SERVER['DATABASE_URL']);
 
-$db['default']['hostname'] = $heroku_postgre_url['host'];
-$db['default']['username'] = $heroku_postgre_url['user'];
-$db['default']['password'] = $heroku_postgre_url['pass'];
-$db['default']['database'] = trim($heroku_postgre_url['path'], '/');
-$db['default']['dbdriver'] = 'postgre';
+$db['default']['hostname'] = 'us-cdbr-east-04.cleardb.com';
+$db['default']['username'] = 'bb0a1cc0c68104';
+$db['default']['password'] = '6a7aa761';
+$db['default']['database'] = 'heroku_50dfb2472b04de8';
+$db['default']['dbdriver'] = 'mysql';
+
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
