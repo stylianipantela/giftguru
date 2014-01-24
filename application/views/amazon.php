@@ -1,1 +1,1 @@
-<?php echo htmlspecialchars($result) ?>
+<?php echo "Hello"; ?>
