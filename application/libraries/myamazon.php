@@ -2,9 +2,8 @@
 
 class MyAmazon {
 
-
 	// implements amazon model ---> should be moved to models later
-    // get 100 items later rather than just 10
+    // TODO: get 100 items later rather than just 10
 
     public function lookup($category, $keyword) {
         include("amazon_api_class.php");

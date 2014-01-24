@@ -2,12 +2,30 @@
 
 class Welcome extends CI_Controller {
 
-    public function index()
+    function __construct()
     {
-        $this->load->view('templates/header', array('title' => 'Home'));
-        $this->load->view('index');
-        $this->load->view('templates/footer');
+        parent::__construct();
+
+        $this->load->model('Facebook_model');
     }
+    
+    function index()
+    {
+        $fb_data = $this->session->userdata('fb_data');
+
+        $data = array(
+                    'fb_data' => $fb_data,
+                    );
+        
+        $this->load->view('welcome', $data);
+    }
+
+    // public function index()
+    // {
+    //     $this->load->view('templates/header', array('title' => 'Home'));
+    //     $this->load->view('index');
+    //     $this->load->view('templates/footer');
+    // }
 
     public function about()
     {
@@ -26,13 +44,11 @@ class Welcome extends CI_Controller {
 
     public function amazon () {
         $this->load->library('myamazon');
-        $result = $this->myamazon->lookup('Books', 'PHP');  // Object instances will always be lower case 
-        // $result = $this->lookup('Books', 'PHP');
+        $result = $this->myamazon->lookup('Books', 'PHP');
         $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result));
         $this->load->view('amazon');
         $this->load->view('templates/footer');
     }
-
 
 	public function search(){
         $this->load->view('templates/header', array('title' => 'Search'));
