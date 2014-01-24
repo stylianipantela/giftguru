@@ -66,7 +66,7 @@ class Welcome extends CI_Controller {
 
         } else {
             $data['login_url'] = $this->facebook->getLoginUrl(array(
-                'redirect_uri' => 'http://localhost/welcome/search',
+                'redirect_uri' => 'http://giftguru.herokuapp.com/welcome/search',
                 'scope' => array("email") // permissions here
             ));
         }
@@ -76,7 +76,7 @@ class Welcome extends CI_Controller {
 
     public function logout(){
 
-        $this->load->library('facebook');
+        $this->load->library('facebook/facebook');
 
         // Logs off session from website
         $this->facebook->destroySession();
