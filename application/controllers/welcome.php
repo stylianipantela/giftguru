@@ -62,7 +62,8 @@ class Welcome extends CI_Controller {
         $this->load->library('facebook', $fb_config);
 
         $user = $this->facebook->getUser();
-
+        $data['user'] = $user;
+        
         if ($user) {
             try {
                 $data['user_profile'] = $this->facebook
