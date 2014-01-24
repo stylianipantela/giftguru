@@ -1,22 +1,7 @@
      <br><br><br>
      <h1>Search with Munerum!</h1>
 
-     <?php echo "user is".$user ?>
-
-    <pre>
-        <?php echo print_r($user_profile, TRUE) ?>
-    </pre>
-
-    <?php if (@$user_profile): ?>
-        <pre>
-            <?php echo print_r($user_profile, TRUE) ?>
-        </pre>
-        <a href="<?= $logout_url ?>">Logout</a>
-    <?php else: ?>
-        <h2>Welcome, please login below</h2>
-        <a href="<?= $login_url ?>"><img src="/html/images/facebook_login_button.png" alt="Facebook Login"></a>
-    <?php endif; ?>
-
+     
      <div class="personalityButtons" align="center">
              <label class="tag" id="academic">Practical Academic</label>
              <label class="tag" id="college">College Useful</label>
