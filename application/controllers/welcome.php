@@ -13,9 +13,7 @@ class Welcome extends CI_Controller {
     {
         $fb_data = $this->session->userdata('fb_data');
 
-        $data = array(
-                    'fb_data' => $fb_data,
-                    );
+        $data = array('fb_data' => $fb_data,);
         
         $this->load->view('index', $data);
     }

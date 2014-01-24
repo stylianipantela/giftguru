@@ -12,6 +12,7 @@
   		print_r($_REQUEST);
   		echo "session:".print_r($_SESSION);
   		echo "session_id".print_r($session_id);
+  		echo "codeigniter session".print_r($this->load->library('session'));
   		echo "</pre>";
   ?>
   <?php if(!$fb_data['me']): ?>
