@@ -2,12 +2,34 @@
 
 class Welcome extends CI_Controller {
 
-	public function index()
-	{
-		$this->load->view('templates/header', array('title' => 'Home'));
-		$this->load->view('index');
-		$this->load->view('templates/footer');
-	}
+	function __construct()
+    {
+        parent::__construct();
+ 
+        $this->load->model('Facebook_model');
+    }
+
+    function index()
+    {
+        $fb_data = $this->session->userdata('fb_data'); // This array contains all the user FB information
+ 
+        if((!$fb_data['uid']) or (!$fb_data['me']))
+        {
+            // If this is a protected section that needs user authentication
+            // you can redirect the user somewhere else
+            // or take any other action you need
+            redirect('login');
+        }
+        else
+        {
+            $data = array(
+                    'fb_data' => $fb_data,
+                    );
+ 			$this->load->view('templates/header', array('title' => 'Home'));
+            $this->load->view('home', $data);
+            $this->load->view('templates/footer');
+        }
+    }
 
 	public function about()
 	{
@@ -21,11 +43,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('templates/header', array('title' => 'Contact'));
 		$this->load->view('contact');
 		$this->load->view('templates/footer');
-	}
-
-	// facebook integration
-	public function __construct(){
-		parent::__construct();
 	}
 
     private function lookup($category, $keyword) {
