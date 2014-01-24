@@ -60,6 +60,7 @@ class Welcome extends CI_Controller {
 		$data['user_profile'] = $this->facebook->api('/me');
 		log_message('debug','Message you want to log');
         $data['user'] = $user;
+        
         if ($user) {
             try {
                 $data['user_profile'] = $this->facebook->api('/me');
