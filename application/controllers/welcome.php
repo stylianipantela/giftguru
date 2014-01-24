@@ -9,13 +9,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function search()
-	{
-		$this->load->view('templates/header', array('title' => 'Search'));
-		$this->load->view('search');
-		$this->load->view('templates/footer');
-	}
-
 	public function about()
 	{
 		$this->load->view('templates/header', array('title' => 'About'));
@@ -29,6 +22,58 @@ class Welcome extends CI_Controller {
 		$this->load->view('contact');
 		$this->load->view('templates/footer');
 	}
+
+	// facebook integration
+	public function __construct(){
+		parent::__construct();
+	}
+
+	public function search(){
+
+		$this->load->library('facebook'); 
+
+		$user = $this->facebook->getUser();
+        
+        if ($user) {
+            try {
+                $data['user_profile'] = $this->facebook->api('/me');
+            } catch (FacebookApiException $e) {
+                $user = null;
+            }
+        }else {
+            $this->facebook->destroySession();
+        }
+
+        if ($user) {
+
+            $data['logout_url'] = site_url('welcome/logout'); // Logs off application
+            // OR 
+            // Logs off FB!
+            // $data['logout_url'] = $this->facebook->getLogoutUrl();
+
+        } else {
+            $data['login_url'] = $this->facebook->getLoginUrl(array(
+                'redirect_url' => 'http://giftguru.herokuapp.com/welcome/search',
+                'scope' => array("email") // permissions here
+            ));
+        }
+        $this->load->view('templates/header', array('title' => 'Search'));
+		$this->load->view('search',$data);
+		$this->load->view('templates/footer');
+
+	}
+
+    public function logout(){
+
+        $this->load->library('facebook');
+
+        // Logs off session from website
+        $this->facebook->destroySession();
+        $this->facebook->setSession(null);
+        // Make sure you destory website session as well.
+
+        return('welcome/search');
+    }
 
 }
 
