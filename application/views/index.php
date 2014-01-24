@@ -8,6 +8,8 @@
 <div>
   <?php echo "<pre>";
   		print_r($fb_data);
+  		print_r($_GET);
+  		print_r($_REQUEST);
   		echo "</pre>";
   ?>
   <?php if(!$fb_data['me']): ?>
