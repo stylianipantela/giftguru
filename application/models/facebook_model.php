@@ -1,6 +1,6 @@
 <?php
 
-$this->load->library('facebook/Facebook');
+//$this->load->library('facebook/Facebook');
 
 class facebook_model extends CI_Model {
  
