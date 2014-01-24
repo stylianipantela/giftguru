@@ -3,8 +3,8 @@
     {
         parent::__construct();
         $config = array(
-                        'appId'  =--> 'XXXXXXXXXXXXXXXXXXX',
-                        'secret' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+                        'appId'  =--> '602143143167099',
+                        'secret' => '6c0f97cb15e3c5c390a0f074cfbbd9ae',
                         'fileUpload' => true, // Indicates if the CURL based @ syntax for file uploads is enabled.
                         );
  
