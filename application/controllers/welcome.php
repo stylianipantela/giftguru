@@ -29,11 +29,8 @@ class Welcome extends CI_Controller {
 	}
 
     private function lookup($category, $keyword) {
-
-        require_once('../libraries/amazon_ecs.php'); 
-
+        $this->load->library('amazon_ecs'); 
         $client = new AmazonECS('AKIAJKTEYNKJYROFSX3Q', 'IlFACjHl3HwTjRnStKy3UQdBGoITnJY/AGATyfBX', 'com', 'munerum-20');
-        // $response  = $client->category($category)->search($keyword);
         $response = $client->responseGroup('Images,ItemAttributes,OfferSummary')->category($category)->search($keyword);
         $mystr = "";
         foreach($response->Items->Item as $current){
@@ -47,7 +44,6 @@ class Welcome extends CI_Controller {
 
 
     public function amazon () {
-        $this->load->library('amazon_ecs');
         $result = lookup('Books', 'PHP');
         $this->load->view('templates/header', array('title' => 'Amazon', 'result' => $result));
         $this->load->view('amazon');
