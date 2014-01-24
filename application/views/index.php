@@ -6,6 +6,12 @@
 </head>
 <body>
 <div>
+  <?php echo "<pre>";
+  		print_r($fb_data);
+  		print_r($_GET);
+  		print_r($_REQUEST);
+  		echo "</pre>";
+  ?>
   <?php if(!$fb_data['me']): ?>
   Please login with your FB account: <a href="<?php echo $fb_data['loginUrl']; ?>">login</a>
   <?php else: ?>

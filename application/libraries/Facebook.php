@@ -17,7 +17,6 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
 require_once "base_facebook.php";
 
 /**

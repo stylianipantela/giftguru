@@ -36,7 +36,7 @@
                         'loginUrl' => $this->facebook->getLoginUrl(
                             array(
                                 'scope' => 'email,user_birthday,publish_stream', // app permissions
-                                'redirect_uri' => 'http://giftguru.herokuapp.com/welcome/' // URL where you want to redirect your users after a successful login
+                                'redirect_uri' => 'http://giftguru.herokuapp.com/welcome/amazon' // URL where you want to redirect your users after a successful login
                             )
                         ),
                         'logoutUrl' => $this->facebook->getLogoutUrl(),

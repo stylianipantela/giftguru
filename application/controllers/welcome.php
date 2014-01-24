@@ -20,15 +20,6 @@ class Welcome extends CI_Controller {
         $this->load->view('index', $data);
     }
 
-    // TODO: move amazon functionanility to home later - keep for testing
-    public function amazon () {
-        $this->load->library('myamazon');
-        $result = $this->myamazon->lookup('Books', 'PHP');
-        $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result));
-        $this->load->view('amazon');
-        $this->load->view('templates/footer');
-    }
-
 	public function myprofile(){
         $this->load->view('templates/header', array('title' => 'My profile'));
 		$this->load->view('profile', array('name' => 'me'));
@@ -41,7 +32,16 @@ class Welcome extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    public function about()
+    public function amazon () {
+        $this->load->library('myamazon');
+        $result = $this->myamazon->lookup('Books', 'PHP');
+        $fb_data = $this->session->userdata('fb_data');
+        $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result, 'fb_data' => $fb_data));
+        $this->load->view('amazon');
+        $this->load->view('templates/footer');
+    }
+
+        public function about()
     {
         // $this->load->model('Wishlist');
         // $results = $this->Wishlist->createUser();
@@ -57,6 +57,7 @@ class Welcome extends CI_Controller {
         $this->load->view('contact');
         $this->load->view('templates/footer');
     }
+
 
 }
 
