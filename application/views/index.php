@@ -6,14 +6,16 @@
 </head>
 <body>
 <div>
-  <?php phpinfo();
-  		echo "<pre>";
+  <?php echo "<pre>";
   		print_r($fb_data);
   		print_r($_GET);
   		print_r($_REQUEST);
   		echo "session";
   		print_r($_SESSION);
   		echo "</pre>";
+  		if(session_id() == '') {
+    		session_start();
+		}
   ?>
   <?php if(!$fb_data['me']): ?>
   Please login with your FB account: <a href="<?php echo $fb_data['loginUrl']; ?>">login</a>
