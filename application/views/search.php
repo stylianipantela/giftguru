@@ -1,12 +1,7 @@
      <br><br><br>
      <h1>Search with Munerum!</h1>
 
-     <?php echo "user is".$user ?>
-
-    
-    <a href="<?php echo $url; ?>"><img src="/html/images/facebook_login_button.png" alt="Facebook Login"></a>
-    
-
+     
      <div class="personalityButtons" align="center">
              <label class="tag" id="academic">Practical Academic</label>
              <label class="tag" id="college">College Useful</label>

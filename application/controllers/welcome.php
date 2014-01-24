@@ -2,16 +2,7 @@
 
 class Welcome extends CI_Controller {
 
-	public function Wecome(){
-        parent::__construct();
-        parse_str( $_SERVER['QUERY_STRING'], $_REQUEST );
-        $CI = & get_instance();
-		$CI->config->load("facebook",TRUE);
-		$config = $CI->config->item('facebook');
-		$this->load->library('Facebook', $config);
-    }
-
-    public function index()
+	public function index()
 	{
 		$this->load->view('templates/header', array('title' => 'Home'));
 		$this->load->view('index');
@@ -62,24 +53,9 @@ class Welcome extends CI_Controller {
     }
 
 	public function search(){
-
-		// Try to get the user's id on Facebook
-        $userId = $this->facebook->getUser();
- 		$data['user'] = $userId;
-
-        // If user is not yet authenticated, the id will be zero
-        if($userId == 0){
-            // Generate a login url
-            $data['url'] = $this->facebook->getLoginUrl(array('scope'=>'email'));
-            $this->load->view('templates/header', array('title' => 'Search'));
-			$this->load->view('search', $data);
-			$this->load->view('templates/footer');
-        } else {
-            // Get user's data and print it
-            $user = $this->facebook->api('/me');
-            print_r($user);
-        }
-        
+        $this->load->view('templates/header', array('title' => 'Search'));
+		$this->load->view('search', $data);
+		$this->load->view('templates/footer');
 
 	}
 
