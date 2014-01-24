@@ -59,7 +59,7 @@ class Welcome extends CI_Controller {
 		$this->load->library('facebook'); 
 
 		$user = $this->facebook->getUser();
-        
+        $data['user'] = $user;
         if ($user) {
             try {
                 $data['user_profile'] = $this->facebook->api('/me');
@@ -84,7 +84,7 @@ class Welcome extends CI_Controller {
             ));
         }
         $this->load->view('templates/header', array('title' => 'Search'));
-		$this->load->view('search',$data);
+		$this->load->view('search', $data);
 		$this->load->view('templates/footer');
 
 	}
