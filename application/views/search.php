@@ -39,20 +39,17 @@
         <br><br><br>
         <h1>Search with Munerum!</h1>
          <div class="personalityButtons" align="center">
-                <label class="tag" id="geeky">geeky</label>
-                <label class="tag" id="bookish">bookish</label>
-                <label class="tag" id="drinks">drinks</label>
-                <label class="tag" id="gourmet food">gourmet food</label>
-                <label class="tag" id="fashionable">fashionable</label>
+                <label class="tag" id="academic">Practical Academic</label>
+                <label class="tag" id="college">College Useful</label>
+                <label class="tag" id="humor">Tongue n Cheek Humor</label>
+                <label class="tag" id="sweet">Sweet heart</label>
+                <label class="tag" id="sexy">Lustrous</label>
         </div>
-        <br><br><br>
-        <h1>Search with Munerum!</h1>
-         <div class="personalityButtons" align="center">
-                <label class="tag" id="geeky">geeky</label>
-                <label class="tag" id="bookish">bookish</label>
-                <label class="tag" id="drinks">drinks</label>
-                <label class="tag" id="gourmet food">gourmet food</label>
-                <label class="tag" id="fashionable">fashionable</label>
+        <br><br>
+        <div class="personalityButtons" align="center">
+                <label class="tag type1" id="electronics">Electronic Accessories</label>
+                <label class="tag type1" id="clothes">Clothing</label>
+                <label class="tag type1" id="food">Food</label>
         </div>
         <br>
         <div class="container-fluid">
