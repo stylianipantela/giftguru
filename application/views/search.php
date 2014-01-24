@@ -9,7 +9,7 @@
         <a href="<?= $logout_url ?>">Logout</a>
     <?php else: ?>
         <h2>Welcome, please login below</h2>
-        <a href="<?= $login_url ?>" class="fb-login-button">Login</a>
+        <a href="<?= $login_url ?>"><img src="/html/images/facebook_login_button.png" alt="Facebook Login"></a>
     <?php endif; ?>
 
      <div class="personalityButtons" align="center">
