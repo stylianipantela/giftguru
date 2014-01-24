@@ -1,7 +1,18 @@
      <br><br><br>
      <h1>Search with Munerum!</h1>
-     <p> Log in through Facebook today! <fb:login-button show-faces="false" width="200" max-rows="1"></fb:login-button> </p>
-      <div class="personalityButtons" align="center">
+     <h1>Login with Facebook</h1>
+
+    <?php if (@$user_profile): ?>
+        <pre>
+            <?php echo print_r($user_profile, TRUE) ?>
+        </pre>
+        <a href="<?= $logout_url ?>">Logout</a>
+    <?php else: ?>
+        <h2>Welcome, please login below</h2>
+        <a href="<?= $login_url ?>">Login</a>
+    <?php endif; ?>
+
+     <div class="personalityButtons" align="center">
              <label class="tag" id="academic">Practical Academic</label>
              <label class="tag" id="college">College Useful</label>
              <label class="tag" id="humor">Tongue n Cheek Humor</label>
