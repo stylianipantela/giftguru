@@ -70,7 +70,7 @@ class Welcome extends CI_Controller {
                 'scope' => array("email") // permissions here
             ));
         }
-        $this->load->view('welcome',$data);
+        $this->load->view('search',$data);
 
 	}
 
