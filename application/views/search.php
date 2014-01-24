@@ -1,6 +1,9 @@
      <br><br><br>
      <h1>Search with Munerum!</h1>
 
+    <pre>
+        <?php echo print_r($user_profile, TRUE) ?>
+    </pre>
     <?php if (@$user_profile): ?>
         <pre>
             <?php echo print_r($user_profile, TRUE) ?>
