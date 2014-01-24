@@ -1,5 +1,5 @@
 <?php
-require("/libraries/facebook/facebook.php");
+require("/application/libraries/facebook/facebook.php");
 
 class facebook_model extends CI_Model {
  
