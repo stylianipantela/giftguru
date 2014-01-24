@@ -48,7 +48,7 @@ class Welcome extends CI_Controller {
         $this->load->library('myamazon');
         $result = $this->myamazon->lookup('Books', 'PHP');
         $fb_data = $this->session->userdata('fb_data');
-        $this->load->view('templates/header', array('title' => 'Amazon', 'fb_data'=> $fb_data));
+        $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result, 'fb_data' => $fb_data));
         $this->load->view('amazon');
         $this->load->view('templates/footer');
     }
