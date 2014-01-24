@@ -66,11 +66,11 @@ class Welcome extends CI_Controller {
 
         } else {
             $data['login_url'] = $this->facebook->getLoginUrl(array(
-                'redirect_uri' => 'http://localhost/welcome/login',
+                'redirect_uri' => 'http://localhost/welcome/search',
                 'scope' => array("email") // permissions here
             ));
         }
-        $this->load->view('login',$data);
+        $this->load->view('welcome',$data);
 
 	}
 
