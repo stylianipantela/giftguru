@@ -54,42 +54,30 @@ class Welcome extends CI_Controller {
 
 	public function search(){
 
-		$this->load->library('facebook'); 
+		$fb_config = array(
+            'appId'  => '602143143167099',
+            'secret' => '6c0f97cb15e3c5c390a0f074cfbbd9ae'
+        );
 
-		$facebook = new Facebook(array(
-		  'appId'  => '602143143167099',
-		  'secret' => '6c0f97cb15e3c5c390a0f074cfbbd9ae',
-		));
+        $this->load->library('facebook', $fb_config);
 
-		// Get User ID
-		$user = $facebook->getUser();
-		// $user = $this->facebook->getUser();
-		// $data['user_profile'] = $this->facebook->api('/me');
-		// log_message('debug','Message you want to log');
-        $data['user'] = $user;
-        
+        $user = $this->facebook->getUser();
+
         if ($user) {
             try {
-                $data['user_profile'] = $this->facebook->api('/me');
+                $data['user_profile'] = $this->facebook
+                    ->api('/me');
             } catch (FacebookApiException $e) {
                 $user = null;
             }
-        }else {
-            $this->facebook->destroySession();
         }
 
         if ($user) {
-
-            $data['logout_url'] = site_url('welcome/logout'); // Logs off application
-            // OR 
-            // Logs off FB!
-            // $data['logout_url'] = $this->facebook->getLogoutUrl();
-
+            $data['logout_url'] = $this->facebook
+                ->getLogoutUrl();
         } else {
-            $data['login_url'] = $this->facebook->getLoginUrl(array(
-                'redirect_url' => 'http://giftguru.herokuapp.com/welcome/search',
-                'scope' => array("email") // permissions here
-            ));
+            $data['login_url'] = $this->facebook
+                ->getLoginUrl();
         }
         $this->load->view('templates/header', array('title' => 'Search'));
 		$this->load->view('search', $data);
