@@ -56,9 +56,16 @@ class Welcome extends CI_Controller {
 
 		$this->load->library('facebook'); 
 
-		$user = $this->facebook->getUser();
+		$facebook = new Facebook(array(
+		  'appId'  => '222887841168802',
+		  'secret' => '63473e10b8d37ad4510ec99fc42b5340',
+		));
+
+		// Get User ID
+		$user = $facebook->getUser();
+		// $user = $this->facebook->getUser();
 		// $data['user_profile'] = $this->facebook->api('/me');
-		log_message('debug','Message you want to log');
+		// log_message('debug','Message you want to log');
         $data['user'] = $user;
         
         if ($user) {
