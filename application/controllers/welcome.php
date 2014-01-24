@@ -46,10 +46,10 @@ class Welcome extends CI_Controller {
 
         if ($user) {
 
-            $data['logout_url'] = site_url('welcome/logout'); // Logs off application
+            // $data['logout_url'] = site_url('welcome/logout'); // Logs off application
             // OR 
             // Logs off FB!
-            // $data['logout_url'] = $this->facebook->getLogoutUrl();
+            $data['logout_url'] = $this->facebook->getLogoutUrl();
 
         } else {
             $data['login_url'] = $this->facebook->getLoginUrl(array(

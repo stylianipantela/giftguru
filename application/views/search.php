@@ -1,6 +1,5 @@
      <br><br><br>
      <h1>Search with Munerum!</h1>
-     <h1>Login with Facebook</h1>
 
     <?php if (@$user_profile): ?>
         <pre>
