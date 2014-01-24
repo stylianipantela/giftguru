@@ -30,7 +30,7 @@ class Welcome extends CI_Controller {
 
     private function lookup($category, $keyword) {
 
-        $this->load->library('amazon_ecs'); 
+        require_once('../libraries/amazon_ecs.php'); 
 
         $client = new AmazonECS('AKIAJKTEYNKJYROFSX3Q', 'IlFACjHl3HwTjRnStKy3UQdBGoITnJY/AGATyfBX', 'com', 'munerum-20');
         // $response  = $client->category($category)->search($keyword);
