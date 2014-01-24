@@ -37,7 +37,7 @@ class Welcome extends CI_Controller {
 
 	public function login(){
 
-		$this->load->library('facebook/facebook'); // Automatically picks appId and secret from config
+		$this->load->library('facebook'); // Automatically picks appId and secret from config
         // OR
         // You can pass different one like this
         //$this->load->library('facebook', array(
@@ -66,7 +66,7 @@ class Welcome extends CI_Controller {
 
         } else {
             $data['login_url'] = $this->facebook->getLoginUrl(array(
-                'redirect_uri' => 'http://giftguru.herokuapp.com/welcome/search',
+                'redirect_url' => 'http://giftguru.herokuapp.com/welcome/search',
                 'scope' => array("email") // permissions here
             ));
         }
@@ -76,7 +76,7 @@ class Welcome extends CI_Controller {
 
     public function logout(){
 
-        $this->load->library('facebook/facebook');
+        $this->load->library('facebook');
 
         // Logs off session from website
         $this->facebook->destroySession();
