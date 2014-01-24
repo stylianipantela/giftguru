@@ -55,6 +55,7 @@ class Welcome extends CI_Controller {
 		$this->load->library('facebook'); 
 
 		$user = $this->facebook->getUser();
+		log_message('debug','Message you want to log');
         $data['user'] = $user;
         if ($user) {
             try {
