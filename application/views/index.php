@@ -6,7 +6,8 @@
 </head>
 <body>
 <div>
-  <?php echo "<pre>";
+  <?php phpinfo();
+  		echo "<pre>";
   		print_r($fb_data);
   		print_r($_GET);
   		print_r($_REQUEST);
