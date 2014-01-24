@@ -57,8 +57,8 @@ class Welcome extends CI_Controller {
 		$this->load->library('facebook'); 
 
 		$facebook = new Facebook(array(
-		  'appId'  => '222887841168802',
-		  'secret' => '63473e10b8d37ad4510ec99fc42b5340',
+		  'appId'  => '602143143167099',
+		  'secret' => '6c0f97cb15e3c5c390a0f074cfbbd9ae',
 		));
 
 		// Get User ID
