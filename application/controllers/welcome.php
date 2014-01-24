@@ -2,35 +2,11 @@
 
 class Welcome extends CI_Controller {
 
-	function __construct()
-    {
-        parent::__construct();
- 
-        $this->load->model('Facebook_model');
-    }
-
     function index()
     {
-        $this->load->library('encrypt');
-
-        $fb_data = $this->session->userdata('fb_data'); // This array contains all the user FB information
- 
-        if((!$fb_data['uid']) or (!$fb_data['me']))
-        {
-            // If this is a protected section that needs user authentication
-            // you can redirect the user somewhere else
-            // or take any other action you need
-            redirect('login');
-        }
-        else
-        {
-            $data = array(
-                    'fb_data' => $fb_data,
-                    );
- 			$this->load->view('templates/header', array('title' => 'Home'));
-            $this->load->view('home', $data);
-            $this->load->view('templates/footer');
-        }
+    	$this->load->view('templates/header', array('title' => 'Home'));
+     	$this->load->view('index');
+        $this->load->view('templates/footer');
     }
 
 	public function about()
@@ -73,7 +49,7 @@ class Welcome extends CI_Controller {
 
 	public function search(){
         $this->load->view('templates/header', array('title' => 'Search'));
-		$this->load->view('search', $data);
+		$this->load->view('search');
 		$this->load->view('templates/footer');
 
 	}
