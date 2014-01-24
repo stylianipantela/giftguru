@@ -38,6 +38,7 @@
     <div class="container theme-showcase mainContainer">
         <br><br><br>
         <h1>Search with Munerum!</h1>
+        <p> Log in through Facebook today! <fb:login-button show-faces="false" width="200" max-rows="1"></fb:login-button> </p>
          <div class="personalityButtons" align="center">
                 <label class="tag" id="academic">Practical Academic</label>
                 <label class="tag" id="college">College Useful</label>
