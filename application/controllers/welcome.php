@@ -29,9 +29,10 @@ class Welcome extends CI_Controller {
 	}
 
     private function lookup($category, $keyword) {
-        $this->load->library('amazonECS'); 
+        // $this->load->library('amazonECS');
+        include("amazonECS.php");
         $mystr = "";
-        // $client = new AmazonECS('AKIAJKTEYNKJYROFSX3Q', 'IlFACjHl3HwTjRnStKy3UQdBGoITnJY/AGATyfBX', 'com', 'munerum-20');
+        $client = new AmazonECS('AKIAJKTEYNKJYROFSX3Q', 'IlFACjHl3HwTjRnStKy3UQdBGoITnJY/AGATyfBX', 'com', 'munerum-20');
         // $response = $client->responseGroup('Images,ItemAttributes,OfferSummary')->category($category)->search($keyword);
 
         // foreach($response->Items->Item as $current){
