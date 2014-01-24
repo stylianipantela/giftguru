@@ -29,7 +29,7 @@ class Welcome extends CI_Controller {
 	}
 
     private function lookup($category, $keyword) {
-        $this->load->library('amazon_ecs'); 
+        $this->load->library('amazonECS'); 
         $mystr = "";
         // $client = new AmazonECS('AKIAJKTEYNKJYROFSX3Q', 'IlFACjHl3HwTjRnStKy3UQdBGoITnJY/AGATyfBX', 'com', 'munerum-20');
         // $response = $client->responseGroup('Images,ItemAttributes,OfferSummary')->category($category)->search($keyword);
