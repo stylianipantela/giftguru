@@ -1,7 +1,7 @@
 <?php
 require("../libraries/facebook/facebook.php");
 
-class FacebookModel extends CI_Model {
+class facebook_model extends CI_Model {
  
     public function __construct()
     {
