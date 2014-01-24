@@ -11,6 +11,7 @@ class Welcome extends CI_Controller {
 
 	public function search()
 	{
+		$this->load->model('FacebookModel');
 		$this->load->view('templates/header', array('title' => 'Search'));
 		$this->load->view('search');
 		$this->load->view('templates/footer');
