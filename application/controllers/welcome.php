@@ -2,46 +2,64 @@
 
 class Welcome extends CI_Controller {
 
-	public function index()
-	{
-		$this->load->view('templates/header', array('title' => 'Home'));
-		$this->load->view('index');
-		$this->load->view('templates/footer');
-	}
+    public function index()
+    {
+        $this->load->view('templates/header', array('title' => 'Home'));
+        $this->load->view('index');
+        $this->load->view('templates/footer');
+    }
 
-	public function about()
-	{
-		$this->load->view('templates/header', array('title' => 'About'));
-		$this->load->view('about');
-		$this->load->view('templates/footer');
-	}
+    public function about()
+    {
+        $this->load->view('templates/header', array('title' => 'About'));
+        $this->load->view('about');
+        $this->load->view('templates/footer');
+    }
 
-	public function contact()
-	{
-		$this->load->view('templates/header', array('title' => 'Contact'));
-		$this->load->view('contact');
-		$this->load->view('templates/footer');
-	}
+    public function contact()
+    {
+        $this->load->view('templates/header', array('title' => 'Contact'));
+        $this->load->view('contact');
+        $this->load->view('templates/footer');
+    }
 
-	// facebook integration
-	public function __construct(){
-		parent::__construct();
-	}
+    // facebook integration
+    public function __construct(){
+        parent::__construct();
+    }
+
+    // implements amazon model ---> should be moved to models later
+    // get 100 items later rather than just 10
 
     private function lookup($category, $keyword) {
-        // $this->load->library('amazonECS');
-        include("amazonECS.php");
+        include("amazon_api_class.php");
+        $amazon = new AmazonProductAPI();
+        $parameters = array("Operation"     => "ItemSearch",
+                            "SearchIndex"   => $category,
+                            "Keywords"      => $keyword,
+                            "ResponseGroup" => "Images,ItemAttributes,OfferSummary");
+
+        $result = $amazon->queryAmazon($parameters);
+        echo "<pre>";        
+        $json = json_encode($result);
+        $array = json_decode($json, true);
         $mystr = "";
-        $client = new AmazonECS('AKIAJKTEYNKJYROFSX3Q', 'IlFACjHl3HwTjRnStKy3UQdBGoITnJY/AGATyfBX', 'com', 'munerum-20');
-        $response = $client->responseGroup('Images,ItemAttributes,OfferSummary')->category($category)->search($keyword);
+
+        foreach($array['Items']['Item'] as $item){
+            if (isset($item['OfferSummary']['LowestNewPrice']['FormattedPrice'])) {
+                // isset($item['SmallImage->URL) &&
+                // isset($item->DetailPageURL) && $item->ItemAttributes->Title) {
+                // $mystr .= "<img src=\"" . $item->SmallImage->URL . "\"></br>";
+                // $mystr .= "<a href=\"". $item->DetailPageURL."\">" . $item->ItemAttributes->Title . "</a><br>";
+                $mystr .= $item['OfferSummary']['LowestNewPrice']['FormattedPrice'] . "<br>";
+            }
+        }    
+        // print_r(count($array['Items']['Item']));
+        // print_r($array);
+        print_r($mystr);
+        echo "</pre>";
+        return $result;
         
-        // foreach($response->Items->Item as $current){
-        //     $mystr .= "<b>".$current->SmallImage->URL."</b><br>";
-        //     $mystr .= "<b>".$current->DetailPageURL."</b><br>";
-        //     $mystr .= "<b>".$current->OfferSummary->LowestNewPrice->FormattedPrice."</b><br>";
-        //     $mystr .= "<b>".$current->ItemAttributes->Title."</b><br>";
-        // }    
-        return $response;
     }
 
 
@@ -52,13 +70,13 @@ class Welcome extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-	public function search(){
+    public function search(){
 
-		$this->load->library('facebook'); 
+        $this->load->library('facebook'); 
 
-		$user = $this->facebook->getUser();
-		// $data['user_profile'] = $this->facebook->api('/me');
-		log_message('debug','Message you want to log');
+        $user = $this->facebook->getUser();
+        // $data['user_profile'] = $this->facebook->api('/me');
+        log_message('debug','Message you want to log');
         $data['user'] = $user;
         
         if ($user) {
@@ -85,10 +103,10 @@ class Welcome extends CI_Controller {
             ));
         }
         $this->load->view('templates/header', array('title' => 'Search'));
-		$this->load->view('search', $data);
-		$this->load->view('templates/footer');
+        $this->load->view('search', $data);
+        $this->load->view('templates/footer');
 
-	}
+    }
 
     public function logout(){
 

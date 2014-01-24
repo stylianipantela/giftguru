@@ -1,2 +1,2 @@
 <br><br><br><br><br><br><br><br><br>
-<?php var_dump($result); ?>
+<?php var_dump ($result); ?>
