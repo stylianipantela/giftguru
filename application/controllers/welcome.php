@@ -18,19 +18,34 @@ class Welcome extends CI_Controller {
                     );
         
         $this->load->view('index', $data);
-        // $this->load->view('templates/header', array('title' => 'Home'));
-
     }
 
-    // public function index()
-    // {
-    //     $this->load->view('templates/header', array('title' => 'Home'));
-    //     $this->load->view('index');
-    //     $this->load->view('templates/footer');
-    // }
+	public function myprofile(){
+        $this->load->view('templates/header', array('title' => 'My profile'));
+		$this->load->view('profile', array('name' => 'me'));
+		$this->load->view('templates/footer');
+    }
 
-    public function about()
+    public function profile(){
+        $this->load->view('templates/header', array('title' => 'Profile'));
+        $this->load->view('profile', array('name' => 'me'));
+        $this->load->view('templates/footer');
+    }
+
+    public function amazon () {
+        $this->load->library('myamazon');
+        $result = $this->myamazon->lookup('Books', 'PHP');
+        $fb_data = $this->session->userdata('fb_data');
+        $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result, 'fb_data' => $fb_data));
+        $this->load->view('amazon');
+        $this->load->view('templates/footer');
+    }
+
+        public function about()
     {
+        // $this->load->model('Wishlist');
+        // $results = $this->Wishlist->createUser();
+
         $this->load->view('templates/header', array('title' => 'About'));
         $this->load->view('about');
         $this->load->view('templates/footer');
@@ -43,33 +58,6 @@ class Welcome extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-
-    public function amazon () {
-        $this->load->library('myamazon');
-        $result = $this->myamazon->lookup('Books', 'PHP');
-        $fb_data = $this->session->userdata('fb_data');
-        $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result, 'fb_data' => $fb_data));
-        $this->load->view('amazon');
-        $this->load->view('templates/footer');
-    }
-
-	public function search(){
-        $this->load->view('templates/header', array('title' => 'Search'));
-		$this->load->view('search');
-		$this->load->view('templates/footer');
-    }
-
-    // public function logout(){
-
-    //     $this->load->library('facebook');
-
-    //     // Logs off session from website
-    //     $this->facebook->destroySession();
-    //     $this->facebook->setSession(null);
-    //     // Make sure you destory website session as well.
-
-    //     return('welcome/search');
-    // }
 
 }
 
