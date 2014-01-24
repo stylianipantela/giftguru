@@ -2,7 +2,7 @@
 
 //$this->load->library('facebook/Facebook');
 
-class facebook_model extends CI_Model {
+class Facebook_model extends CI_Model {
  
     public function __construct()
     {
