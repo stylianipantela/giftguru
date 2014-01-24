@@ -30,13 +30,7 @@ class Welcome extends CI_Controller {
 
 	public function search(){
 
-		$this->load->library('facebook'); // Automatically picks appId and secret from config
-        // OR
-        // You can pass different one like this
-        //$this->load->library('facebook', array(
-        //    'appId' => 'APP_ID',
-        //    'secret' => 'SECRET',
-        //    ));
+		$this->load->library('facebook'); 
 
 		$user = $this->facebook->getUser();
         
