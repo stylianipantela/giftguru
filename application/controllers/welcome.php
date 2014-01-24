@@ -18,6 +18,8 @@ class Welcome extends CI_Controller {
                     );
         
         $this->load->view('index', $data);
+        // $this->load->view('templates/header', array('title' => 'Home'));
+
     }
 
     // public function index()
