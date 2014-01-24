@@ -17,7 +17,7 @@ class Welcome extends CI_Controller {
                     'fb_data' => $fb_data,
                     );
         
-        $this->load->view('welcome', $data);
+        $this->load->view('index', $data);
     }
 
     // public function index()
