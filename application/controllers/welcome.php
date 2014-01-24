@@ -9,13 +9,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function search()
-	{
-		$this->load->view('templates/header', array('title' => 'Search'));
-		$this->load->view('search');
-		$this->load->view('templates/footer');
-	}
-
 	public function about()
 	{
 		$this->load->view('templates/header', array('title' => 'About'));
@@ -35,7 +28,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 	}
 
-	public function login(){
+	public function search(){
 
 		$this->load->library('facebook'); // Automatically picks appId and secret from config
         // OR
@@ -70,7 +63,9 @@ class Welcome extends CI_Controller {
                 'scope' => array("email") // permissions here
             ));
         }
-        $this->load->view('search',$data);
+        $this->load->view('templates/header', array('title' => 'Search'));
+		$this->load->view('search',$data);
+		$this->load->view('templates/footer');
 
 	}
 
