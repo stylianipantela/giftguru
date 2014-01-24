@@ -4,7 +4,7 @@
 
 class Facebook_model extends CI_Model {
  
-    public function __construct()
+    /*public function __construct()
     {
         parent::__construct();
  
@@ -46,5 +46,5 @@ class Facebook_model extends CI_Model {
 
         // This call will always work since we are fetching public data.
         $naitik = $facebook->api('/naitik');
-    }
+    }*/
 }
