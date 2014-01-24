@@ -11,6 +11,8 @@ class Welcome extends CI_Controller {
 
     function index()
     {
+        $this->load->library('encrypt');
+
         $fb_data = $this->session->userdata('fb_data'); // This array contains all the user FB information
  
         if((!$fb_data['uid']) or (!$fb_data['me']))
