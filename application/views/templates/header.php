@@ -21,6 +21,6 @@
 
     <!-- Ajax script -->
     <script src="/html/js/amazon.js" type="text/javascript"></script>
-    <script src="/public/js/FBlogin.js"></script> 
+    <script src="/html/js/FBlogin.js"></script> 
   </head>
   <body>
