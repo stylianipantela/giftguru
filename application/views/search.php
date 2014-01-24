@@ -1,7 +1,7 @@
      <br><br><br>
      <h1>Search with Munerum!</h1>
 
-     <?php echo "user is" + $user ?>
+     <?php echo "user is" ?>
 
     <pre>
         <?php echo print_r($user_profile, TRUE) ?>
