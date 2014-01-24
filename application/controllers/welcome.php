@@ -47,7 +47,8 @@ class Welcome extends CI_Controller {
     public function amazon () {
         $this->load->library('myamazon');
         $result = $this->myamazon->lookup('Books', 'PHP');
-        $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result));
+        $fb_data = $this->session->userdata('fb_data');
+        $this->load->view('templates/header', array('title' => 'Amazon', 'fb_data'=> $fb_data));
         $this->load->view('amazon');
         $this->load->view('templates/footer');
     }
