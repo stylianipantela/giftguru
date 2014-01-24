@@ -4,7 +4,7 @@
 	<title><?php echo htmlspecialchars($title) ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="gift, recommend, guru" />
-	<meta name="description" content="Gift giving website" />
+	  <meta name="description" content="Gift giving website" />
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/html/css/bootstrap.css" />
@@ -21,6 +21,6 @@
 
     <!-- Ajax script -->
     <script src="/html/js/amazon.js" type="text/javascript"></script>
-    <script src="/html/js/FBlogin.js"></script> 
+    <script src="/html/js/FBlogin.js" type="text/javascript"></script> 
   </head>
   <body>
