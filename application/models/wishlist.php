@@ -17,8 +17,8 @@
         }
 
          public function deleteItem($item) {
-           	$query = $this->db->query('DELETE FROM items WHERE item_description = ?', $item);
-			return "ok";
+            $this->db->delete('items', array('item_description' => $item)); 
+            return "ok";
         }
 
     }

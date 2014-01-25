@@ -1,10 +1,14 @@
-
-$(document).on('click', '.delete', function(){
-    $item = $(this).attr("name");
-    $.get('/index.php/welcome/deleteItem', {query: $item}, function(){
-      console.log($item);
-    })
+jQuery(document).ready(function() {
+  $(".delete").click(function(){
+    item = $(this).attr("name");
+    alert(item);
+    $.get('/welcome/deleteItem', {query: item}, function(answer){
+      alert("Hello");
+    });
+  });
 });
+
+
 
 /*
 function showResult(category){
