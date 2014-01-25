@@ -7,7 +7,7 @@
 <body>
 <div>
   <?php echo "<pre>";
-  		print_r($fb_data);
+  		// print_r($fb_data);
   		print_r($_GET);
   		print_r($_REQUEST);
   		echo "session:".print_r($_SESSION);

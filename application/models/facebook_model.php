@@ -41,6 +41,7 @@
                         ),
                         'logoutUrl' => $this->facebook->getLogoutUrl(),
                     );
+        print_r($fb_data);
  
         $this->session->set_userdata('fb_data', $fb_data);
     }
