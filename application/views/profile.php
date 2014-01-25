@@ -1,6 +1,8 @@
 
  <link rel="stylesheet" type="text/css" href="/html/css/profile.css" />
- <br><br><br><br><br><br>
+<script src="/html/js/profile.js"></script> 
+
+<br><br><br><br><br><br>
 
 <div>
 	<div class="wishlistposition">
@@ -154,55 +156,7 @@
 	 </div>
 </div>
 -->
-<script>
-	function ShowNewGift(){	
-		    $.ajax({
-		        url: "../ajax/addgift.php",
-		        type: "POST",
-		        dataType: 'html',
-		        data: $("#myform").serialize(),
-		        before: $("#message").append("<li class = 'giftitem'> <img src='../public/img/loading.gif'> loading </li>"),
-		     	success: function(j)
-				{
-					  console.log(j);
-					  // if field is not empty or repeated insert giftitem into DOM
-					  if (j != "false"){
-					  	$("#newgift").prepend("<li class = 'giftitem'>"  + $("input[name=newgiftitem]").val() + "<a class = 'externallink delete' style = 'color: red;' href='#' name = '" + $("input[name=newgiftitem]").val()+ "'> Delete </a> </li>");
-					  };
-				},
-				complete: function(){
-					  // delete loading messsage
-					  $("#message").html("");
-					  // reset text field value
-					  $("input[name=newgiftitem]").val('');
-					  // automatically focus back to the field
-					  $("input[name=newgiftitem]").focus();
-				}
-		    }); 
-	}
 
-	$(document).on('click', '.delete', function(){
-	    $.ajax({
-	        url: "../ajax/deletegift.php",
-	        type: "POST",
-	        data: {deletegiftitem: $(this).attr("name")},
-	        dataType: 'html',
-	        complete: function(j)
-			{
-				  console.log(j);
-			}
-	   	}); 
-	   	$(this).parent().remove();
-	});
-
-	$("input[name=newgiftitem]").keypress(function(event){
-		var keycode = (event.keyCode ? event.keyCode : event.which);
-		if(keycode == '13'){
-			ShowNewGift();	
-			}
-	});
-
-</script>
 
 
 

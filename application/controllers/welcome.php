@@ -33,6 +33,11 @@ class Welcome extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function deleteItem() {
+        $deleteitem = $this->input->get();
+        $this->Wishlist->deleteItem($deleteitem);
+    }
+
     public function amazon() {
         // $this->load->library('myamazon');
         // $result = $this->myamazon->lookup('Books', 'PHP');
