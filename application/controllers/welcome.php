@@ -11,11 +11,9 @@ class Welcome extends CI_Controller {
     
     function index()
     {
-    //     $fb_data = $this->session->userdata('fb_data');
-
-    //     $data = array('fb_data' => $fb_data,);
-        
-    //     $this->load->view('index', $data);
+        $this->load->view('templates/header', array('title' => 'Amazon'));
+        $this->load->view('amazon');
+        $this->load->view('templates/footer');
     }
 
 	public function myprofile(){

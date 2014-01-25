@@ -1,5 +1,4 @@
-
- <link rel="stylesheet" type="text/css" href="/html/css/profile.css" />
+<link rel="stylesheet" type="text/css" href="/html/css/profile.css" />
 <script src="/html/js/profile.js"></script> 
 
 <br><br><br><br><br><br>
