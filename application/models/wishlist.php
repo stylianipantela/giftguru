@@ -2,17 +2,20 @@
 
     class Wishlist extends CI_Model {
 
-        // adds a user with id 6 to the database
-        // TO BE REMOVED!!!
-        // public function createUser() {
-        //     $query = $this->db->insert('users', array('user_id' => '6', 'email' => "stella.pantela@gmail.com", 'name' => "Stella Pantela"));
-        //     return "ok";
-        // }
+        private $defaultWishList;
+        private $defaultAnswers;
 
-        // public function createWishList($list_name, $user_id) {
-        //     $query = $this->db->insert('wishlists', array('user_id' => $user_id, 'list_name' => $list_name));
-        //     return "ok";
-        // }
+        public function __construct() {
+            for ($i = 0; $i < 7; $i++) {
+                $this->defaultWishList[$i] = array("item_description" => "?");
+                $this->defaultAnswers[$i] = array("answer_text" => "?");
+            }
+        }  
+
+        public function isUser($user_id) {
+            $query = $this->db->get_where('users', array('id' => $user_id));
+            return $query->num_rows();
+        }
 
 
         public function getUserName($user_id) {
@@ -22,7 +25,7 @@
                     return $row->name;
                 }
             }
-            return -1;
+            return "?";
         }
 
         public function getFriendList($user_id) {
@@ -53,25 +56,31 @@
         }
 
         public function getWishListItems($user_id) {
-            $list_id = $this->getWishListId($user_id);
-            $query = $this->db->get_where('items', array('list_id' => $list_id));
             $result = array();
-            if ($query->num_rows()) {
-                foreach ($query->result() as $row) {
-                    $result[] = array("item_description" => $row->item_description);
+            if ($this->isUser($user_id)) {
+                $list_id = $this->getWishListId($user_id);
+                $query = $this->db->get_where('items', array('list_id' => $list_id));
+                if ($query->num_rows()) {
+                    foreach ($query->result() as $row) {
+                        $result[] = array("item_description" => $row->item_description);
+                    }
                 }
+                return $result;
             }
-            return $result;
+            return $this->defaultWishList;
         }
         public function getAnswers($user_id) {
-            $query = $this->db->get_where('answers', array('user_id' => $user_id));
             $result = array();
-            if ($query->num_rows()) {
-                foreach ($query->result() as $row) {
-                    $result[] = array("answer_text" => $row->answer_text);
+            if ($this->isUser($user_id)) {
+                $query = $this->db->get_where('answers', array('user_id' => $user_id));
+                if ($query->num_rows()) {
+                    foreach ($query->result() as $row) {
+                        $result[] = array("answer_text" => $row->answer_text);
+                    }
                 }
+                return $result;
             }
-            return $result;
+            return $this->defaultAnswers;
         }
 
         public function getQuestions() {

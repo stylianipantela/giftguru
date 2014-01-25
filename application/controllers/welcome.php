@@ -3,27 +3,37 @@
 class Welcome extends CI_Controller {
 
     private $user_id = 1; 
+    private $friendList;
 
-    function index()
+    function index($friendId = -1)
     {
+        // Error checking for friendId inputs
+        // TODO: check if actualy friendship is established in db
+        if (!is_numeric($friendId) || $friendId == 1)
+            $friendId = -1;
+
         $this->load->model('Wishlist');
-        $friendList = $this->Wishlist->getFriendList($this->user_id);
-        $wishList = $this->Wishlist->getWishListItems($this->user_id);
-        $answers = $this->Wishlist->getAnswers($this->user_id);
+        if (!isset($this->friendList)) {
+            $this->friendList = $this->Wishlist->getFriendList($this->user_id);
+        }
+        $wishList = $this->Wishlist->getWishListItems($friendId);
+        $answers = $this->Wishlist->getAnswers($friendId);
         $questions = $this->Wishlist->getQuestions();
-        $questionRecs = array (); 
-        $wishListRecs = array ();
+        $questionRecs = array (); $wishListRecs = array ();
 
         $this->load->library('myamazon');
         //foreach ($questionList as $key => $value) {      
             // $questionRecs[$key] = $this->myamazon->lookup('All', $value);
         //}
         foreach ($wishList as $value) {      
-            $wishListRecs[] = $this->myamazon->lookup('All', $value['item_description']);
-            break;
+            // $wishListRecs[] = $this->myamazon->lookup('All', $value['item_description']);
+            // break;
         }
 
-        $this->load->view('templates/header', array('title' => 'Guru Profile', "friendList" => $friendList));
+        $this->load->view('templates/header', 
+            array('title' => 'Gift Guru', 
+            'friendList' => $this->friendList, 
+            'friendName' => $this->Wishlist->getUserName($friendId)));
         $this->load->view('index', 
             array("name" => "me", 
             "wishList" => $wishList,
@@ -78,19 +88,17 @@ class Welcome extends CI_Controller {
 
     public function about()
     {
-        $this->load->view('templates/header', array('title' => 'About'));
+        $this->load->model('Wishlist');
+        if (!isset($this->friendList)) {
+            $this->friendList = $this->Wishlist->getFriendList($this->user_id);
+        }
+        $this->load->view('templates/header', 
+            array('title' => 'About', 
+                'friendList' => $this->friendList, 
+                'friendName' => "?"));
         $this->load->view('about');
         $this->load->view('templates/footer');
     }
-
-    public function contact()
-    {
-        $this->load->view('templates/header', array('title' => 'Contact'));
-        $this->load->view('contact');
-        $this->load->view('templates/footer');
-    }
-
-
 }
 
 /* End of file welcome.php */

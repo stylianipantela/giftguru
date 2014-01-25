@@ -24,41 +24,41 @@
   <body>
         <!-- navigation bar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">GiftGuru</a>
-                </div>
-                <div class="navbar-collapse collapse navbar-inverse-collapse">
-                  <ul class="nav navbar-nav">
-                    <!-- <li>Find a gift for</li> -->
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Find a gift for <?php echo $friendList[0]['name']?> <b class="caret"></b></a>
-                      <!--<form method="post" action="welcome">-->
-                        <ul class="dropdown-menu">
-                          <?php 
-                            foreach ($friendList as $friend){
-                              echo "<li><a name='".$friend['id']."'>".$friend['name']."</a></li>";
-                            }
-                          ?>
-                        </ul>
-                      <!--</form> -->
-                    </li>
-                  </ul>
-                  <form class="navbar-form navbar-left">
-                    <input type="text" class="form-control col-lg-8" placeholder="Search">
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/welcome/about">About</a></li>
-                    <li><a href="/welcome/about">My Profile</a></li>
-                    <!--<li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
-                    </li> -->
-                  </ul>
-                </div><!-- /.nav-collapse -->
-              </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/welcome">GiftGuru</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-inverse-collapse">
+        <ul class="nav navbar-nav">
+          <!-- <li>Find a gift for</li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Find a gift for <?php echo $friendName?> <b class="caret"></b></a>
+            <!--<form method="post" action="welcome">-->
+              <ul class="dropdown-menu">
+                <?php 
+                  foreach ($friendList as $friend){ 
+                      echo "<li><a name='".$friend['id']."' href='/welcome/index/" . $friend['id'] . "'>".$friend['name']."</a></li>";
+                  }
+                ?>
+              </ul>
+            <!--</form> -->
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <input type="text" class="form-control col-lg-8" placeholder="Search">
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/welcome/about">About</a></li>
+          <li><a href="/welcome/about">My Profile</a></li>
+          <!--<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+          </li> -->
+        </ul>
+      </div><!-- /.nav-collapse -->
+    </div>
       </div>
     </div>
