@@ -2,13 +2,14 @@
 
 class Welcome extends CI_Controller {
 
+    private $user_id = 1; 
+
     function index()
     {
         $this->load->model('Wishlist');
-        $user_id = 1;
-        $friendList = $this->Wishlist->getFriendList($user_id);
-        $wishList = $this->Wishlist->getWishListItems($user_id);
-        $answers = $this->Wishlist->getAnswers($user_id);
+        $friendList = $this->Wishlist->getFriendList($this->user_id);
+        $wishList = $this->Wishlist->getWishListItems($this->user_id);
+        $answers = $this->Wishlist->getAnswers($this->user_id);
         $questions = $this->Wishlist->getQuestions();
         $questionRecs = array (); 
         $wishListRecs = array ();
