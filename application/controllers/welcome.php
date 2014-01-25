@@ -14,20 +14,20 @@ class Welcome extends CI_Controller {
         $friendList = array ("Stella Pantela", "Lili Jiang", "Jay Po", "Sam Smith");
         $wishList = array ("hello kitty", "computer mouse", "shot roulette", "macbook sticker", "naughty shirt", "touch screen glvoes");
         $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
-                              "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Markus Zusak");
+                              "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Zusak");
         
         $this->load->library('myamazon');
         $questionRecs = array ();
         foreach ($questionList as $key => $value) {      
-            $questionRecs[$key] = $this->myamazon->lookup7($value);
+            $questionRecs[$key] = $this->myamazon->lookup('All', $value);
         }
         $wishListRecs = array ();
-        foreach ($wishList as $value) {      
-            $wishListRecs[] = $this->myamazon->lookup7($value);
-        }
+        // foreach ($wishList as $value) {      
+        //     $wishListRecs[] = $this->myamazon->lookup7($value);
+        // }
 
         $this->load->view('templates/header', array('title' => 'Guru Profile'));
-        $this->load->view('index', 
+        $this->load->view('amazon', 
             array("name" => "me", 
             "friendList" => $friendList, 
             "wishList" => $wishList,
