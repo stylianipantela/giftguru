@@ -8,7 +8,9 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/html/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/html/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/html/css/search.css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="/html/css/bootstrap-theme.css" /> -->
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="/html/js/bootstrap.js"></script>
 
@@ -24,7 +26,7 @@
   </head>
   <body>
         <!-- navigation bar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -38,28 +40,16 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/welcome">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Profile <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li><a href="/welcome/myprofile">My Profile</a></li>
             <li><a href="/welcome/about">About</a></li>
-            <li><a href="/welcome/amazon">Amazon</a></li>
             <li><a href="/welcome/contact">Contact Us</a></li>
-
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
-    <link rel="stylesheet" type="text/css" href="/html/css/search.css" />
+
+
 
 
     <div class="container theme-showcase mainContainer">
