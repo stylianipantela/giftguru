@@ -46,13 +46,13 @@ function deleteResult(category){
 }
 
 jQuery(document).ready(function() {
-  $(".myBtn").click(function(){
-    if ($(this).hasClass("btnClicked")) { 
-      $(this).removeClass("btnClicked btn-warning");
-      deleteResult($(this).attr("id"));
+  $(".wishlistgrid").click(function(){
+    if ($(this).hasClass("blockClicked")) { 
+      // $(this).removeClass("blockClicked");
+      // deleteResult($(this).attr("id"));
     } 
     else { 
-      $(this).addClass('btnClicked btn-warning'); 
+      $(this).addClass('blockClicked'); 
       showResult($(this).attr("id"));
     }
   });
