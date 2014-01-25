@@ -6,7 +6,7 @@ class MyAmazon {
     // TODO: get 100 items later rather than just 10
 
     public function lookup_page($category, $keyword, $page) {
-        include("amazon_api_class.php");
+        require_once("amazon_api_class.php");
         $amazon = new AmazonProductAPI();
         $parameters = array("Operation"     => "ItemSearch",
                             "SearchIndex"   => $category,
@@ -38,7 +38,7 @@ class MyAmazon {
 
     public function lookup($category, $keyword) {
         $result = array ();
-        for ($i = 1; $i <= 1; $i++) {
+        for ($i = 1; $i <= 2; $i++) {
             $result = array_merge($result, $this->lookup_page($category, $keyword, $i));
         }
         return $result;
