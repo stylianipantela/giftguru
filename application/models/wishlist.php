@@ -37,6 +37,27 @@
             }
             return $result;
         }
+        public function getAnswers($user_id) {
+            $query = $this->db->get_where('answers', array('user_id' => $user_id));
+            $result = array();
+            if ($query->num_rows()) {
+                foreach ($query->result() as $row) {
+                    $result[] = array("answer_text" => $row->answer_text);
+                }
+            }
+            return $result;
+        }
+
+        public function getQuestions() {
+            $query = $this->db->get('questions');
+            $result = array();
+            if ($query->num_rows()) {
+                foreach ($query->result() as $row) {
+                    $result[] = array("question_text" => $row->question_text);
+                }
+            }
+            return $result;
+        }
 
         // tested and working
         // assuming every user has one LIST ONLY

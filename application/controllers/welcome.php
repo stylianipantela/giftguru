@@ -13,9 +13,8 @@ class Welcome extends CI_Controller {
         //     $friendID=0;
             # code...
         $wishList = $this->Wishlist->getWishListItems($user_id);
-        $questionList = array ( "food" => "nutella", "country" => "Greece", "sport" => "tennis", "celebrity" => "roger federer",
-                              "author" => "arctic monkeys", "food" => "seaweed", "author" => "Zusak");
-        
+        $answers = $this->Wishlist->getAnswers($user_id);
+        $questions = $this->Wishlist->getQuestions();
         $questionRecs = array (); 
         $wishListRecs = array ();
 
@@ -31,7 +30,8 @@ class Welcome extends CI_Controller {
         $this->load->view('amazon', 
             array("name" => "me", 
             "wishList" => $wishList,
-            "questionList" => $questionList,
+            "answers" => $answers,
+            "questions" => $questions,
             "questionRecs" => $questionRecs,
             "wishListRecs" => $wishListRecs
             ));
