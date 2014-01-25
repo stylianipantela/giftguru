@@ -8,8 +8,8 @@
 <div>
   <?php echo "<pre>";
   		// print_r($fb_data);
-  		print_r($_GET);
-  		print_r($_REQUEST);
+  		echo "get ".print_r($_GET);
+  		echo "request ".print_r($_REQUEST);
   		echo "session:".print_r($_SESSION);
   		echo "session_id".print_r($session_id);
   		echo "codeigniter session".print_r($this->load->library('session'));
