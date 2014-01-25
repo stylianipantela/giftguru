@@ -13,6 +13,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="/html/css/bootstrap-theme.css" /> -->
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="/html/js/bootstrap.js"></script>
+    <script src="/html/js/header.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,10 +45,10 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php //var_dump($friendList[0]) ?> <b class="caret"></b></a>
                       <ul class="dropdown-menu">
                         <?php 
-                        // foreach ($friendList as $friend){
-                        //   echo "<li><a href='#''>".$friend."</a></li>";
-                        //   }
-                          ?>
+                          foreach ($friendList as $friend){
+                            echo "<li><a href='#''>".$friend['name']."</a></li>";
+                          }
+                        ?>
                       </ul>
                     </li>
                   </ul>
