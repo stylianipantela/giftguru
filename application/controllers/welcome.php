@@ -22,9 +22,10 @@ class Welcome extends CI_Controller {
         //foreach ($questionList as $key => $value) {      
             // $questionRecs[$key] = $this->myamazon->lookup('All', $value);
         //}
-        // foreach ($wishList as $value) {      
-        //     $wishListRecs[] = $this->myamazon->lookup7($value);
-        // }
+        foreach ($wishList as $value) {      
+            $wishListRecs[] = $this->myamazon->lookup('All', $value['item_description']);
+            break;
+        }
 
         $this->load->view('templates/header', array('title' => 'Guru Profile', "friendList" => $friendList));
         $this->load->view('index', 

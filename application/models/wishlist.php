@@ -15,6 +15,27 @@
         // }
 
 
+        public function getUserName($user_id) {
+            $query = $this->db->get_where('users', array('user_id' => $user_id));
+            if ($query->num_rows()) {
+                foreach ($query->result() as $row) {
+                    return $row->name;
+                }
+            }
+            return -1;
+        }
+
+        public function getFriendList($user_id) {
+            $query = $this->db->get_where('wishlists', array('user_id' => $user_id));
+            if ($query->num_rows()) {
+                foreach ($query->result() as $row) {
+                    return $row->list_id;
+                }
+            }
+            return -1;
+        }
+
+
         // Every user is going to have ONE list for SUNDAY ---> CHANGE LATER
         public function getWishListId($user_id) {
             $query = $this->db->get_where('wishlists', array('user_id' => $user_id));
