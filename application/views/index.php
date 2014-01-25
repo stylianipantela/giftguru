@@ -3,6 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Facebook PHP SDK on CI Reactor TEST</title>
+<script src="/html/js/FBlogin.js" type="text/javascript"></script> 
+  
 </head>
 <body>
 <div>
