@@ -4,18 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Facebook PHP SDK on CI Reactor TEST</title>
 <script src="/html/js/FBlogin.js" type="text/javascript"></script> 
-  
+
 </head>
 <body>
 <div>
-  <?php echo "<pre>";
+  <?php 
+
+
+  echo "<pre>";
   		// print_r($fb_data);
-  		echo "get ".print_r($_GET);
-  		echo "request ".print_r($_REQUEST);
-  		echo "session:".print_r($_SESSION);
-  		echo "session_id".print_r($session_id);
-  		echo "codeigniter session".print_r($this->load->library('session'));
-  		echo "</pre>";
+  		// echo "get ".print_r($_GET);
+
+  		print_r("get from welcome".$this->input->get());
+
+  		// echo "request ".print_r($_REQUEST);
+  		// echo "session:".print_r($_SESSION);
+  		// echo "session_id".print_r($session_id);
+  		// echo "codeigniter session".print_r($this->load->library('session'));
+  		// echo "</pre>";
   ?>
   <?php if(!$fb_data['me']): ?>
   Please login with your FB account: <a href="<?php echo $fb_data['loginUrl']; ?>">login</a>
