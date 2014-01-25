@@ -13,7 +13,7 @@
   <div class="block-row">
     <?php
       for ($i = 0; $i < 7; $i++) {
-          echo ("<div class=\"block check" . (($i % 2) + 1) . "\" id=\"grid" . ($i+1) . "\">");   
+          echo ("<div class=\"block wishlistgrid check" . (($i % 2) + 1) . "\" id=\"grid" . ($i+1) . "\" name='". $wishList[$i]['item_description']."'>");   
           echo "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
               echo "<tbody><tr><td>";
               echo ("<div class=\"block-icon quote\"></div>");
@@ -24,45 +24,31 @@
   <div class="block-row">
     <div class="block check2" id="grid8">
       <div class='block-inner'>
-      <table style="height: 100%; width: 100%;">
-                  <tbody><tr>
-                      <td >
-                          <div class="block-icon quote"></div>
-                          <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
-                      </td>
-                  </tr>
-            </tbody></table>
-          </div>
+      </div>
     </div>
     <div class="block check1" id="grid9">
       <div class="block-inner">
-        <table style="height: 100%; width: 100%;">
-                    <tbody><tr>
-                        <td >
-                            <div class="block-icon quote"></div>
-                            <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
-                        </td>
-                    </tr>
-              </tbody></table>
-          </div>
+      </div>
     </div>
     <div class="block check2" id="grid10">
-      <table style="height: 100%; width: 100%;">
-                  <tbody><tr>
-                      <td >
-                          <div class="block-icon quote"></div>
-                          <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
-                      </td>
-                  </tr>
-            </tbody></table>
+      <div class="block-inner">
+      </div>
     </div>
     <div class="block check1" id="grid11">
+      <div class="block-inner">
+      </div>
     </div>
     <div class="block check2" id="grid12">
+      <div class="block-inner">
+      </div>
     </div>
     <div class="block check1" id="grid13">
+      <div class="block-inner">
+      </div>
     </div>
     <div class="block check2" id="grid14">
+      <div class="block-inner">
+      </div>
     </div>
   </div>
 </div>
@@ -84,8 +70,8 @@
   </div>
 -->
 
-<div id="sweetrow">
-<br>  <div class="h2" style="margin-left:70px; text-align:center;"> Guru Picks </div>
+<div id="gurupick">
+<br>  <div class="h2" style="margin-left:70px; text-align:center;"> Guru Pickss </div>
   <div style="margin-left:40px"><br>
     <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow.png' width='60' style="margin-top: 54px"></div>
     <div class="col-md-10">
