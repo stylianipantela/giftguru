@@ -40,7 +40,7 @@
             </tbody></table>
 		</div>
 		<div class="block check1" id="grid9">
-			<div><h1>?</h1></div>
+			<div><p>?</p></div>
 		</div>
 		<div class="block check2" id="grid10">
 		</div>

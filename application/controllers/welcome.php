@@ -26,10 +26,9 @@ class Welcome extends CI_Controller {
         //     $wishListRecs[] = $this->myamazon->lookup7($value);
         // }
 
-        $this->load->view('templates/header', array('title' => 'Guru Profile'));
+        $this->load->view('templates/header', array('title' => 'Guru Profile', "friendList" => $friendList));
         $this->load->view('amazon', 
             array("name" => "me", 
-            "friendList" => $friendList, 
             "wishList" => $wishList,
             "questionList" => $questionList,
             "questionRecs" => $questionRecs,
