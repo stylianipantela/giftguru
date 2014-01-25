@@ -4,15 +4,9 @@ class Welcome extends CI_Controller {
 
     function index()
     {
-        $this->load->view('templates/header', array('title' => 'GiftGuru'));
-        $this->load->view('index');
-        $this->load->view('templates/footer');
-    }
-
-    function guru()
-    {
         $friendList = array ("Stella Pantela", "Lili Jiang", "Jay Po", "Sam Smith");
-        $wishList = array ("hello kitty", "computer mouse", "shot roulette", "macbook sticker", "naughty shirt", "touch screen gloves", "book case");
+        $wishList = array();
+        //getWishList();
         $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
                               "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Zusak");
         
@@ -43,7 +37,7 @@ class Welcome extends CI_Controller {
 
 
 	public function myprofile(){
-        $user_id = 1; 
+        $user_id = 9; 
         $this->load->model('Wishlist');
         $list_id = $this->Wishlist->getWishListId($user_id);
         $wishListItems = $this->Wishlist->getWishListItems($user_id);
@@ -59,10 +53,9 @@ class Welcome extends CI_Controller {
     // }
 
     public function deleteItem() {
-        $user_id = 1;
+        $user_id = 9;
         $this->load->model('Wishlist');
         $deleteItem = $this->input->get();
-        $list_id = $this->Wishlist->getWishListId($user_id);
         if ($deleteItem) {
             $this->Wishlist->deleteItem($list_id, $deleteItem['query']);
         }
@@ -70,7 +63,7 @@ class Welcome extends CI_Controller {
     }
 
     public function insertItem() {
-        $user_id = 1;
+        $user_id = 9;
         $this->load->model('Wishlist');
         $insertItem = $this->input->get();
         $list_id = $this->Wishlist->getWishListId($user_id);
