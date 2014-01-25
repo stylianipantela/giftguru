@@ -16,7 +16,7 @@
 
 
         public function getUserName($user_id) {
-            $query = $this->db->get_where('users', array('user_id' => $user_id));
+            $query = $this->db->get_where('users', array('id' => $user_id));
             if ($query->num_rows()) {
                 foreach ($query->result() as $row) {
                     return $row->name;
@@ -26,13 +26,18 @@
         }
 
         public function getFriendList($user_id) {
-            $query = $this->db->get_where('wishlists', array('user_id' => $user_id));
+            $query = $this->db->get_where('friends', array('friend1_id' => $user_id));
+            $friends = array ();
             if ($query->num_rows()) {
                 foreach ($query->result() as $row) {
-                    return $row->list_id;
+                     $friends[] = 
+                        array (
+                            "id" => $row->friend2_id, 
+                            "name" => $this->getUserName($row->friend2_id)
+                        );
                 }
             }
-            return -1;
+            return $friends;
         }
 
 
