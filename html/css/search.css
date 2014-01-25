@@ -35,20 +35,32 @@ white-space: nowrap;
     height: 128px;
 }
 
+.check1{background:rgb(220,20,60);}
+.check2{background:rgba(0,0,0,1);}
+
+/*
 #grid1{background:rgb(255, 208, 54);}
 #grid2{background:rgb(230, 170, 49);}
 #grid3{background:rgb(232, 124, 49);}
 #grid4{background:rgb(255, 171, 67)}
 #grid5{background:rgb(255, 107, 54);}
-#grid6{background:rgb(232, 121, 30)}
-#grid7{background:rgb(255, 72, 28);}
-#grid8{background:rgb(62, 0,52, 0);}
-#grid9{background:rgb(232, 222, 56);}
-#grid10{background:rgb(189, 64, 232);}
-#grid11{background:rgb(189, 64, 232);}
-#grid12{background:rgb(189, 64, 232);}
-#grid13{background:rgb(189, 64, 232);}
-#grid14{background:rgb(189, 64, 232);}
+#grid6{background:rgb(232, 121, 30);}
+#grid7{background:rgb(255,216,78);}
+#grid8{background:rgb(230, 170, 49);}
+#grid9{background:rgb(232, 124, 49);}
+#grid10{background:rgb(255, 171, 67)}
+#grid11{background:rgb(255, 107, 54);}
+#grid12{background:rgb(232, 121, 30);}
+#grid13{background:rgb(255,216,78);}
+#grid14{background:rgb(133, 179, 255);}*/
+/*
+#grid8{background:rgb(47, 232,121);}
+#grid9{background:rgb(127, 232, 47);}
+#grid10{background:rgb(64, 255, 69);}
+#grid11{background:rgb(233, 255, 47);}
+#grid12{background:rgb(252, 255, 74);}
+#grid13{background:rgb(255, 203, 57);}
+#grid14{background:rgb(107, 255, 109);}*/
 /*body {
     /*background: rgb(0, 0, 0);
 }

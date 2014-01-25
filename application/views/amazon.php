@@ -14,35 +14,35 @@
 
 <div id="blocks">
 	<div class="block-row">
-		<div class="block" id="grid1">
+		<div class="block check1" id="grid1">
 		</div>
-		<div class="block" id="grid2">
+		<div class="block check2" id="grid2">
 		</div>
-		<div class="block" id="grid3">
+		<div class="block check1" id="grid3">
 		</div>
-		<div class="block" id="grid4">
+		<div class="block check2" id="grid4">
 		</div>
-		<div class="block" id="grid5">
+		<div class="block check1" id="grid5">
 		</div>
-		<div class="block" id="grid6">
+		<div class="block check2" id="grid6">
 		</div>
-		<div class="block" id="grid7">
+		<div class="block check1" id="grid7">
 		</div>
 	</div>
 	<div class="block-row">
-		<div class="block" id="grid8">
+		<div class="block check2" id="grid8">
 		</div>
-		<div class="block" id="grid9">
+		<div class="block check1" id="grid9">
 		</div>
-		<div class="block" id="grid10">
+		<div class="block check2" id="grid10">
 		</div>
-		<div class="block" id="grid11">
+		<div class="block check1" id="grid11">
 		</div>
-		<div class="block" id="grid12">
+		<div class="block check2" id="grid12">
 		</div>
-		<div class="block" id="13">
+		<div class="block check1" id="grid13">
 		</div>
-		<div class="block" id="14">
+		<div class="block check2" id="grid14">
 		</div>
 	</div>
 </div>
