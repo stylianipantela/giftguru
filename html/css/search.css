@@ -29,6 +29,13 @@ color: white;
     white-space: normal;
 }
 
+.block-inner {
+position: absolute;
+width: 95%;
+height: 95%;
+padding: 2.5%;
+}
+
 .guruhint{
     cursor: pointer;
 }
