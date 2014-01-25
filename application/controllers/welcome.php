@@ -4,9 +4,10 @@ class Welcome extends CI_Controller {
 
     function index()
     {
-        $friendList = array ("Stella Pantela", "Lili Jiang", "Jay Po", "Sam Smith");
-        $wishList = array();
-        //getWishList();
+        $this->load->model('Wishlist');
+        $friendList = array ( 0 => array ("id" => 4, "name" => "Stella Pantela"), 1 => array ("id" => 9, "name" => "Jay Po"));
+        $user_id = 1;
+        $wishList = $this->Wishlist->getWishListItems($user_id);
         $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
                               "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Zusak");
         
@@ -37,7 +38,7 @@ class Welcome extends CI_Controller {
 
 
 	public function myprofile(){
-        $user_id = 9; 
+        $user_id = 1; 
         $this->load->model('Wishlist');
         $list_id = $this->Wishlist->getWishListId($user_id);
         $wishListItems = $this->Wishlist->getWishListItems($user_id);
@@ -53,7 +54,7 @@ class Welcome extends CI_Controller {
     // }
 
     public function deleteItem() {
-        $user_id = 9;
+        $user_id = 1;
         $this->load->model('Wishlist');
         $deleteItem = $this->input->get();
         if ($deleteItem) {
@@ -63,7 +64,7 @@ class Welcome extends CI_Controller {
     }
 
     public function insertItem() {
-        $user_id = 9;
+        $user_id = 1;
         $this->load->model('Wishlist');
         $insertItem = $this->input->get();
         $list_id = $this->Wishlist->getWishListId($user_id);
