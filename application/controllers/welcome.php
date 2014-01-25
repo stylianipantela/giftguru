@@ -32,16 +32,29 @@ class Welcome extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    public function amazon () {
-        $this->load->library('myamazon');
-        $result = $this->myamazon->lookup('Books', 'PHP');
-        $fb_data = $this->session->userdata('fb_data');
+    public function amazon() {
+        // $this->load->library('myamazon');
+        // $result = $this->myamazon->lookup('Books', 'PHP');
+        // $fb_data = $this->session->userdata('fb_data');
+        $fb_data = "";
+        $result = "";
         $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result, 'fb_data' => $fb_data));
         $this->load->view('amazon');
         $this->load->view('templates/footer');
     }
 
-        public function about()
+    public function amazon2() {
+        $post = $this->input->get();
+        $result = "";
+        if ($post) {
+            $this->load->library('myamazon');
+            $result = $this->myamazon->lookup('All', $post['query']);
+        }
+        echo json_encode($result);
+    }
+
+
+    public function about()
     {
         // $this->load->model('Wishlist');
         // $results = $this->Wishlist->createUser();
