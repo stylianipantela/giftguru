@@ -8,8 +8,8 @@ class Welcome extends CI_Controller {
         $friendList = array ( 0 => array ("id" => 4, "name" => "Stella Pantela"), 1 => array ("id" => 9, "name" => "Jay Po"));
         $user_id = 1;
         $wishList = $this->Wishlist->getWishListItems($user_id);
-        $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
-                              "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Zusak");
+        $questionList = array ( "food" => "nutella", "country" => "Greece", "sport" => "tennis", "celebrity" => "roger federer",
+                              "author" => "arctic monkeys", "food" => "seaweed", "author" => "Zusak");
         
         $questionRecs = array (); 
         $wishListRecs = array ();

@@ -1,37 +1,102 @@
-Hello World!
-
-<!-- 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Facebook PHP SDK on CI Reactor TEST</title>
-</head>
-<body>
-<div>
-  <?php 
+<?php
+  // var_dump($questionRecs);
+?>
 
 
-  //echo "<pre>";
-  		// print_r($fb_data);
-  		// echo "get ".print_r($_GET);
 
-  	//	print_r("get from welcome:".$this->input->get());
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-  		// echo "request ".print_r($_REQUEST);
-  		// echo "session:".print_r($_SESSION);
-  		// echo "session_id".print_r($session_id);
-  		// echo "codeigniter session".print_r($this->load->library('session'));
-  		// echo "</pre>";
-  ?>
-  <?php if(!$fb_data['me']): ?>
-  Please login with your FB account: <a href="<?php echo $fb_data['loginUrl']; ?>">login</a>
-  <?php else: ?>
-  <img src="https://graph.facebook.com/<?php echo $fb_data['uid']; ?>/picture" alt="" class="pic" />
-  <p>Hi <?php echo $fb_data['me']['name']; ?>,<br />
-    <a href="<?php echo site_url('welcome/topsecret'); ?>">You can access the top secret page</a> or <a href="<?php echo $fb_data['logoutUrl']; ?>">logout</a> </p>
-  <?php endif; ?>
+<br><br><br>
+
+<div id="blocks">
+  <div class="block-row">
+    <?php
+      for ($i = 0; $i < 7; $i++) {
+          echo ("<div class=\"block check" . (($i % 2) + 1) . "\" id=\"grid" . ($i+1) . "\">");   
+          echo "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
+              echo "<tbody><tr><td>";
+              echo ("<div class=\"block-icon quote\"></div>");
+              echo ("<p>" . ($wishList[$i]['item_description']) . "</p></td></tr></tbody></table></div></div>");
+      }
+    ?>
+  </div>
+  <div class="block-row">
+    <div class="block check2" id="grid8">
+      <div class='block-inner'>
+      <table style="height: 100%; width: 100%;">
+                  <tbody><tr>
+                      <td >
+                          <div class="block-icon quote"></div>
+                          <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
+                      </td>
+                  </tr>
+            </tbody></table>
+          </div>
+    </div>
+    <div class="block check1" id="grid9">
+      <div class="block-inner">
+        <table style="height: 100%; width: 100%;">
+                    <tbody><tr>
+                        <td >
+                            <div class="block-icon quote"></div>
+                            <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
+                        </td>
+                    </tr>
+              </tbody></table>
+          </div>
+    </div>
+    <div class="block check2" id="grid10">
+      <table style="height: 100%; width: 100%;">
+                  <tbody><tr>
+                      <td >
+                          <div class="block-icon quote"></div>
+                          <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
+                      </td>
+                  </tr>
+            </tbody></table>
+    </div>
+    <div class="block check1" id="grid11">
+    </div>
+    <div class="block check2" id="grid12">
+    </div>
+    <div class="block check1" id="grid13">
+    </div>
+    <div class="block check2" id="grid14">
+    </div>
+  </div>
 </div>
-</body>
-</html>
- -->
+
+<!--
+  <div>
+      <label class="myBtn btn btn-lg btn-default" id="stationery" style="background:rgb(88, 114, 255)">Stationery</label>
+      <label class="myBtn btn btn-lg btn-default" style="background:rgb(189, 64, 232)" id="college">College</label>
+      <label class="myBtn btn btn-lg btn-default" style="background:rgb(255, 70, 71)" id="humor">Humor</label>
+      <label class="myBtn btn btn-lg btn-default" style="background:rgb(255, 186, 52)" id="sweet">Sweet</label>
+      <label class="myBtn btn btn-lg btn-default" style="background:rgb(255, 233, 159)" id="sweet">Sweet</label>
+      <label class="myBtn btn btn-lg btn-default" style="background:rgb(88, 114, 255)" id="sweet">Sweet</label><br>
+    <label class="myBtn btn btn-lg btn-default" style="background:rgb(88, 114, 255)" id="lustrous">Lustrous</label>
+    <label class="myBtn btn btn-lg btn-default" style="background:rgb(88, 114, 255)" id="electronics">Electronics</label>
+    <label class="myBtn btn btn-lg btn-default" style="background:rgb(88, 114, 255)" id="fashion">Fashion</label>
+    <label class="myBtn btn btn-lg btn-default" style="background:rgb(88, 114, 255)" id="food">Food</label>
+    <label class="myBtn btn btn-lg btn-default" style="background:rgb(88, 114, 255)" id="sweet">Sweet</label>
+    <label class="myBtn btn btn-lg btn-default" style="background:rgb(88, 114, 255)" id="sweet">Sweet</label>
+  </div>
+-->
+
+<div id="sweetrow">
+<br>  <div class="h2" style="margin-left:70px; text-align:center;"> Guru Picks </div>
+  <div style="margin-left:40px"><br>
+    <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow.png' width='60' style="margin-top: 54px"></div>
+    <div class="col-md-10">
+      <div class="thumbnail col-md-2"></div>
+      <div class="thumbnail col-md-2"></div>
+      <div class="thumbnail col-md-2"></div>
+      <div class="thumbnail col-md-2"></div>
+      <div class="thumbnail col-md-2"></div>
+      <div class="thumbnail col-md-2"></div>
+    </div>
+    <div class="col-md-1 row" style="height:168px" ><img src='/html/images/rightArrow.png' width='60' style="margin-top: 54px"></div>
+  </div>
+</div>
+
