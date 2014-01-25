@@ -12,14 +12,14 @@ class Welcome extends CI_Controller {
     function guru()
     {
         $friendList = array ("Stella Pantela", "Lili Jiang", "Jay Po", "Sam Smith");
-        $wishList = array ("hello kitty", "computer mouse", "shot roulette", "macbook sticker", "naughty shirt", "touch screen glvoes");
+        $wishList = array ("hello kitty", "computer mouse", "shot roulette", "macbook sticker", "naughty shirt", "touch screen gloves", "book case");
         $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
                               "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Zusak");
         
         $this->load->library('myamazon');
         $questionRecs = array ();
         foreach ($questionList as $key => $value) {      
-            $questionRecs[$key] = $this->myamazon->lookup('All', $value);
+            // $questionRecs[$key] = $this->myamazon->lookup('All', $value);
         }
         $wishListRecs = array ();
         // foreach ($wishList as $value) {      

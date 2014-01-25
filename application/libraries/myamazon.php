@@ -18,7 +18,6 @@ class MyAmazon {
         $json = json_encode($result);
         $array = json_decode($json, true);
         $result = array ();
-
         foreach($array['Items']['Item'] as $item){
             if (isset($item['OfferSummary']['LowestNewPrice']['FormattedPrice']) && 
                 isset($item['SmallImage']['URL']) &&
