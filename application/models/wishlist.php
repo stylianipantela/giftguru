@@ -13,9 +13,12 @@
 
         public function getWishlistItem($list_id) {
            	$query = $this->db->query('SELECT item_description FROM items');
-           	// $sql = "SELECT item_description FROM items WHERE list_id = ?"; 
-		   	// $query = $this->db->query($sql, array($list_id));
 			return $query->result();
+        }
+
+         public function deleteItem($item) {
+           	$query = $this->db->query('DELETE FROM items WHERE item_description = ?', $item);
+			return "ok";
         }
 
     }
