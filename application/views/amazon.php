@@ -12,24 +12,14 @@
 
 <div id="blocks">
 	<div class="block-row">
-		<div class="block check1" id="grid1">
-		</div>
-		<div class="block check2" id="grid2">
-		</div>
-		<div class="block check1" id="grid3">
-		</div>
-		<div class="block check2" id="grid4">
-		</div>
-		<div class="block check1" id="grid5">
-		</div>
-		<div class="block check2" id="grid6">
-		</div>
-		<div class="block check1" id="grid7">
-		</div>
+		<?php
+			for ($i = 0; $i < 7; $i++) {
+			    echo "<div class=\"block check" . (($i % 2) + 1) . "\" id=\"grid" . ($i+1) . "\">" . $wishList[$i] ."</div>";
+			}
+		?>
 	</div>
 	<div class="block-row">
-		<div class="block check2" id="grid8">
-		</div>
+		<div class="block check2" id="grid8"></div>
 		<div class="block check1" id="grid9">
 		</div>
 		<div class="block check2" id="grid10">
