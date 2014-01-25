@@ -34,17 +34,16 @@ class Welcome extends CI_Controller {
     }
 
     public function deleteItem() {
-        $deleteitem = $this->input->get();
-        $this->Wishlist->deleteItem($deleteitem);
+        $deleteItem = $this->input->get();
+        $this->load->model('Wishlist');
+        if ($deleteItem) {
+            $this->Wishlist->deleteItem($deleteItem['query']);
+        }
+        echo "ok";
     }
 
     public function amazon() {
-        // $this->load->library('myamazon');
-        // $result = $this->myamazon->lookup('Books', 'PHP');
-        // $fb_data = $this->session->userdata('fb_data');
-        $fb_data = "";
-        $result = "";
-        $this->load->view('templates/header', array('title' => 'Amazon', 'result'=> $result, 'fb_data' => $fb_data));
+        $this->load->view('templates/header', array('title' => 'Amazon'));
         $this->load->view('amazon');
         $this->load->view('templates/footer');
     }
