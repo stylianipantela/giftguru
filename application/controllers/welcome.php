@@ -5,9 +5,39 @@ class Welcome extends CI_Controller {
     function index()
     {
         $this->load->view('templates/header', array('title' => 'GiftGuru'));
-        $this->load->view('amazon');
+        $this->load->view('index');
         $this->load->view('templates/footer');
     }
+
+    function guru()
+    {
+        $friendList = array ("Stella Pantela", "Lili Jiang", "Jay Po", "Sam Smith");
+        $wishList = array ("hello kitty", "computer mouse", "shot roulette", "macbook sticker", "naughty shirt", "touch screen glvoes");
+        $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
+                              "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Markus Zusak");
+        
+        $this->load->library('myamazon');
+        $questionRecs = array ();
+        foreach ($questionList as $key => $value) {      
+            $questionRecs[$key] = $this->myamazon->lookup7($value);
+        }
+        $wishListRecs = array ();
+        foreach ($wishList as $value) {      
+            $wishListRecs[] = $this->myamazon->lookup7($value);
+        }
+
+        $this->load->view('templates/header', array('title' => 'Guru Profile'));
+        $this->load->view('index', 
+            array("name" => "me", 
+            "friendList" => $friendList, 
+            "wishList" => $wishList,
+            "questionList" => $questionList,
+            "questionRecs" => $questionRecs,
+            "wishListRecs" => $wishListRecs
+            ));
+        $this->load->view('templates/footer');
+    }
+
 
         // $this->Wishlist->insertToWishList($list_id, "geeky drinking");
         // $this->Wishlist->deleteItem($list_id, "geeky drinking");
