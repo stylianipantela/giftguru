@@ -10,8 +10,6 @@
 <br><br><br>
 
 
-<?php
-
 <div id="blocks">
 	<div class="block-row">
 		<div class="block check1" id="grid1">
