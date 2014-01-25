@@ -10,7 +10,6 @@
 <br><br><br>
 
 
-<?php
 
 <div id="blocks">
 	<div class="block-row">
@@ -31,8 +30,17 @@
 	</div>
 	<div class="block-row">
 		<div class="block check2" id="grid8">
+			<table style="height: 100%; width: 100%;">
+                  <tbody><tr>
+                      <td style="text-align: center; vertical-align: middle;">
+                          <div class="block-icon quote"></div>
+                          <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
+                      </td>
+                  </tr>
+            </tbody></table>
 		</div>
 		<div class="block check1" id="grid9">
+			<div><h1>?</h1></div>
 		</div>
 		<div class="block check2" id="grid10">
 		</div>
