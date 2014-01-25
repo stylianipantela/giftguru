@@ -23,7 +23,7 @@
                     return $row->list_id;
                 }
             }
-            return 1;
+            return -1;
         }
 
         public function getWishListItems($user_id) {
@@ -39,6 +39,7 @@
         }
 
         // tested and working
+        // assuming every user has one LIST ONLY
         public function insertToWishList($list_id, $item_description) {
             $this->db->insert('items', array('item_description' => $item_description, 'list_id' => $list_id, 'item_status' => 0)); 
             return "ok";
