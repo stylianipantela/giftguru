@@ -1,9 +1,3 @@
-<?php
-  // var_dump($questionRecs);
-?>
-
-
-
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
@@ -96,18 +90,27 @@
 -->
 
 <div id="sweetrow">
-<br>  <div class="h2" style="margin-left:70px; text-align:center;"> Guru Picks </div>
+<br>  <div class="h1" style="margin-left:70px; text-align:center;"> Guru Picks for amazon stickers</div>
   <div style="margin-left:40px"><br>
     <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow.png' width='60' style="margin-top: 54px"></div>
     <div class="col-md-10">
-      <div class="thumbnail col-md-2"></div>
-      <div class="thumbnail col-md-2"></div>
-      <div class="thumbnail col-md-2"></div>
-      <div class="thumbnail col-md-2"></div>
-      <div class="thumbnail col-md-2"></div>
-      <div class="thumbnail col-md-2"></div>
+      <?php
+
+  $item = $wishListRecs[0];
+
+  for ($i = 0; $i < 6; $i++) {
+    echo "<div class='col-md-2'> <a class='thumbnail' href=\"" . $item[$i]['pageUrl'] . "\" target=\"_blank\">";
+    echo "<img src=\"" . $item[$i]['imgUrl'] ."\"></a>";
+    echo "<div class='pdtPrice'>" . $item[$i]['price'] . "</div>";
+    echo "<div class='pdtTitle'>" . $item[$i]['title'] . "</div></div>";
+  }
+
+?>
     </div>
     <div class="col-md-1 row" style="height:168px" ><img src='/html/images/rightArrow.png' width='60' style="margin-top: 54px"></div>
   </div>
 </div>
+
+
+
 
