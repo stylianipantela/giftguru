@@ -153,7 +153,7 @@
 			<?php } ?>
 	 </div>
 </div>
-
+-->
 <script>
 	function ShowNewGift(){	
 		    $.ajax({
@@ -203,7 +203,7 @@
 	});
 
 </script>
--->
+
 
 
 

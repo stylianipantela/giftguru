@@ -1,3 +1,16 @@
+body {
+    /*background: rgb(0, 0, 0);*/
+}
+
+.btnClicked {
+  color: black;
+}
+
+.myBtn {
+    border-radius: 10px;
+    width: 220px;
+}
+
 .mainContainer
 {
     width: 980px;
@@ -17,7 +30,7 @@
 }
 
 .tag{ /* for personality categories*/
-    text-align: center;
+   /* text-align: center;
     border-radius: 15px;
     cursor: pointer;
     padding: 3px;
@@ -25,7 +38,7 @@
     border-style: solid;
     border-width: 1px;
     display: initial;
-    background-color: 'rgba(0, 0, 0, 0)';
+    background-color: 'rgba(0, 0, 0, 0)';*/
 }
 
 .col-md-3 { /*gift grid display*/
@@ -34,7 +47,7 @@
 }
 
 .thumbnail{ /*indivual grid*/
-    height: 125px;
+    height: 168px;
 }
 
 .pdtTitle{   
