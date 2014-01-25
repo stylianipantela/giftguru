@@ -11,7 +11,6 @@ class Welcome extends CI_Controller {
         // TODO: check if actualy friendship is established in db
         if (!is_numeric($friendId) || $friendId == 1)
             $friendId = -1;
-
         $this->load->model('Wishlist');
         if (!isset($this->friendList)) {
             $this->friendList = $this->Wishlist->getFriendList($this->user_id);
