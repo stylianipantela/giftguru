@@ -1,15 +1,70 @@
-body {
-    /*background: rgb(0, 0, 0);*/
+#block{
+    height: 100%;
+    width: 100%;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.block-row {
+width: 100%;
+height: 33.33%;
+white-space: nowrap;
+}
+
+.block {
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+    width: 14.28%;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+    margin: -1px;
+    padding: 1px;
+    overflow: hidden;
+    background: blue;
+}
+
+.guruhint{
+    cursor: pointer;
+}
+
+.thumbnail{
+    height: 128px;
+}
+
+#grid1{background:rgb(255, 208, 54);}
+#grid2{background:rgb(230, 170, 49);}
+#grid3{background:rgb(232, 124, 49);}
+#grid4{background:rgb(255, 171, 67)}
+#grid5{background:rgb(255, 107, 54);}
+#grid6{background:rgb(232, 121, 30)}
+#grid7{background:rgb(255, 72, 28);}
+#grid8{background:rgb(62, 0,52, 0);}
+#grid9{background:rgb(232, 222, 56);}
+#grid10{background:rgb(189, 64, 232);}
+#grid11{background:rgb(189, 64, 232);}
+#grid12{background:rgb(189, 64, 232);}
+#grid13{background:rgb(189, 64, 232);}
+#grid14{background:rgb(189, 64, 232);}
+/*body {
+    /*background: rgb(0, 0, 0);
 }
 
 .myBtn {
-    border-radius: 10px;
-    width: 220px;
+    border-radius: 0px;
+    width: 210px;
+    height: 210px;
+    padding: 0px;
+    border:0px;
+    margin: 0px;
 }
 
 .mainContainer
 {
-    width: 980px;
+    width: 100%;
 }
 .recContainer
 {
@@ -25,25 +80,13 @@ body {
     margin-top:25px;
 }
 
-.tag{ /* for personality categories*/
-   /* text-align: center;
-    border-radius: 15px;
-    cursor: pointer;
-    padding: 3px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
-    display: initial;
-    background-color: 'rgba(0, 0, 0, 0)';*/
+.col-md-2 { /*gift grid display
+    width: 15.66%;
+    margin-left: 7px;
 }
 
-.col-md-3 { /*gift grid display*/
-    width: 22%;
-    margin-right: 5px;
-}
-
-.thumbnail{ /*indivual grid*/
-    height: 168px;
+.thumbnail{ /*indivual grid
+    height: 128px;
 }
 
 .pdtTitle{   
@@ -51,7 +94,7 @@ body {
     overflow: hidden;
     max-height: 20px;
     /*position:absolute;
-    top:80px;*/
+    top:80px;
 }
 
 .pdtPrice
@@ -59,7 +102,5 @@ body {
     text-align: center;
     overflow: hidden;
     max-height: 20px;
-    /*margin-top:20px;*/
-}
-
-
+    margin-top:20px;
+}*/

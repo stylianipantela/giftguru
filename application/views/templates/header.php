@@ -27,7 +27,7 @@
   <body>
         <!-- navigation bar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
+      <div>
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -47,9 +47,3 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
-
-
-
-
-    <div class="container theme-showcase mainContainer">
