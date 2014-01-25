@@ -1,8 +1,8 @@
 .wishlistposition 
 {
-    float: left;
-    margin-bottom: 40px;
-    width: 40%;
+    /*float: left;*/
+    /*margin-bottom: 40px;*/
+    /*width: 40%;*/
 }
 #wishlist-header {
     background: transparent url('/html/images/hover-menu-sample-glass-panel-top.png') no-repeat center;
@@ -21,4 +21,17 @@ text-align: center;
 #wishlist-footer {
 background: transparent url('/html/images/hover-menu-sample-glass-panel-bottom.png') no-repeat center;
 height: 28px;
+}
+
+#insert_input {
+	padding: 8px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	/*border: 1px solid transparent;*/
+	border-radius: 8px;
 }

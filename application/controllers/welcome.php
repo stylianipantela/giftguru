@@ -2,49 +2,85 @@
 
 class Welcome extends CI_Controller {
 
-    // function __construct()
-    // {
-    //     parent::__construct();
-
-    //     $this->load->model('Facebook_model');
-    // }
-    
     function index()
     {
-        $this->load->view('templates/header', array('title' => 'Amazon'));
-        $this->load->view('amazon');
+        $this->load->view('templates/header', array('title' => 'GiftGuru'));
+        $this->load->view('index');
         $this->load->view('templates/footer');
     }
+
+    function guru()
+    {
+        $friendList = array ("Stella Pantela", "Lili Jiang", "Jay Po", "Sam Smith");
+        $wishList = array ("hello kitty", "computer mouse", "shot roulette", "macbook sticker", "naughty shirt", "touch screen glvoes");
+        $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
+                              "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Zusak");
+        
+        $this->load->library('myamazon');
+        $questionRecs = array ();
+        foreach ($questionList as $key => $value) {      
+            $questionRecs[$key] = $this->myamazon->lookup('All', $value);
+        }
+        $wishListRecs = array ();
+        // foreach ($wishList as $value) {      
+        //     $wishListRecs[] = $this->myamazon->lookup7($value);
+        // }
+
+        $this->load->view('templates/header', array('title' => 'Guru Profile'));
+        $this->load->view('amazon', 
+            array("name" => "me", 
+            "friendList" => $friendList, 
+            "wishList" => $wishList,
+            "questionList" => $questionList,
+            "questionRecs" => $questionRecs,
+            "wishListRecs" => $wishListRecs
+            ));
+        $this->load->view('templates/footer');
+    }
+
+
+        // $this->Wishlist->insertToWishList($list_id, "geeky drinking");
+        // $this->Wishlist->deleteItem($list_id, "geeky drinking");
+
 
 	public function myprofile(){
+        $user_id = 1; 
         $this->load->model('Wishlist');
-        $list_id = 1;
-        $wishlist_items = $this->Wishlist->getWishlistItem($list_id);
+        $list_id = $this->Wishlist->getWishListId($user_id);
+        $wishListItems = $this->Wishlist->getWishListItems($user_id);
         $this->load->view('templates/header', array('title' => 'My profile'));
-		$this->load->view('profile', array('name' => 'me', "wishlist_items" => $wishlist_items));
-		$this->load->view('templates/footer');
+		$this->load->view('profile', array('name' => 'me', "wishListItems" => $wishListItems));
+		// $this->load->view('templates/footer');
     }
 
-    public function profile(){
-        $this->load->view('templates/header', array('title' => 'Profile'));
-        $this->load->view('profile', array('name' => 'me'));
-        $this->load->view('templates/footer');
-    }
+    // public function profile(){
+    //     $this->load->view('templates/header', array('title' => 'Profile'));
+    //     $this->lo>view('profile', array('name' => 'me'));
+    //     $this->load->view('templates/footer');
+    // }
 
     public function deleteItem() {
-        $deleteItem = $this->input->get();
+        $user_id = 1;
         $this->load->model('Wishlist');
+        $deleteItem = $this->input->get();
+        $list_id = $this->Wishlist->getWishListId($user_id);
         if ($deleteItem) {
-            $this->Wishlist->deleteItem($deleteItem['query']);
+            $this->Wishlist->deleteItem($list_id, $deleteItem['query']);
         }
         echo "ok";
     }
 
-    public function amazon() {
-        $this->load->view('templates/header', array('title' => 'Amazon'));
-        $this->load->view('amazon');
-        $this->load->view('templates/footer');
+    public function insertItem() {
+        $user_id = 1;
+        $this->load->model('Wishlist');
+        $insertItem = $this->input->get();
+        $list_id = $this->Wishlist->getWishListId($user_id);
+        if ($insertItem) {
+            $this->Wishlist->insertToWishList($list_id, $insertItem['query']);
+        }
+        echo "ok";
     }
+
 
     public function amazon2() {
         $post = $this->input->get();
@@ -56,12 +92,8 @@ class Welcome extends CI_Controller {
         echo json_encode($result);
     }
 
-
     public function about()
     {
-        // $this->load->model('Wishlist');
-        // $results = $this->Wishlist->createUser();
-
         $this->load->view('templates/header', array('title' => 'About'));
         $this->load->view('about');
         $this->load->view('templates/footer');
