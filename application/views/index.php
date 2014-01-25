@@ -22,6 +22,17 @@
     ?>
   </div>
   <div class="block-row">
+    <?php
+      for ($i = 0; $i < 7; $i++) {
+          echo ("<div class=\"block check" . ((($i+1) % 2) + 1) . "\" id=\"grid" . ($i+8) . "\">");   
+          echo "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
+              echo "<tbody><tr><td>";
+              echo ("<div class=\"block-icon quote\"></div>");
+              echo ("<p>" . ($answers[$i]['answer_text']) . "</p></td></tr></tbody></table></div></div>");
+      }
+    ?>
+  </div>
+  <!-- <div class="block-row">
     <div class="block check2" id="grid8">
       <div class='block-inner'>
       <table style="height: 100%; width: 100%;">
@@ -64,7 +75,7 @@
     </div>
     <div class="block check2" id="grid14">
     </div>
-  </div>
+  </div> -->
 </div>
 
 <!--
