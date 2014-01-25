@@ -14,15 +14,16 @@
 		<?php
 			for ($i = 0; $i < 7; $i++) {
 			    echo ("<div class=\"block check" . (($i % 2) + 1) . "\" id=\"grid" . ($i+1) . "\">");		
-			    echo "<table style=\"height: 100%; width: 100%;\">";
+			    echo "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
 	            echo "<tbody><tr><td>";
 	            echo ("<div class=\"block-icon quote\"></div>");
-	            echo ("<p>" . ($wishList[$i]) . "</p></td></tr></tbody></table></div>");
+	            echo ("<p>" . ($wishList[$i]) . "</p></td></tr></tbody></table></div></div>");
 			}
 		?>
 	</div>
 	<div class="block-row">
 		<div class="block check2" id="grid8">
+			<div class='block-inner'>
 			<table style="height: 100%; width: 100%;">
                   <tbody><tr>
                       <td >
@@ -31,11 +32,29 @@
                       </td>
                   </tr>
             </tbody></table>
+        	</div>
 		</div>
 		<div class="block check1" id="grid9">
-			<div><p>?</p></div>
+			<div class="block-inner">
+				<table style="height: 100%; width: 100%;">
+	                  <tbody><tr>
+	                      <td >
+	                          <div class="block-icon quote"></div>
+	                          <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
+	                      </td>
+	                  </tr>
+	            </tbody></table>
+        	</div>
 		</div>
 		<div class="block check2" id="grid10">
+			<table style="height: 100%; width: 100%;">
+                  <tbody><tr>
+                      <td >
+                          <div class="block-icon quote"></div>
+                          <p>Demanding, but definitely doable. Social, but educational. A focused topic, but broadly applicable skills. CS50 is the quintessential Harvard course."</p>
+                      </td>
+                  </tr>
+            </tbody></table>
 		</div>
 		<div class="block check1" id="grid11">
 		</div>
