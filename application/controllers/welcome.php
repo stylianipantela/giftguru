@@ -2,18 +2,14 @@
 
 class Welcome extends CI_Controller {
 
+    private $user_id = 1; 
+
     function index()
     {
         $this->load->model('Wishlist');
-        $friendList = array ( 0 => array ("id" => 4, "name" => "Stella Pantela"), 1 => array ("id" => 9, "name" => "Jay Po"));
-        $user_id = 1;
-        // if (isset())
-        //     //$friendID=$_POST("");
-        // else
-        //     $friendID=0;
-            # code...
-        $wishList = $this->Wishlist->getWishListItems($user_id);
-        $answers = $this->Wishlist->getAnswers($user_id);
+        $friendList = $this->Wishlist->getFriendList($this->user_id);
+        $wishList = $this->Wishlist->getWishListItems($this->user_id);
+        $answers = $this->Wishlist->getAnswers($this->user_id);
         $questions = $this->Wishlist->getQuestions();
         $questionRecs = array (); 
         $wishListRecs = array ();
@@ -39,11 +35,6 @@ class Welcome extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-
-        // $this->Wishlist->insertToWishList($list_id, "geeky drinking");
-        // $this->Wishlist->deleteItem($list_id, "geeky drinking");
-
-
 	public function myprofile(){
         $user_id = 1; 
         $this->load->model('Wishlist');
@@ -51,14 +42,8 @@ class Welcome extends CI_Controller {
         $wishListItems = $this->Wishlist->getWishListItems($user_id);
         $this->load->view('templates/header', array('title' => 'My profile'));
 		$this->load->view('profile', array('name' => 'me', "wishListItems" => $wishListItems));
-		// $this->load->view('templates/footer');
+		$this->load->view('templates/footer');
     }
-
-    // public function profile(){
-    //     $this->load->view('templates/header', array('title' => 'Profile'));
-    //     $this->lo>view('profile', array('name' => 'me'));
-    //     $this->load->view('templates/footer');
-    // }
 
     public function deleteItem() {
         $user_id = 1;
@@ -80,7 +65,6 @@ class Welcome extends CI_Controller {
         }
         echo "ok";
     }
-
 
     public function amazon2() {
         $post = $this->input->get();
