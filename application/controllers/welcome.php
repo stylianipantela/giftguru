@@ -7,6 +7,11 @@ class Welcome extends CI_Controller {
         $this->load->model('Wishlist');
         $friendList = array ( 0 => array ("id" => 4, "name" => "Stella Pantela"), 1 => array ("id" => 9, "name" => "Jay Po"));
         $user_id = 1;
+        // if (isset())
+        //     //$friendID=$_POST("");
+        // else
+        //     $friendID=0;
+            # code...
         $wishList = $this->Wishlist->getWishListItems($user_id);
         $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
                               "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Zusak");

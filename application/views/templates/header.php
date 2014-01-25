@@ -42,14 +42,16 @@
                     <li><a href="#">Link</a></li>
                     <li ckass-"active"> <a href="#"> Find a gift for</a> </li>
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php //var_dump($friendList[0]) ?> <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <?php 
-                          foreach ($friendList as $friend){
-                            echo "<li><a href='#''>".$friend['name']."</a></li>";
-                          }
-                        ?>
-                      </ul>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $friendList[0]['name']?> <b class="caret"></b></a>
+                      <form method="post" action="welcome">
+                        <ul class="dropdown-menu">
+                          <?php 
+                            foreach ($friendList as $friend){
+                              echo "<li><a name='".$friend['id']."'>".$friend['name']."</a></li>";
+                            }
+                          ?>
+                        </ul>
+                      </form>
                     </li>
                   </ul>
                   <form class="navbar-form navbar-left">
