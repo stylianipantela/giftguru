@@ -1,0 +1,24 @@
+.wishlistposition 
+{
+    float: left;
+    margin-bottom: 40px;
+    width: 40%;
+}
+#wishlist-header {
+    background: transparent url('/html/images/hover-menu-sample-glass-panel-top.png') no-repeat center;
+    height: 28px;
+}
+
+ul#wishlist {
+margin: 0;
+padding: 0;
+padding-left: 10px;
+list-style: none;
+background: transparent url('/html/images/hover-menu-sample-glass-panel-body.png') repeat-y center;
+text-align: center;
+}
+
+#wishlist-footer {
+background: transparent url('/html/images/hover-menu-sample-glass-panel-bottom.png') no-repeat center;
+height: 28px;
+}
