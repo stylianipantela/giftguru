@@ -10,9 +10,9 @@
                         );
  
         $this->load->library('Facebook', $config);
- 
         $user = $this->facebook->getUser();
- 
+        // print_r($user);
+        
         // We may or may not have this data based on whether the user is logged in.
         //
         // If we have a $user id here, it means we know the user is logged into
@@ -36,7 +36,7 @@
                         'loginUrl' => $this->facebook->getLoginUrl(
                             array(
                                 'scope' => 'email,user_birthday,publish_stream', // app permissions
-                                'redirect_uri' => 'http://giftguru.herokuapp.com/welcome/amazon' // URL where you want to redirect your users after a successful login
+                                'redirect_uri' => 'http://giftguru.herokuapp.com/welcome' // URL where you want to redirect your users after a successful login
                             )
                         ),
                         'logoutUrl' => $this->facebook->getLogoutUrl(),
