@@ -13,7 +13,8 @@
         $this->load->library('Facebook', $config);
         $user = $this->facebook->getUser();
         print_r($user);
-        exit;
+        if (isset($_GET['code']))
+            exit;
         // We may or may not have this data based on whether the user is logged in.
         //
         // If we have a $user id here, it means we know the user is logged into
