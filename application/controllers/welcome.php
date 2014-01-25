@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
         // }
 
         $this->load->view('templates/header', array('title' => 'Guru Profile', "friendList" => $friendList));
-        $this->load->view('amazon', 
+        $this->load->view('index', 
             array("name" => "me", 
             "wishList" => $wishList,
             "answers" => $answers,
