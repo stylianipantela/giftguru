@@ -15,7 +15,7 @@
   		// print_r($fb_data);
   		// echo "get ".print_r($_GET);
 
-  		print_r("get from welcome".$this->input->get());
+  		print_r("get from welcome:".$this->input->get());
 
   		// echo "request ".print_r($_REQUEST);
   		// echo "session:".print_r($_SESSION);

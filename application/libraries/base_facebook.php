@@ -721,17 +721,13 @@ abstract class BaseFacebook
    *               code could not be determined.
    */
   protected function getCode() {
-    print_r("request".$_REQUEST);
     if (!isset($_GET['code']) || !isset($_GET['state'])) {
-      print_r("called here");
       return false;
     }
     if ($this->state === $_REQUEST['state']) {
-        print_r("called heree");
         // CSRF state has done its job, so clear it
         $this->state = null;
         $this->clearPersistentData('state');
-        print_r($_REQUEST);
         return $_REQUEST['code'];
     }
     self::errorLog('CSRF state token does not match one provided.');

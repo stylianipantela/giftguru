@@ -19,8 +19,11 @@ class Welcome extends CI_Controller {
     }
 
 	public function myprofile(){
+        $this->load->model('Wishlist');
+        $list_id = 1;
+        $wishlist_items = $this->Wishlist->getWishlistItem($list_id);
         $this->load->view('templates/header', array('title' => 'My profile'));
-		$this->load->view('profile', array('name' => 'me'));
+		$this->load->view('profile', array('name' => 'me', "wishlist_items" => $wishlist_items));
 		$this->load->view('templates/footer');
     }
 

@@ -11,6 +11,13 @@
             return "ok";
         }
 
+        public function getWishlistItem($list_id) {
+           	$query = $this->db->query('SELECT item_description FROM items');
+           	// $sql = "SELECT item_description FROM items WHERE list_id = ?"; 
+		   	// $query = $this->db->query($sql, array($list_id));
+			return $query->result();
+        }
+
     }
 
 ?>
