@@ -42,6 +42,6 @@
           }
       ?>
     </div>
-    <div class="col-md-1 row" style="height:168px" ><img src='/html/images/rightArrow.png' width='60' style="margin-top: 54px"></div>
+    <div class="col-md-1 row" style="height:168px" ><img src='/html/images/rightArrow.png' width='60' style="margin-top: 34px"></div>
   </div>
 </div>
