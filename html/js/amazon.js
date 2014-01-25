@@ -15,25 +15,19 @@ function showResult(category){
   });
 }
 
-
 function deleteResult(category){
   $("#"+category.replace(/\s/g, '')+"row").remove();
 }
 
-
-jQuery(document).ready(function(){
-        
-
+jQuery(document).ready(function() {
+  $(".myBtn").click(function(){
+    if ($(this).hasClass("btnClicked")) { 
+      $(this).removeClass("btnClicked btn-warning");
+      deleteResult($(this).attr("id"));
+    } 
+    else { 
+      $(this).addClass('btnClicked btn-warning'); 
+      showResult($(this).attr("id"));
+    }
+  });
 });
-
-
-// on('click', '.tag', function(){  
-//   if ($(this).attr("id").hasClass("btn")) { 
-//     alert("Hello");
-//     // $(this).attr("id").removeClass("btnClicked");
-//   } 
-//   // else { 
-//   //   $(this).attr("id").addClass('active btnClicked'); 
-//   // }
-//   // showResult($(this).attr("id"));
-// });

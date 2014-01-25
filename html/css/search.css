@@ -2,10 +2,6 @@ body {
     /*background: rgb(0, 0, 0);*/
 }
 
-.btnClicked {
-  color: black;
-}
-
 .myBtn {
     border-radius: 10px;
     width: 220px;
