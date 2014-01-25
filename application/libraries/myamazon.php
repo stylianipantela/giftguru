@@ -22,9 +22,6 @@ class MyAmazon {
             if (isset($item['OfferSummary']['LowestNewPrice']['FormattedPrice']) && 
                 isset($item['SmallImage']['URL']) &&
                 isset($item['DetailPageURL']) && $item['ItemAttributes']['Title']) {
-                // $mystr .= "<img src=\"" . $item['MediumImage']['URL'] . "\"></br>";
-                // $mystr .= "<a href=\"". $item['DetailPageURL'] ."\">" . $item['ItemAttributes']['Title'] . "</a><br>";
-                // $mystr .= $item['OfferSummary']['LowestNewPrice']['FormattedPrice'] . "<br>";
                 $result[] = array(  'imgUrl'  => $item['MediumImage']['URL'], 
                                     'pageUrl' => $item['DetailPageURL'], 
                                     'title'   => $item['ItemAttributes']['Title'],
@@ -34,47 +31,11 @@ class MyAmazon {
         return $result;
     }
 
-
     public function lookup($category, $keyword) {
         $result = array ();
         $result = array_merge($result, $this->lookup_page($category, $keyword, 1));
         return $result;
     }
-
-    // public function lookup7($keyword) {
-    //     require_once("amazon_api_class.php");
-    //     $amazon = new AmazonProductAPI();
-    //     $parameters = array("Operation"     => "ItemSearch",
-    //                         "SearchIndex"   => "All",
-    //                         "Keywords"      => $keyword,
-    //                         "ResponseGroup" => "Images,ItemAttributes,OfferSummary");
-
-    //     $result = $amazon->queryAmazon($parameters);
-    //     $json = json_encode($result);
-    //     $array = json_decode($json, true);
-    //     $result = array ();
-    //     $counter = 7;
-    //     if (isset($array['Items']['Items'])) {
-    //         foreach($array['Items']['Item'] as $item){
-    //             if (isset($item['OfferSummary']['LowestNewPrice']['FormattedPrice']) && 
-    //                 isset($item['SmallImage']['URL']) &&
-    //                 isset($item['DetailPageURL']) && $item['ItemAttributes']['Title']) {
-    //                 // $mystr .= "<img src=\"" . $item['MediumImage']['URL'] . "\"></br>";
-    //                 // $mystr .= "<a href=\"". $item['DetailPageURL'] ."\">" . $item['ItemAttributes']['Title'] . "</a><br>";
-    //                 // $mystr .= $item['OfferSummary']['LowestNewPrice']['FormattedPrice'] . "<br>";
-    //                 $result[] = array(  'imgUrl'  => $item['MediumImage']['URL'], 
-    //                                     'pageUrl' => $item['DetailPageURL'], 
-    //                                     'title'   => $item['ItemAttributes']['Title'],
-    //                                     'price'   => $item['OfferSummary']['LowestNewPrice']['FormattedPrice']);
-    //             }
-    //             $counter = $counter - 1;
-    //             // if ($counter == 0)
-    //             //     break;
-    //          }    
-    //     }
-    //     return $result;
-    // }
-
 }
 
 /* End of file MyAmazon.php */

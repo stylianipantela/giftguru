@@ -22,7 +22,6 @@
     <script src="/html/js/amazon.js" type="text/javascript"></script>
   </head>
   <body>
-        <!-- navigation bar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
@@ -34,10 +33,8 @@
       </div>
       <div class="navbar-collapse collapse navbar-inverse-collapse">
         <ul class="nav navbar-nav">
-          <!-- <li>Find a gift for</li> -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Find a gift for <?php echo $friendName?> <b class="caret"></b></a>
-            <!--<form method="post" action="welcome">-->
               <ul class="dropdown-menu">
                 <?php 
                   foreach ($friendList as $friend){ 
@@ -45,7 +42,6 @@
                   }
                 ?>
               </ul>
-            <!--</form> -->
           </li>
         </ul>
         <form class="navbar-form navbar-left">
@@ -54,9 +50,6 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/welcome/about">About</a></li>
           <li><a href="/welcome/about">My Profile</a></li>
-          <!--<li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
-          </li> -->
         </ul>
       </div><!-- /.nav-collapse -->
     </div>
