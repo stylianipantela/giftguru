@@ -17,7 +17,7 @@
 			    echo "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
 	            echo "<tbody><tr><td>";
 	            echo ("<div class=\"block-icon quote\"></div>");
-	            echo ("<p>" . ($wishList[$i]) . "</p></td></tr></tbody></table></div></div>");
+	            echo ("<p>" . ($wishList[$i]['item_description']) . "</p></td></tr></tbody></table></div></div>");
 			}
 		?>
 	</div>

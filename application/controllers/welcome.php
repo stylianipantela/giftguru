@@ -11,12 +11,13 @@ class Welcome extends CI_Controller {
         $questionList = array ( "sweet" => "nutella", "restaurant" => "Pizza Hut", "sport" => "tennis", "athlete" => "roger federer",
                               "singer" => "arctic monkeys", "snack" => "seaweed", "author" => "Zusak");
         
-        $this->load->library('myamazon');
-        $questionRecs = array ();
-        foreach ($questionList as $key => $value) {      
-            // $questionRecs[$key] = $this->myamazon->lookup('All', $value);
-        }
+        $questionRecs = array (); 
         $wishListRecs = array ();
+
+        $this->load->library('myamazon');
+        //foreach ($questionList as $key => $value) {      
+            // $questionRecs[$key] = $this->myamazon->lookup('All', $value);
+        //}
         // foreach ($wishList as $value) {      
         //     $wishListRecs[] = $this->myamazon->lookup7($value);
         // }
