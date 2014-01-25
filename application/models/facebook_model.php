@@ -10,7 +10,7 @@
                         );
  
         $this->load->library('Facebook', $config);
- 
+        print_r($this->facebook);
         $user = $this->facebook->getUser();
  
         // We may or may not have this data based on whether the user is logged in.
@@ -41,7 +41,6 @@
                         ),
                         'logoutUrl' => $this->facebook->getLogoutUrl(),
                     );
-        print_r($fb_data);
  
         $this->session->set_userdata('fb_data', $fb_data);
     }
