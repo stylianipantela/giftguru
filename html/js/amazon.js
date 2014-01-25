@@ -21,13 +21,19 @@ function deleteResult(category){
 }
 
 
-jQuery(document).on('click', '.tag', function(){  
-  if ($(this).attr("id").hasClass("btn") { 
-    alert("Hello");
-    // $(this).attr("id").removeClass("btnClicked");
-  } 
-  // else { 
-  //   $(this).attr("id").addClass('active btnClicked'); 
-  // }
-  // showResult($(this).attr("id"));
+jQuery(document).ready(function(){
+        
+
 });
+
+
+// on('click', '.tag', function(){  
+//   if ($(this).attr("id").hasClass("btn")) { 
+//     alert("Hello");
+//     // $(this).attr("id").removeClass("btnClicked");
+//   } 
+//   // else { 
+//   //   $(this).attr("id").addClass('active btnClicked'); 
+//   // }
+//   // showResult($(this).attr("id"));
+// });

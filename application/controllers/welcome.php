@@ -2,20 +2,20 @@
 
 class Welcome extends CI_Controller {
 
-    function __construct()
-    {
-        parent::__construct();
+    // function __construct()
+    // {
+    //     parent::__construct();
 
-        $this->load->model('Facebook_model');
-    }
+    //     $this->load->model('Facebook_model');
+    // }
     
     function index()
     {
-        $fb_data = $this->session->userdata('fb_data');
+    //     $fb_data = $this->session->userdata('fb_data');
 
-        $data = array('fb_data' => $fb_data,);
+    //     $data = array('fb_data' => $fb_data,);
         
-        $this->load->view('index', $data);
+    //     $this->load->view('index', $data);
     }
 
 	public function myprofile(){
