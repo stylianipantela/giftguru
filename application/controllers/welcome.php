@@ -24,6 +24,7 @@ class Welcome extends CI_Controller {
         //}
         foreach ($wishList as $value) {      
             $wishListRecs[] = $this->myamazon->lookup('All', $value['item_description']);
+            break;
         }
 
         $this->load->view('templates/header', array('title' => 'Guru Profile', "friendList" => $friendList));
