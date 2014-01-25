@@ -26,6 +26,7 @@ color: white;
     padding: 1px;
     overflow: hidden;
     background: blue;
+    white-space: normal;
 }
 
 .guruhint{
@@ -36,8 +37,18 @@ color: white;
     height: 128px;
 }
 
-.check1{background:rgb(220,20,60);}
-.check2{background:rgba(0,0,0,1);}
+.check1{
+    background:rgb(220,20,60); 
+    color: white;
+    text-align: center; 
+    vertical-align: middle;
+}
+.check2{
+    background:rgba(0,0,0,1); 
+    color:white;
+    text-align: center; 
+    vertical-align: middle;
+}
 
 /*
 #grid1{background:rgb(255, 208, 54);}
