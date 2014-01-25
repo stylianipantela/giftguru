@@ -9,23 +9,21 @@
 		
 	<fieldset>
 	    <div class="form-group">
-	        <input autofocus name="newgiftitem" placeholder="Wish" type="text"/>
-	        <input class="btn btn-success" onclick = "ShowNewGift();" type = "button" value = "Add My Wish"></input>
+	        <input autofocus id="insert_input" name="newgiftitem" placeholder="Wish" type="text"/>
+	        <input class="btn btn-success" id="insert" type = "button" value = "Add My Wish"></input>
 	    </div>
 	</fieldset>
 		
 	<div id = "wishlist-header"> </div>
 	<ul id = "wishlist"> 
-		   <div id = "message"> </div>	    
-		   <div id = "newgift"> </div>	    
-		   <?php
-	       foreach ($wishlist_items as $item)
-	       {?>
-	           <li class = "giftitem" >
-	           		<?php echo $item->item_description; ?>
-	           		<a class = "externallink delete" style = "color: red;" name = "<?php echo $item->item_description ?>" href="#"> Delete </a>
-	           </li>
-	        <?php } // end for ?>
+	    <div id = "message"> </div>	    
+	    <div id = "newgift"> </div>	    
+	    <?php
+        	foreach ($wishListItems as $item) {
+	       		echo "<li class =\"giftitem\">" . $item['item_description'];
+	            echo "<a class=\"delete\" name=\"" . $item['item_description'] . "\" href=\"#\"> Delete </a></li>";
+	     	}
+	     ?>
 	</ul>
 	<div id = "wishlist-footer"> </div>
 	</div>
