@@ -46,11 +46,16 @@ class Welcome extends CI_Controller {
     }
 
 	public function myprofile(){
-        $user_id = 1; 
         $this->load->model('Wishlist');
-        $list_id = $this->Wishlist->getWishListId($user_id);
-        $wishListItems = $this->Wishlist->getWishListItems($user_id);
-        $this->load->view('templates/header', array('title' => 'My profile'));
+        $list_id = $this->Wishlist->getWishListId($this->user_id);
+        $wishListItems = $this->Wishlist->getWishListItems($this->user_id);
+        if (!isset($this->friendList)) {
+            $this->friendList = $this->Wishlist->getFriendList($this->user_id);
+        }
+        $this->load->view('templates/header', 
+            array('title' => 'About', 
+                'friendList' => $this->friendList, 
+                'friendName' => "?"));
 		$this->load->view('profile', array('name' => 'me', "wishListItems" => $wishListItems));
 		$this->load->view('templates/footer');
     }
