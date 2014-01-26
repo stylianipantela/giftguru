@@ -27,6 +27,7 @@ color: white;
     overflow: hidden;
     background: blue;
     white-space: normal;
+    cursor:pointer
 }
 
 .block-inner {
