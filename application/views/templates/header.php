@@ -33,6 +33,8 @@
       </div>
       <div class="navbar-collapse collapse navbar-inverse-collapse">
         <ul class="nav navbar-nav">
+          <li><a href="/welcome/about">About</a></li>
+          <li><a href="/welcome/myprofile">My Profile</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Find a gift for <?php echo $friendName?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -44,12 +46,12 @@
               </ul>
           </li>
         </ul>
-        <form class="navbar-form navbar-left">
+        <!-- <form class="navbar-form navbar-left">
           <input type="text" class="form-control col-lg-8" placeholder="Search">
-        </form>
+        </form> -->
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/welcome/about">About</a></li>
-          <li><a href="/welcome/myprofile">My Profile</a></li>
+          <!-- <li><a href="/welcome/about">About</a></li>
+          <li><a href="/welcome/myprofile">My Profile</a></li> -->
         </ul>
       </div><!-- /.nav-collapse -->
     </div>
