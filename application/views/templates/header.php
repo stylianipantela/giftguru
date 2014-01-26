@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="/html/css/search.css" />
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="/html/js/bootstrap.js"></script>
+    <script src="/html/js/amazon.js"></script>
+
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

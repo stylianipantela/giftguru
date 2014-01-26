@@ -43,8 +43,8 @@ padding: 2.5%;
 
 .check1{
     /*background:rgb(220,20,60); */
-    background: black;
-    color: white;
+    background: white;
+    color: black;
     text-align: center; 
     vertical-align: middle;
 }
