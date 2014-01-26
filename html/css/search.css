@@ -41,98 +41,17 @@ padding: 2.5%;
     cursor: pointer;
 }
 
-.thumbnail{
-    height: 190px;
-}
-
 .check1{
-    background:rgb(220,20,60); 
+    /*background:rgb(220,20,60); */
+    background: black;
     color: white;
     text-align: center; 
     vertical-align: middle;
 }
 .check2{
-    background:rgba(0,0,0,1); 
+    /*background:rgba(0,0,0,1); */
+    background: black;
     color:white;
     text-align: center; 
     vertical-align: middle;
 }
-
-/*
-#grid1{background:rgb(255, 208, 54);}
-#grid2{background:rgb(230, 170, 49);}
-#grid3{background:rgb(232, 124, 49);}
-#grid4{background:rgb(255, 171, 67)}
-#grid5{background:rgb(255, 107, 54);}
-#grid6{background:rgb(232, 121, 30);}
-#grid7{background:rgb(255,216,78);}
-#grid8{background:rgb(230, 170, 49);}
-#grid9{background:rgb(232, 124, 49);}
-#grid10{background:rgb(255, 171, 67)}
-#grid11{background:rgb(255, 107, 54);}
-#grid12{background:rgb(232, 121, 30);}
-#grid13{background:rgb(255,216,78);}
-#grid14{background:rgb(133, 179, 255);}*/
-/*
-#grid8{background:rgb(47, 232,121);}
-#grid9{background:rgb(127, 232, 47);}
-#grid10{background:rgb(64, 255, 69);}
-#grid11{background:rgb(233, 255, 47);}
-#grid12{background:rgb(252, 255, 74);}
-#grid13{background:rgb(255, 203, 57);}
-#grid14{background:rgb(107, 255, 109);}*/
-/*body {
-    /*background: rgb(0, 0, 0);
-}
-
-.myBtn {
-    border-radius: 0px;
-    width: 210px;
-    height: 210px;
-    padding: 0px;
-    border:0px;
-    margin: 0px;
-}
-
-.mainContainer
-{
-    width: 100%;
-}
-.recContainer
-{
-    float:bottom;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.79) 0%,rgba(255,255,255,0.79) 100%);
-    margin-right: auto;
-    text-align: left;
-    margin-left: auto;
-    text-indent: 20px;
-    width: 100%;
-    top: 30px;
-    border-radius: 5px;
-    margin-top:25px;
-}
-
-.col-md-2 { /*gift grid display
-    width: 15.66%;
-    margin-left: 7px;
-}
-
-.thumbnail{ /*indivual grid
-    height: 128px;
-}
-
-.pdtTitle{   
-    text-align: center;
-    overflow: hidden;
-    max-height: 20px;
-    /*position:absolute;
-    top:80px;
-}
-
-.pdtPrice
-{
-    text-align: center;
-    overflow: hidden;
-    max-height: 20px;
-    margin-top:20px;
-}*/

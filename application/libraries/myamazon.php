@@ -44,11 +44,11 @@ class MyAmazon {
         $json = json_encode($result);
         $array = json_decode($json, true);
         foreach($array['Items']['Item'] as $item){
-             if (isset($item['LargeImage']['URL']) && isset($item['DetailPageURL'])) {
+            if (isset($item['LargeImage']['URL']) && isset($item['DetailPageURL'])) {
                 return array(   'imgUrl'  => $item['LargeImage']['URL'], 
                                 'pageUrl' => $item['DetailPageURL']);
 
-             }
+            }
         }    
         return array();
     }

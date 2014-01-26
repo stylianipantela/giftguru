@@ -17,7 +17,6 @@
             return $query->num_rows();
         }
 
-
         public function getUserName($user_id) {
             $query = $this->db->get_where('users', array('id' => $user_id));
             if ($query->num_rows()) {
@@ -29,6 +28,9 @@
         }
 
         public function getFriendList($user_id) {
+            if (!$this->isUser($user_id)) {
+                return array ();
+            }
             $query = $this->db->get_where('friends', array('friend1_id' => $user_id));
             $friends = array ();
             if ($query->num_rows()) {

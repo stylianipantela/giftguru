@@ -1,6 +1,3 @@
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
 <br><br><br>
 
 <div id="blocks">
@@ -20,7 +17,7 @@
         // TODO: Error checking and URL
         $imgUrl = $imgUrls[$i-7]['imgUrl'];
         $pageUrl = $imgUrls[$i-7]['pageUrl'];
-        $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imgUrl.") no-repeat center; background-size: cover;\"><a href=\"". $pageUrl . "\"></></div>";
+        $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imgUrl.") no-repeat center; background-size: cover;\"></div>";
       }
       $j = 0;
       for ($i = 8; $i < 14; $i+=2) {
@@ -61,7 +58,7 @@
 </div>
 
 <div id="gurupicks">
-<div class="h1" style="margin-left:70px; text-align:center;" id="amazonKeyword"> Guru's Picks for macbook stickers </div>
+<div class="h1" style="margin-left:70px; text-align:center;" id="amazonKeyword"> Guru's Picks </div>
   <div style="margin-left:40px"><br>
     <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow2.png' width='60' style="margin-top: 35px"></div>
     <div class="col-md-10" id="amazonProducts">
@@ -73,6 +70,13 @@
               echo "<img src=\"" . $item[$i]['imgUrl'] ."\"></a>";
               echo "<div class='pdtPrice'>" . $item[$i]['price'] . "</div>";
               echo "<div class='pdtTitle'>" . $item[$i]['title'] . "</div></div>";
+            }
+          }
+          else {
+            for ($i = 0; $i < 6; $i++) {
+              echo "<div class='col-md-2'> <a class='thumbnail' href=\"\" target=\"_blank\"></a>";
+              echo "<div class='pdtPrice'></div>";
+              echo "<div class='pdtTitle'></div></div>";
             }
           }
       ?>

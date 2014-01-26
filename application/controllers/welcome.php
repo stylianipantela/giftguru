@@ -9,26 +9,35 @@ class Welcome extends CI_Controller {
     {
         // Error checking for friendId inputs
         // TODO: check if actualy friendship is established in db
+        $this->load->model('Wishlist');
+        $this->load->library('myamazon');
+
         if (!is_numeric($friendId) || $friendId == 1)
             $friendId = -1;
-        $this->load->model('Wishlist');
         if (!isset($this->friendList)) {
             $this->friendList = $this->Wishlist->getFriendList($this->user_id);
         }
+
         $wishList = $this->Wishlist->getWishListItems($friendId);
         $answers = $this->Wishlist->getAnswers($friendId);
         $questions = $this->Wishlist->getQuestions();
         $questionRecs = array (); $wishListRecs = array ();
 
-        $this->load->library('myamazon');
-        // foreach ($answers as $key => $value) {      
-        //     $questionRecs[$key] = $this->myamazon->lookup('All', $value);
-        //     break;
-        // }
-        $wishListRecs[0] = $this->myamazon->lookup('All', $wishList[0]['item_description']);
-        foreach ($wishList as $value) {      
-            $imgUrls[] = $this->myamazon->lookupImgUrl($value['item_description']);
+        if ($friendId != -1) {
+            $wishListRecs[0] = $this->myamazon->lookup('All', $wishList[0]['item_description']);
+            for ($i=0; $i < 7; $i++) {
+                $imgUrls[] = $this->myamazon->lookupImgUrl($wishList[$i]['item_description']);
+            }
         }
+        else {
+            for ($i=0; $i < 7; $i++) {      
+                $imgUrls[$i] = array ("imgUrl" => "/html/images/cover3.jpg", "pageUrl" => "");
+            }
+        }
+        
+        // echo "<pre>";
+        // print_r ($wishListRecs);
+        // echo "</pre>";
 
         $this->load->view('templates/header', 
             array('title' => 'GiftGuru', 
@@ -71,6 +80,7 @@ class Welcome extends CI_Controller {
         $user_id = 1;
         $this->load->model('Wishlist');
         $insertItem = $this->input->get();
+        $insertItem = mysqli_escape_string($insertItem);
         $list_id = $this->Wishlist->getWishListId($user_id);
         if ($insertItem) {
             $this->Wishlist->insertToWishList($list_id, $insertItem['query']);
