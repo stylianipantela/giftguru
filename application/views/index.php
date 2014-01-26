@@ -25,7 +25,7 @@
       }
     ?>
   </div>
-  
+
 </div>
 <div id="sweetrow">
 <br>  <div class="h1" style="margin-left:70px; text-align:center;"> Guru Picks for ...</div>
