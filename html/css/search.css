@@ -27,7 +27,6 @@ color: white;
     overflow: hidden;
     background: blue;
     white-space: normal;
-    cursor:pointer
 }
 
 .block-inner {
@@ -35,10 +34,11 @@ position: absolute;
 width: 95%;
 height: 95%;
 padding: 2.5%;
+cursor: pointer;
+
 }
 
 .wishlistgrid{
-    cursor: pointer;
 }
 
 .check1{
