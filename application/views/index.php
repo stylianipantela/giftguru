@@ -55,7 +55,7 @@
 </div>
 
 <div id="gurupicks">
-<div class="h1" style="margin-left:70px; text-align:center;"> Guru Picks for macbook stickers </div>
+<div class="h1" style="margin-left:70px; text-align:center;" id="amazonKeyword"> Guru's Picks for macbook stickers </div>
   <div style="margin-left:40px"><br>
     <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow2.png' width='60' style="margin-top: 35px"></div>
     <div class="col-md-10" id="amazonProducts">

@@ -27,6 +27,7 @@ class Welcome extends CI_Controller {
         // }
         foreach ($wishList as $value) {      
             $wishListRecs[] = $this->myamazon->lookup('All', $value['item_description']);
+            $imgUrls[] = $this->myamazon->imgUrl('All', $value['item_description']);
             break;
         }
 
@@ -48,6 +49,7 @@ class Welcome extends CI_Controller {
 	public function myprofile(){
         $user_id = 1; 
         $this->load->model('Wishlist');
+        
         $list_id = $this->Wishlist->getWishListId($user_id);
         $wishListItems = $this->Wishlist->getWishListItems($user_id);
         $this->load->view('templates/header', array('title' => 'My profile'));
