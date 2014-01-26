@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
         $this->load->library('myamazon');
 
         if (($friendId != 4) && ($friendId != 9))
-            $friendId = -1;
+            $friendId = 4;
         if (!isset($this->friendList)) {
             $this->friendList = $this->Wishlist->getFriendList($this->user_id);
         }
