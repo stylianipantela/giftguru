@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
         // }
         foreach ($wishList as $value) {      
             $wishListRecs[] = $this->myamazon->lookup('All', $value['item_description']);
-            $imgUrls[] = $this->myamazon->imgUrl('All', $value['item_description']);
+            // $imgUrls[] = $this->myamazon->imgUrl('All', $value['item_description']);
             break;
         }
 
