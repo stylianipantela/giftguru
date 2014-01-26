@@ -18,7 +18,7 @@
         $imgUrl = $imgUrls[$i-7]['imgUrl'];
         $pageUrl = $imgUrls[$i-7]['pageUrl'];
         $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imgUrl.") no-repeat center; background-size: cover;\"></div>";
-      }
+      } 
       $j = 0;
       for ($i = 8; $i < 14; $i+=2) {
         $gridHtml[$i] = "<div class=\"block check1\" id=\"grid". ($i+1) ."\">";   
@@ -57,7 +57,7 @@
 </div>
 
 <div id="gurupicks">
-<div class="h1" style="margin-left:70px; text-align:center;" id="amazonKeyword"> Guru's Picks </div>
+<div style="margin-left:70px; text-align:center; font-weight:50; font-size:36px" id="amazonKeyword"> Guru's Picks </div>
   <div style="margin-left:40px"><br>
     <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow2.png' width='60' style="margin-top: 35px"></div>
     <div class="col-md-10" id="amazonProducts">
