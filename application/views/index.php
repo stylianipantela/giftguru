@@ -9,7 +9,8 @@
       for ($i = 0; $i < 7; $i++) {
         echo ("<div class=\"block check" . (($i % 2) + 1) . "\" id=\"grid" . ($i+1) . "\">");   
         echo "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
-        echo "<tbody><tr><td><div class=\"block-icon quote\"></div><p>". $friendName . "'s Wish: </p>";
+        // echo "<tbody><tr><td><div class=\"block-icon quote\"></div><p>". $friendName . "'s Wish: </p>";
+        echo "<tbody><tr><td><div class=\"block-icon quote\"></div><p> Stella's Wish: </p>";
         echo ("<h4>" . ($wishList[$i]['item_description']) . "</h4></td></tr></tbody></table></div></div>");
       }
     ?>
@@ -28,7 +29,7 @@
 
 </div>
 <div id="sweetrow">
-<br>  <div class="h1" style="margin-left:70px; text-align:center;"> Guru Picks for ...</div>
+<br>  <div class="h1" style="margin-left:70px; text-align:center;"> Guru Picks for macbook stickers </div>
   <div style="margin-left:40px"><br>
     <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow2.png' width='60' style="margin-top: 54px"></div>
     <div class="col-md-10">
