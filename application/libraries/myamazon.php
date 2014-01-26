@@ -18,16 +18,18 @@ class MyAmazon {
         $json = json_encode($result);
         $array = json_decode($json, true);
         $result = array ();
-        foreach($array['Items']['Item'] as $item){
-            if (isset($item['OfferSummary']['LowestNewPrice']['FormattedPrice']) && 
-                isset($item['MediumImage']['URL']) &&
-                isset($item['DetailPageURL']) && $item['ItemAttributes']['Title']) {
-                $result[] = array(  'imgUrl'  => $item['MediumImage']['URL'], 
-                                    'pageUrl' => $item['DetailPageURL'], 
-                                    'title'   => $item['ItemAttributes']['Title'],
-                                    'price'   => $item['OfferSummary']['LowestNewPrice']['FormattedPrice']);
-            }
-        }    
+        if (isset($array['Items']['Item'])) {
+            foreach($array['Items']['Item'] as $item){
+                if (isset($item['OfferSummary']['LowestNewPrice']['FormattedPrice']) && 
+                    isset($item['MediumImage']['URL']) &&
+                    isset($item['DetailPageURL']) && $item['ItemAttributes']['Title']) {
+                    $result[] = array(  'imgUrl'  => $item['MediumImage']['URL'], 
+                                        'pageUrl' => $item['DetailPageURL'], 
+                                        'title'   => $item['ItemAttributes']['Title'],
+                                        'price'   => $item['OfferSummary']['LowestNewPrice']['FormattedPrice']);
+                }
+            }   
+        } 
         return $result;
     }
 
@@ -43,17 +45,16 @@ class MyAmazon {
         $result = $amazon->queryAmazon($parameters);
         $json = json_encode($result);
         $array = json_decode($json, true);
-        foreach($array['Items']['Item'] as $item){
-            if (isset($item['LargeImage']['URL']) && isset($item['DetailPageURL'])) {
-                return array(   'imgUrl'  => $item['LargeImage']['URL'], 
-                                'pageUrl' => $item['DetailPageURL']);
-
-            }
-        }    
-        return array('imgUrl'  => , 'pageUrl' => "");
+        if (isset($array['Items']['Item'])) {
+            foreach($array['Items']['Item'] as $item){
+                if (isset($item['LargeImage']['URL']) && isset($item['DetailPageURL'])) {
+                    return array(   'imgUrl'  => $item['LargeImage']['URL'], 
+                                    'pageUrl' => $item['DetailPageURL']);
+                }
+            }   
+        }
+        return array('imgUrl'  => "", 'pageUrl' => "");
     }
-
-
 
     public function lookup($category, $keyword) {
         $result = array ();

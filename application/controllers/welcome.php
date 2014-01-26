@@ -3,7 +3,8 @@
 class Welcome extends CI_Controller {
 
     private $user_id = 1; 
-    private $friendList;
+    private $friendList = array (0 => array ("id" => 4, "name" => "Stella Pantela"), 
+        1 => array ("id" => 9, "name" => "Jay Po"));
 
     function index($friendId = -1)
     {
@@ -14,9 +15,10 @@ class Welcome extends CI_Controller {
 
         if (($friendId != 4) && ($friendId != 9))
             $friendId = -1;
-        if (!isset($this->friendList)) {
-            $this->friendList = $this->Wishlist->getFriendList($this->user_id);
-        }
+        // if (!isset($this->friendList)) {
+        //     $this->friendList = $this->Wishlist->getFriendList($this->user_id);
+        // }
+        // print_r ($this->friendList);
 
         $wishList = $this->Wishlist->getWishListItems($friendId);
         $answers = $this->Wishlist->getAnswers($friendId);
@@ -34,7 +36,7 @@ class Welcome extends CI_Controller {
                 $imgUrls[$i] = array ("imgUrl" => "/html/images/cover3.jpg", "pageUrl" => "");
             }
         }
-        print_r ($imgUrls);
+        // print_r ($imgUrls);
 
         $this->load->view('templates/header', 
             array('title' => 'GiftGuru', 
@@ -49,7 +51,7 @@ class Welcome extends CI_Controller {
             "questionRecs" => $questionRecs,
             "wishListRecs" => $wishListRecs
             ));
-        // $this->load->view('templates/footer');
+        $this->load->view('templates/footer');
     }
 
 	public function myprofile(){
@@ -57,9 +59,9 @@ class Welcome extends CI_Controller {
         $list_id = $this->Wishlist->getWishListId($this->user_id);
         $wishListItems = $this->Wishlist->getWishListItems($this->user_id);
         $questions = $this->Wishlist->getQuestions();
-        if (!isset($this->friendList)) {
-            $this->friendList = $this->Wishlist->getFriendList($this->user_id);
-        }
+        // if (!isset($this->friendList)) {
+        //     $this->friendList = $this->Wishlist->getFriendList($this->user_id);
+        // }
         $this->load->view('templates/header', 
             array('title' => 'About', 
                 'friendList' => $this->friendList, 
@@ -102,10 +104,10 @@ class Welcome extends CI_Controller {
 
     public function about()
     {
-        $this->load->model('Wishlist');
-        if (!isset($this->friendList)) {
-            $this->friendList = $this->Wishlist->getFriendList($this->user_id);
-        }
+        // $this->load->model('Wishlist');
+        // if (!isset($this->friendList)) {
+        //     $this->friendList = $this->Wishlist->getFriendList($this->user_id);
+        // }
         $this->load->view('templates/header', 
             array('title' => 'About', 
                 'friendList' => $this->friendList, 
