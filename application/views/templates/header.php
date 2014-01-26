@@ -49,7 +49,7 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/welcome/about">About</a></li>
-          <li><a href="/welcome/about">My Profile</a></li>
+          <li><a href="/welcome/myprofile">My Profile</a></li>
         </ul>
       </div><!-- /.nav-collapse -->
     </div>
