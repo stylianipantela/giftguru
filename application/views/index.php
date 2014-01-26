@@ -25,12 +25,12 @@
       }
     ?>
   </div>
-  
+
 </div>
 <div id="sweetrow">
 <br>  <div class="h1" style="margin-left:70px; text-align:center;"> Guru Picks for amazon stickers</div>
   <div style="margin-left:40px"><br>
-    <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow.png' width='60' style="margin-top: 54px"></div>
+    <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow.png' width='60' style="margin-top: 34px"></div>
     <div class="col-md-10">
       <?php
           $item = $wishListRecs[0];
