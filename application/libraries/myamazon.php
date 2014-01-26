@@ -50,7 +50,7 @@ class MyAmazon {
 
             }
         }    
-        return array();
+        return array('imgUrl'  => , 'pageUrl' => "");
     }
 
 
