@@ -18,6 +18,9 @@
         }
 
         public function getUserName($user_id) {
+            if (!$this->isUser($user_id)) {
+                return "?";
+            }
             $query = $this->db->get_where('users', array('id' => $user_id));
             if ($query->num_rows()) {
                 foreach ($query->result() as $row) {

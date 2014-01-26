@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
         $this->load->library('myamazon');
 
         if (($friendId != 4) && ($friendId != 9))
-            $friendId = 4;
+            $friendId = -1;
         if (!isset($this->friendList)) {
             $this->friendList = $this->Wishlist->getFriendList($this->user_id);
         }
@@ -34,6 +34,7 @@ class Welcome extends CI_Controller {
                 $imgUrls[$i] = array ("imgUrl" => "/html/images/cover3.jpg", "pageUrl" => "");
             }
         }
+        print_r ($imgUrls);
 
         $this->load->view('templates/header', 
             array('title' => 'GiftGuru', 
