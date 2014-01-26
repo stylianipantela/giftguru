@@ -29,10 +29,10 @@
 
 </div>
 <div id="sweetrow">
-<br>  <div class="h1" style="margin-left:70px; text-align:center;"> Guru Picks for macbook stickers </div>
+<br>  <div class="h1" id="amazonKeyword" style="margin-left:70px; text-align:center;"> Guru's Picks for macbook stickers</div>
   <div style="margin-left:40px"><br>
     <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow2.png' width='60' style="margin-top: 54px"></div>
-    <div class="col-md-10">
+    <div class="col-md-10" id="amazonProducts">
       <?php
           if (isset($wishListRecs[0])) {
             $item = $wishListRecs[0];
