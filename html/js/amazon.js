@@ -58,7 +58,7 @@ function displayResults(answerDecoded) {
 jQuery(document).ready(function() {
   $(".block").click(function(){
     var keyword = $("h4", $(this)).text();    
-    $.get('/welcome/amazon2', {query: keyword}, function(answer){
+    $.get('/index.php/welcome/amazon2', {query: keyword}, function(answer){
       var answerDecoded = jQuery.parseJSON(answer);
       var items = displayResults(answerDecoded);
       $("#amazonProducts").html(items);
