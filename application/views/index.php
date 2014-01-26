@@ -1,4 +1,5 @@
-<br><br><br>
+<script src="/html/js/amazon.js" type="text/javascript"></script>
+<br><br>
 
 <div id="blocks">
   <?php
@@ -23,10 +24,9 @@
       for ($i = 8; $i < 14; $i+=2) {
         $gridHtml[$i] = "<div class=\"block check1\" id=\"grid". ($i+1) ."\">";   
         $gridHtml[$i] .= "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
-        $gridHtml[$i] .= "<tbody><tr><td><div class=\"block-icon quote\"></div><p>". $friendName . "'s Wish Item: </p>";    
-        // $gridHtml[$i] .= "<p>". $questions[$j]['question_text'] . ": </p>";
-        // $gridHtml[$i] .= "<h4>". $answers[$j]['answer_text'] . "</h4></td></tr></tbody></table></div></div>";
-        $gridHtml[$i] .= "<h4>" . $wishList[2*$j+1]['item_description']. "</h4></td></tr></tbody></table></div></div>";
+        $gridHtml[$i] .= "<tbody><tr><td><div class=\"block-icon quote\"></div>";            
+        $gridHtml[$i] .= "<p>". $friendName."'s ".$questions[$j]['question_text'] . ": </p>";
+        $gridHtml[$i] .= "<h4>". $answers[$j]['answer_text'] . "</h4></td></tr></tbody></table></div></div>";
         $j++;
       }
       for ($i = 1; $i < 7; $i+=2){
