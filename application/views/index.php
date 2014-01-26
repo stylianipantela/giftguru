@@ -12,25 +12,31 @@
         $gridHtml[$i] = "<div class=\"block check1\" id=\"grid".($i+1)."\">";   
         $gridHtml[$i] .= "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
         $gridHtml[$i] .= "<tbody><tr><td><div class=\"block-icon quote\"></div><p>". $friendName . "'s Wish Item: </p>";
-        $gridHtml[$i] .= "<h4>" . $wishList[$j]['item_description']. "</h4></td></tr></tbody></table></div></div>";
+        $gridHtml[$i] .= "<h4>" . $wishList[2*$j]['item_description']. "</h4></td></tr></tbody></table></div></div>";
         $j++;
       }
       for ($i = 7; $i < 14; $i+=2){
-         $imageUrl = "/html/images/cover3.jpg";
-         $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imageUrl.") no-repeat center; background-size: cover;\"></div>";
+        // $imageUrl = "/html/images/cover3.jpg";
+        // TODO: Error checking and URL
+        $imgUrl = $imgUrls[$i-7]['imgUrl'];
+        $pageUrl = $imgUrls[$i-7]['pageUrl'];
+        $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imgUrl.") no-repeat center; background-size: cover;\"><a href=\"". $pageUrl . "\"></></div>";
       }
       $j = 0;
       for ($i = 8; $i < 14; $i+=2) {
         $gridHtml[$i] = "<div class=\"block check1\" id=\"grid". ($i+1) ."\">";   
         $gridHtml[$i] .= "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
-        $gridHtml[$i] .= "<tbody><tr><td><div class=\"block-icon quote\"></div>";            
-        $gridHtml[$i] .= "<p>". $questions[$j]['question_text'] . ": </p>";
-        $gridHtml[$i] .= "<h4>". $answers[$j]['answer_text'] . "</h4></td></tr></tbody></table></div></div>";
+        $gridHtml[$i] .= "<tbody><tr><td><div class=\"block-icon quote\"></div><p>". $friendName . "'s Wish Item: </p>";    
+        // $gridHtml[$i] .= "<p>". $questions[$j]['question_text'] . ": </p>";
+        // $gridHtml[$i] .= "<h4>". $answers[$j]['answer_text'] . "</h4></td></tr></tbody></table></div></div>";
+        $gridHtml[$i] .= "<h4>" . $wishList[2*$j+1]['item_description']. "</h4></td></tr></tbody></table></div></div>";
         $j++;
       }
       for ($i = 1; $i < 7; $i+=2){
-         $imageUrl = "/html/images/cover3.jpg";
-         $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imageUrl.") no-repeat center; background-size: cover;\"></div>";
+        //$imageUrl = "/html/images/cover3.jpg";
+        $imgUrl = $imgUrls[$i]['imgUrl'];
+        $pageUrl = $imgUrls[$i]['pageUrl'];
+         $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imgUrl.") no-repeat center; background-size: cover;\"></div>";
       }
 
       //print_r($gridHtml);

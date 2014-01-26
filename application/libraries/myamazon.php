@@ -20,7 +20,7 @@ class MyAmazon {
         $result = array ();
         foreach($array['Items']['Item'] as $item){
             if (isset($item['OfferSummary']['LowestNewPrice']['FormattedPrice']) && 
-                isset($item['SmallImage']['URL']) &&
+                isset($item['MediumImage']['URL']) &&
                 isset($item['DetailPageURL']) && $item['ItemAttributes']['Title']) {
                 $result[] = array(  'imgUrl'  => $item['MediumImage']['URL'], 
                                     'pageUrl' => $item['DetailPageURL'], 
@@ -30,6 +30,30 @@ class MyAmazon {
         }    
         return $result;
     }
+
+    public function lookupImgUrl($keyword) {
+        require_once("amazon_api_class.php");
+        $amazon = new AmazonProductAPI();
+        $parameters = array("Operation"     => "ItemSearch",
+                            "SearchIndex"   => "All",
+                            "Keywords"      => $keyword,
+                            "ItemPage"      => 1,
+                            "ResponseGroup" => "Small,Images");
+
+        $result = $amazon->queryAmazon($parameters);
+        $json = json_encode($result);
+        $array = json_decode($json, true);
+        foreach($array['Items']['Item'] as $item){
+             if (isset($item['LargeImage']['URL']) && isset($item['DetailPageURL'])) {
+                return array(   'imgUrl'  => $item['LargeImage']['URL'], 
+                                'pageUrl' => $item['DetailPageURL']);
+
+             }
+        }    
+        return array();
+    }
+
+
 
     public function lookup($category, $keyword) {
         $result = array ();
