@@ -18,7 +18,6 @@
     <![endif]-->
 
     <!-- Ajax script -->
-    <script src="/html/js/amazon.js" type="text/javascript"></script>
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

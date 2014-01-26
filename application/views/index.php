@@ -1,6 +1,4 @@
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
+<script src="/html/js/amazon.js" type="text/javascript"></script>
 <br><br>
 
 <div id="blocks">
@@ -24,7 +22,7 @@
         $gridHtml[$i] = "<div class=\"block check1\" id=\"grid". ($i+1) ."\">";   
         $gridHtml[$i] .= "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
         $gridHtml[$i] .= "<tbody><tr><td><div class=\"block-icon quote\"></div>";            
-        $gridHtml[$i] .= "<p>". $questions[$j]['question_text'] . ": </p>";
+        $gridHtml[$i] .= "<p>". $friendName."'s ".$questions[$j]['question_text'] . ": </p>";
         $gridHtml[$i] .= "<h4>". $answers[$j]['answer_text'] . "</h4></td></tr></tbody></table></div></div>";
         $j++;
       }

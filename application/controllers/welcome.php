@@ -49,6 +49,7 @@ class Welcome extends CI_Controller {
         $this->load->model('Wishlist');
         $list_id = $this->Wishlist->getWishListId($this->user_id);
         $wishListItems = $this->Wishlist->getWishListItems($this->user_id);
+        $questions = $this->Wishlist->getQuestions();
         if (!isset($this->friendList)) {
             $this->friendList = $this->Wishlist->getFriendList($this->user_id);
         }
@@ -56,7 +57,7 @@ class Welcome extends CI_Controller {
             array('title' => 'About', 
                 'friendList' => $this->friendList, 
                 'friendName' => "?"));
-		$this->load->view('profile', array('name' => 'me', "wishListItems" => $wishListItems));
+		$this->load->view('profile', array('name' => 'me', "wishListItems" => $wishListItems,"questions" => $questions));
 		$this->load->view('templates/footer');
     }
 

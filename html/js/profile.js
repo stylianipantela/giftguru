@@ -1,19 +1,22 @@
 jQuery(document).ready(function() {
   $(".delete").click(function(){
-    item = $(this).attr("name");
-    $.get('/welcome/deleteItem', {query: item}, function(answer){
-
-    });
+    var item = $(this).attr("name");
+    $.get('/index.php/welcome/deleteItem', {query: item}, function(answer){});
   });
     // $(this).parent().remove();
-});
 
-jQuery(document).ready(function() {
-  $("#insert").click(
-	function insertToWishList () {
-	    item = $("#insert_input").val();
-	    $.get('/welcome/insertItem', {query: item}, function(answer){
-
-	    });
+  $(".insert").click(function() {
+      //item = $(".insert_input", $(this)).val();  
+      //console.log($("#insert_input").val());
+	    //item = $("#insert_input").val();
+      item = $(this).prev().prev().prev().val();
+      $(this).parent().parent().append("<h4>"+item+"</h4>");
+      $(this).parent().remove();
+      if ($(this).attr("name")=="wish")
+	       $.get('/index.php/welcome/insertItem', {query: item}, function(answer){});
+      else{
+         // $question_id = 1;
+         // $.get('/index.php/welcome/insertAnswer', {query: item, query2: question_id}, function(answer){});
+      }
 	});
 });
