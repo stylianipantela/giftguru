@@ -12,7 +12,7 @@ class Welcome extends CI_Controller {
         $this->load->model('Wishlist');
         $this->load->library('myamazon');
 
-        if ($friendId != 4 && $friendId != 9)
+        if (($friendId != 4) && ($friendId != 9))
             $friendId = -1;
         if (!isset($this->friendList)) {
             $this->friendList = $this->Wishlist->getFriendList($this->user_id);
@@ -34,10 +34,6 @@ class Welcome extends CI_Controller {
                 $imgUrls[$i] = array ("imgUrl" => "/html/images/cover3.jpg", "pageUrl" => "");
             }
         }
-        
-        // echo "<pre>";
-        // print_r ($wishListRecs);
-        // echo "</pre>";
 
         $this->load->view('templates/header', 
             array('title' => 'GiftGuru', 
@@ -52,7 +48,7 @@ class Welcome extends CI_Controller {
             "questionRecs" => $questionRecs,
             "wishListRecs" => $wishListRecs
             ));
-        $this->load->view('templates/footer');
+        // $this->load->view('templates/footer');
     }
 
 	public function myprofile(){
