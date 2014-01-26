@@ -31,7 +31,7 @@ class Welcome extends CI_Controller {
         }
 
         $this->load->view('templates/header', 
-            array('title' => 'Gift Guru', 
+            array('title' => 'GiftGuru', 
             'friendList' => $this->friendList, 
             'friendName' => $this->Wishlist->getUserName($friendId)));
         $this->load->view('index', 
