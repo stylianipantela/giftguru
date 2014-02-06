@@ -822,7 +822,8 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    /*width: 1170px;*/
+    width: 1050px;
   }
 }
 
@@ -4806,7 +4807,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+/*  color: #999999;*/
+  color: #ffffff;
+  background-color: transparent;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -5269,7 +5272,7 @@ a.list-group-item.active > .badge,
   margin-bottom: 20px;
   line-height: 1.428571429;
   background-color: #ffffff;
-  /*border: 1px solid #dddddd;*/
+  border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;

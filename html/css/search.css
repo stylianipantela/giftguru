@@ -1,57 +1,10 @@
-#block{
-    height: 100%;
-    width: 100%;
-    font-size: 0;
-    overflow: hidden;
+body {
+    background: #e5e5e5;
+    color: rgb(68, 68, 68);
 }
 
-.block-row {
-width: 100%;
-height: 33.33%;
-white-space: nowrap;
-color: white;
-}
 
-.block {
-    -webkit-transition: all .25s ease;
-    -moz-transition: all .25s ease;
-    -ms-transition: all .25s ease;
-    -o-transition: all .25s ease;
-    transition: all .25s ease;
-    width: 14.58%;
-    height: 200px;
-    display: inline-block;
-    position: relative;
-    margin: -1px;
-    padding: 1px;
-    overflow: hidden;
-    background: blue;
-    white-space: normal;
-}
-
-.block-inner {
-position: absolute;
-width: 95%;
-height: 95%;
-padding: 2.5%;
-cursor: pointer;
-
-}
-
-.wishlistgrid{
-}
-
-.check1{
-    /*background:rgb(220,20,60); */
-    background: white;
-    color: black;
-    text-align: center; 
-    vertical-align: middle;
-}
-.check2{
-    /*background:rgba(0,0,0,1); */
-    background: black;
-    color:white;
-    text-align: center; 
-    vertical-align: middle;
+.thumbnail {
+  border-radius: 7px;
+  box-shadow: 0 10px 10px rgba(1,0,0,0.2);
 }

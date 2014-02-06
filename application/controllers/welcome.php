@@ -21,19 +21,10 @@ class Welcome extends CI_Controller {
         // print_r ($this->friendList);
 
         $wishList = $this->Wishlist->getWishListItems($friendId);
-        $answers = $this->Wishlist->getAnswers($friendId);
-        $questions = $this->Wishlist->getQuestions();
-        $questionRecs = array (); $wishListRecs = array ();
 
         if ($friendId != -1) {
-            $wishListRecs[0] = $this->myamazon->lookup('All', $wishList[0]['item_description']);
             for ($i=0; $i < 7; $i++) {
-                $imgUrls[] = $this->myamazon->lookupImgUrl($wishList[$i]['item_description']);
-            }
-        }
-        else {
-            for ($i=0; $i < 7; $i++) {      
-                $imgUrls[$i] = array ("imgUrl" => "/html/images/cover3.jpg", "pageUrl" => "");
+                $prods[] = $this->myamazon->lookup('All', $wishList[$i]['item_description']);
             }
         }
         // print_r ($imgUrls);
@@ -44,12 +35,7 @@ class Welcome extends CI_Controller {
             'friendName' => $this->Wishlist->getUserName($friendId)));
         $this->load->view('index', 
             array("name" => "me", 
-            "wishList" => $wishList,
-            "answers" => $answers,
-            "imgUrls" => $imgUrls,
-            "questions" => $questions,
-            "questionRecs" => $questionRecs,
-            "wishListRecs" => $wishListRecs
+            "prods" => $prods
             ));
         $this->load->view('templates/footer');
     }

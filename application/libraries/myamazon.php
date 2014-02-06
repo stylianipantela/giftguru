@@ -21,9 +21,9 @@ class MyAmazon {
         if (isset($array['Items']['Item'])) {
             foreach($array['Items']['Item'] as $item){
                 if (isset($item['OfferSummary']['LowestNewPrice']['FormattedPrice']) && 
-                    isset($item['MediumImage']['URL']) &&
+                    isset($item['LargeImage']['URL']) &&
                     isset($item['DetailPageURL']) && $item['ItemAttributes']['Title']) {
-                    $result[] = array(  'imgUrl'  => $item['MediumImage']['URL'], 
+                    $result[] = array(  'imgUrl'  => $item['LargeImage']['URL'], 
                                         'pageUrl' => $item['DetailPageURL'], 
                                         'title'   => $item['ItemAttributes']['Title'],
                                         'price'   => $item['OfferSummary']['LowestNewPrice']['FormattedPrice']);
@@ -47,8 +47,8 @@ class MyAmazon {
         $array = json_decode($json, true);
         if (isset($array['Items']['Item'])) {
             foreach($array['Items']['Item'] as $item){
-                if (isset($item['LargeImage']['URL']) && isset($item['DetailPageURL'])) {
-                    return array(   'imgUrl'  => $item['LargeImage']['URL'], 
+                if (isset($item['MediumImage']['URL']) && isset($item['DetailPageURL'])) {
+                    return array(   'imgUrl'  => $item['MediumImage']['URL'], 
                                     'pageUrl' => $item['DetailPageURL']);
                 }
             }   

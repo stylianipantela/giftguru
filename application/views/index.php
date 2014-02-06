@@ -1,85 +1,30 @@
-<br><br>
+<br><br><br><br>
 
-<div id="blocks">
-  <?php
-      // wishlist grids
-      $gridHtml = array();
-      $j = 0;
-      for ($i = 0; $i < 7; $i+=2) {   
-        $gridHtml[$i] = "<div class=\"block check1\" id=\"grid".($i+1)."\">";   
-        $gridHtml[$i] .= "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
-        $gridHtml[$i] .= "<tbody><tr><td><div class=\"block-icon quote\"></div><p>". $friendName . "'s Wish Item: </p>";
-        $gridHtml[$i] .= "<h4>" . $wishList[2*$j]['item_description']. "</h4></td></tr></tbody></table></div></div>";
-        $j++;
-      }
-      for ($i = 7; $i < 14; $i+=2){
-        // $imageUrl = "/html/images/cover3.jpg";
-        // TODO: Error checking and URL
-        $imgUrl = $imgUrls[$i-7]['imgUrl'];
-        $pageUrl = $imgUrls[$i-7]['pageUrl'];
-        $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imgUrl.") no-repeat center; background-size: cover;\"></div>";
-      } 
-      $j = 0;
-      for ($i = 8; $i < 14; $i+=2) {
-        $gridHtml[$i] = "<div class=\"block check1\" id=\"grid". ($i+1) ."\">";   
-        $gridHtml[$i] .= "<div class='block-inner'><table style=\"height: 100%; width: 100%;\">";
-        $gridHtml[$i] .= "<tbody><tr><td><div class=\"block-icon quote\"></div><p>". $friendName . "'s Wish Item: </p>";    
-        // $gridHtml[$i] .= "<p>". $questions[$j]['question_text'] . ": </p>";
-        // $gridHtml[$i] .= "<h4>". $answers[$j]['answer_text'] . "</h4></td></tr></tbody></table></div></div>";
-        $gridHtml[$i] .= "<h4>" . $wishList[2*$j+1]['item_description']. "</h4></td></tr></tbody></table></div></div>";
-        $j++;
-      }
-      for ($i = 1; $i < 7; $i+=2){
-        //$imageUrl = "/html/images/cover3.jpg";
-        $imgUrl = $imgUrls[$i]['imgUrl'];
-        $pageUrl = $imgUrls[$i]['pageUrl'];
-         $gridHtml[$i] = "<div class=\"block check2\" style=\"background: url(".$imgUrl.") no-repeat center; background-size: cover;\"></div>";
-      }
+<h1 align="center">Guru's Picks for <?= $friendName?></h1><br>
 
-      //print_r($gridHtml);
-  ?>
-  <div class="block-row">
+<div class="container">
       <?php
-        for ($i = 0; $i<7; $i++){
-          echo $gridHtml[$i];
+        for ($j = 0; $j < 7; $j++) {
+          $prod = $prods[$j];
+          echo "<div class=\"row\">";
+          for ($i = 0; $i<3; $i++){
+            $imgUrl = $prod[$i]['imgUrl'];
+            $pageUrl = $prod[$i]['pageUrl'];
+            echo "<div class=\"col-md-4 col-xs-6\">";
+            echo " <div class=\"thumbnail\" align=\"center\"><br>";
+            echo "<h4>" . $prod[$i]['title'] . "</h4>";
+            echo "<p><a href=\"". $pageUrl . "\" target=\"_blank\"><img src=\"". $imgUrl ."\" width=\"80%\" height=\"80%\" alt=\"\"></a></p>";
+            echo "<p>" . $prod[$i]['price'] . "</p>";
+            echo "<p><a href=\"". $pageUrl . " \" class=\"btn btn-success\" data-toggle=\"tooltip\" title=\"Email\"><span class=\"glyphicon glyphicon-envelope\"></span></a> ";
+            echo "<a href=\"". $pageUrl . " \" class=\"btn btn-info\" data-toggle=\"tooltip\" title=\"More Info\"><span class=\"glyphicon glyphicon-info-sign\"></span></a> ";
+            echo "<a href=\"". $pageUrl . " \" class=\"btn btn-danger\" data-toggle=\"tooltip\" title=\"Like\"><span class=\"glyphicon glyphicon-heart\"></span></a> ";  
+            echo "<a href=\"". $pageUrl . " \" class=\"btn btn-warning\" data-toggle=\"tooltip\" title=\"Star\"><span class=\"glyphicon glyphicon-star\"></span></a></p>";  
+            echo "</div>";
+            echo "</div>";
+          }  
+          echo "</div>";
         }
+        
       ?>
-  </div>
-
-  <div class="block-row">
-    <?php
-      // print HTML of all grids
-      for ($i = 7; $i<14; $i++){
-        echo $gridHtml[$i];
-      }
-    ?>
-  </div>
 </div>
 
-<div id="gurupicks">
-<div style="margin-left:70px; text-align:center; font-weight:50; font-size:36px" id="amazonKeyword"> Guru's Picks </div>
-  <div style="margin-left:40px"><br>
-    <div class="col-md-1 row" style="height:168px" ><img src='/html/images/leftArrow2.png' width='60' style="margin-top: 35px"></div>
-    <div class="col-md-10" id="amazonProducts">
-      <?php
-          if (isset($wishListRecs[0])) {
-            $item = $wishListRecs[0];
-            for ($i = 0; $i < 6; $i++) {
-              echo "<div class='col-md-2'> <a class='thumbnail' href=\"" . $item[$i]['pageUrl'] . "\" target=\"_blank\">";
-              echo "<img src=\"" . $item[$i]['imgUrl'] ."\"></a>";
-              echo "<div class='pdtPrice'>" . $item[$i]['price'] . "</div>";
-              echo "<div class='pdtTitle'>" . $item[$i]['title'] . "</div></div>";
-            }
-          }
-          else {
-            for ($i = 0; $i < 6; $i++) {
-              echo "<div class='col-md-2'> <a class='thumbnail' href=\"\" target=\"_blank\"></a>";
-              echo "<div class='pdtPrice'></div>";
-              echo "<div class='pdtTitle'></div></div>";
-            }
-          }
-      ?>
-    </div>
-    <div class="col-md-1 row" style="height:168px" ><img src='/html/images/rightArrow2.png' width='60' style="margin-top: 35px"></div>
-  </div>
-</div>
