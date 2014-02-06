@@ -21,10 +21,12 @@ class Welcome extends CI_Controller {
         // print_r ($this->friendList);
 
         $wishList = $this->Wishlist->getWishListItems($friendId);
-
+        $prods = array ();
         if ($friendId != -1) {
             for ($i=0; $i < 7; $i++) {
-                $prods[] = $this->myamazon->lookup('All', $wishList[$i]['item_description']);
+                // $prods[] = $this->myamazon->lookup('All', $wishList[$i]['item_description']);
+                $prods = array_merge($prods, $this->myamazon->lookup('All', $wishList[$i]['item_description']));
+
             }
         }
         // print_r ($imgUrls);
@@ -38,6 +40,9 @@ class Welcome extends CI_Controller {
             "prods" => $prods
             ));
         $this->load->view('templates/footer');
+    }
+    public function search() {
+        $this->load->view('search');
     }
 
 	public function myprofile(){
