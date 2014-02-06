@@ -29,14 +29,12 @@
     </div>
         
     <!-- row 3 -->
-    <div >
+    <div class="row">
         <div class="col-md-3 col-xs-6">
             <p><img src="img/gsd.jpg" alt=""></p>
             <h4>Thanks for helping our German Shepherd</h4>
             <p>During the summer, my German Shorthair Pointer, Tonto, began to have severe redness and itching on his belly and feet. Through diagnostic testing, we learned that Tonto is severely allergic to over a dozen kinds of grass pollens.</p>
             <p><a href="#">Read more >></a></p>
-        </div>
-        <div class="col-md-3 col-xs-6">
             <p><img src="img/kitten.jpg" alt=""></p>
             <h4>Our diabetic kitty is better</h4>
             <p>When Samantha, our sweet kitten, began sleeping all the time and urinating excessively, we brought her to see the specialists at Wisdom. After running a blood test, Dr. Winthrop confirmed what we all feared – Samantha was showing signs of diabetes. </p>
@@ -47,8 +45,6 @@
             <h4>Our grape-loving dog</h4>
             <p>The staff at Wisdom worked tirelessly to determine why our three-year old bulldog, Roxie, started going into sudden kidney failure. They stabilized her and provided fluids until her kidneys were again functioning normal, but it was still a mystery as to what caused her health to decline so quickly. </p>
             <p><a href="#">Read more >></a></p>
-        </div>
-        <div class="col-md-3 col-xs-6">
             <p><img src="img/goldfish.jpg" alt=""></p>
             <h4>A dog antibiotic cured our fish</h4>
             <p>Wisdom Pet Medicine is the only clinic around that will even book pet fish for appointments. When our 13-year old goldfish, McAllister, turned from silvery white to an angry red, we called around, urgently trying to find a veterinarian who could help. Wisdom not only got us in the same day, but also was able to diagnose McAllister as having a severe case of septicemia. </p>
@@ -59,8 +55,6 @@
             <h4>Thanks for helping our German Shepherd</h4>
             <p>During the summer, my German Shorthair Pointer, Tonto, began to have severe redness and itching on his belly and feet. Through diagnostic testing, we learned that Tonto is severely allergic to over a dozen kinds of grass pollens.</p>
             <p><a href="#">Read more >></a></p>
-        </div>
-        <div class="col-md-3 col-xs-6">
             <p><img src="img/kitten.jpg" alt=""></p>
             <h4>Our diabetic kitty is better</h4>
             <p>When Samantha, our sweet kitten, began sleeping all the time and urinating excessively, we brought her to see the specialists at Wisdom. After running a blood test, Dr. Winthrop confirmed what we all feared – Samantha was showing signs of diabetes. </p>
@@ -71,8 +65,6 @@
             <h4>Our grape-loving dog</h4>
             <p>The staff at Wisdom worked tirelessly to determine why our three-year old bulldog, Roxie, started going into sudden kidney failure. They stabilized her and provided fluids until her kidneys were again functioning normal, but it was still a mystery as to what caused her health to decline so quickly. </p>
             <p><a href="#">Read more >></a></p>
-        </div>
-        <div class="col-md-3 col-xs-6">
             <p><img src="img/goldfish.jpg" alt=""></p>
             <h4>A dog antibiotic cured our fish</h4>
             <p>Wisdom Pet Medicine is the only clinic around that will even book pet fish for appointments. When our 13-year old goldfish, McAllister, turned from silvery white to an angry red, we called around, urgently trying to find a veterinarian who could help. Wisdom not only got us in the same day, but also was able to diagnose McAllister as having a severe case of septicemia. </p>
