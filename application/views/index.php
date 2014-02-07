@@ -22,15 +22,9 @@
           $str[$i] .= "</div>";
           $counter++;
         }  
-        echo "<div class=\"col-md-4 col-xs-6\">";
-        echo $str[0];
-        echo "</div>"; 
-        echo "<div class=\"col-md-4 col-xs-6\">";
-        echo $str[1];
-        echo "</div>"; 
-        echo "<div class=\"col-md-4 col-xs-6\">";
-        echo $str[2];
-        echo "</div>"; 
+        echo "<div class=\"col-md-4 col-xs-6\">" . $str[0] . "</div>"; 
+        echo "<div class=\"col-md-4 col-xs-6\">" . $str[1] . "</div>"; 
+        echo "<div class=\"col-md-4 col-xs-6\">" . $str[2] . "</div>"; 
         echo "</div>";      
       ?>
 </div>

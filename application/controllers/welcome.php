@@ -21,6 +21,9 @@ class Welcome extends CI_Controller {
         // print_r ($this->friendList);
 
         $wishList = $this->Wishlist->getWishListItems($friendId);
+        // print_r ($wishList);
+        $wishList[0]['item_description'] = "chocolate bacon";
+        $wishList[1]['item_description'] = "macbook sticker";
         $prods = array ();
         if ($friendId != -1) {
             for ($i=0; $i < 7; $i++) {
@@ -46,19 +49,10 @@ class Welcome extends CI_Controller {
     }
 
 	public function myprofile(){
-        $this->load->model('Wishlist');
-        $list_id = $this->Wishlist->getWishListId($this->user_id);
-        $wishListItems = $this->Wishlist->getWishListItems($this->user_id);
-        $questions = $this->Wishlist->getQuestions();
-        // if (!isset($this->friendList)) {
-        //     $this->friendList = $this->Wishlist->getFriendList($this->user_id);
-        // }
-        $this->load->view('templates/header', 
-            array('title' => 'About', 
+		$this->load->view('profile', array('title' => 'My Profile', 
                 'friendList' => $this->friendList, 
                 'friendName' => "?"));
-		$this->load->view('profile', array('name' => 'me', "wishListItems" => $wishListItems,"questions" => $questions));
-		$this->load->view('templates/footer');
+        $this->load->view('templates/footer');
     }
 
     public function deleteItem() {
