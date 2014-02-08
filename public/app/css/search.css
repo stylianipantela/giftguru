@@ -1,0 +1,16 @@
+body {
+    background: #e5e5e5;
+    color: rgb(68, 68, 68);
+}
+
+
+.thumbnail {
+  border-radius: 7px;
+  box-shadow: 0 10px 10px rgba(1,0,0,0.2);
+}
+
+.Parentdiv{
+position:relative;
+width:100%;
+height:100%;
+}
