@@ -2,9 +2,12 @@
 
 // set up ========================
 var express  = require('express');
+var logfmt = require("logfmt");
 var app      = express(); 								// create our app w/ express
 
+
 // configuration =================
+app.use(logfmt.requestLogger());
 
 app.configure(function() {
 	app.use(express.static(__dirname + '/public/app')); 		// set the static files location /public/img will be /img for users
@@ -13,8 +16,11 @@ app.configure(function() {
 	app.use(express.methodOverride()); 						// simulate DELETE and PUT
 });
 
-// listen (start app with node server.js) ======================================
-app.listen(5000);
-console.log("App listening on port 5000");
+// app.get('/', function(req, res) {
+//   res.send('Hello World!');
+// });
 
-
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
