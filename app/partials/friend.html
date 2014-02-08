@@ -10,8 +10,9 @@
       <li ng-repeat = "gift in gifts.results" class="thumbnail" align="center"><br>
       	<h4>  {{gift.title}} </h4>
       	<p>
-      		<a href="#/phones/{{gift.id}}" target="_blank">
-      		<img ng-src="{{gift.im}}" width="80%" height="80%" alt=""></a>
+      		<a href="#/gift/{{gift.id}}" target="_blank">
+      			<img ng-src="{{gift.imgUrl}}" width="80%" height="80%" alt="">
+      		</a>
       	</p>
       	<p>  {{gift.price}} </p>
       	<p>

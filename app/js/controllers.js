@@ -13,6 +13,7 @@ angular.module('myApp.controllers', []).
   		$http.get('data/data.json').success(function(data) {
       	$scope.gifts = data;
       });
+  	// TODO: check empty json
   }])
   .controller('MyCtrl2', [function() {
   		
