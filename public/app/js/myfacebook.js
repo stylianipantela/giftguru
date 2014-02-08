@@ -1,52 +1,153 @@
-var facebookApp = angular.module('facebookApp', ['ngAnimate']);
-
-facebookApp.animation('.phone', function() {
-
-  var animateUp = function(element, className, done) {
-    if(className != 'active') {
-      return;
+var facebookApp = angular.module('facebookApp', ['facebook']);
+  
+  facebookApp.config([
+    'FacebookProvider',
+    function(FacebookProvider) {
+     var myAppId = '423840851054944';
+     
+     // You can set appId with setApp method
+     // FacebookProvider.setAppId('myAppId');
+     
+     /**
+      * After setting appId you need to initialize the module.
+      * You can pass the appId on the init method as a shortcut too.
+      */
+     FacebookProvider.init(myAppId);
+     
     }
-    element.css({
-      position: 'absolute',
-      top: 500,
-      left: 0,
-      display: 'block'
-    });
-
-    jQuery(element).animate({
-      top: 0
-    }, done);
-
-    return function(cancel) {
-      if(cancel) {
-        element.stop();
+  ])
+  
+  facebookApp.controller('MainController', [
+    '$scope',
+    '$timeout',
+    'Facebook',
+    function($scope, $timeout, Facebook) {
+      
+      // Define user empty data :/
+      $scope.user = {};
+      
+      // Defining user logged status
+      $scope.logged = false;
+      
+      // And some fancy flags to display messages upon user status change
+      $scope.byebye = false;
+      $scope.salutation = false;
+      
+      /**
+       * Watch for Facebook to be ready.
+       * There's also the event that could be used
+       */
+      $scope.$watch(
+        function() {
+          return Facebook.isReady();
+        },
+        function(newVal) {
+          if (newVal)
+            $scope.facebookReady = true;
+        }
+      );
+      
+      /**
+       * IntentLogin
+       */
+      $scope.IntentLogin = function() {
+        Facebook.getLoginStatus(function(response) {
+          if (response.status == 'connected') {
+            $scope.logged = true;
+            $scope.me(); 
+          }
+          else
+            $scope.login();
+        });
+      };
+      
+      /**
+       * Login
+       */
+       $scope.login = function() {
+         Facebook.login(function(response) {
+          if (response.status == 'connected') {
+            $scope.logged = true;
+            $scope.me();
+          }
+        
+        });
+       };
+       
+       /**
+        * me 
+        */
+        $scope.me = function() {
+          Facebook.api('/me', function(response) {
+            /**
+             * Using $scope.$apply since this happens outside angular framework.
+             */
+            $scope.$apply(function() {
+              $scope.user = response;
+            });
+            
+          });
+        };
+      
+      /**
+       * Logout
+       */
+      $scope.logout = function() {
+        Facebook.logout(function() {
+          $scope.$apply(function() {
+            $scope.user   = {};
+            $scope.logged = false;  
+          });
+        });
       }
-    };
-  }
-
-  var animateDown = function(element, className, done) {
-    if(className != 'active') {
-      return;
+      
+      /**
+       * Taking approach of Events :D
+       */
+      $scope.$on('Facebook:statusChange', function(ev, data) {
+        console.log('Status: ', data);
+        if (data.status == 'connected') {
+          $scope.$apply(function() {
+            $scope.salutation = true;
+            $scope.byebye     = false;    
+          });
+        } else {
+          $scope.$apply(function() {
+            $scope.salutation = false;
+            $scope.byebye     = true;
+            
+            // Dismiss byebye message after two seconds
+            $timeout(function() {
+              $scope.byebye = false;
+            }, 2000)
+          });
+        }
+        
+        
+      });
+      
+      
     }
-    element.css({
-      position: 'absolute',
-      left: 0,
-      top: 0
-    });
-
-    jQuery(element).animate({
-      top: -500
-    }, done);
-
-    return function(cancel) {
-      if(cancel) {
-        element.stop();
+  ])
+  
+  /**
+   * Just for debugging purposes.
+   * Shows objects in a pretty way
+   */
+  facebookApp.directive('debug', function() {
+    return {
+      restrict: 'E',
+      scope: {
+        expression: '=val'
+      },
+      template: '<pre>{{debug(expression)}}</pre>',
+      link: function(scope) {
+        // pretty-prints
+        scope.debug = function(exp) {
+          return angular.toJson(exp, true);
+        };
       }
-    };
-  }
-
-  return {
-    addClass: animateUp,
-    removeClass: animateDown
-  };
-});
+    }
+  })
+  
+  ;
