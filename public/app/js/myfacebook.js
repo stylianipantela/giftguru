@@ -3,7 +3,7 @@ var facebookApp = angular.module('facebookApp', ['facebook']);
   facebookApp.config([
     'FacebookProvider',
     function(FacebookProvider) {
-     var myAppId = '423840851054944';
+     var myAppId = '602143143167099';
      
      // You can set appId with setApp method
      // FacebookProvider.setAppId('myAppId');
