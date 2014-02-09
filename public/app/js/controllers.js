@@ -33,7 +33,8 @@ angular.module('myApp.controllers', []).
       window.jsonp_callback = function(data) {
         $scope.gifts = data.results;
       }
-  		$http.jsonp('http://giftguruapi.herokuapp.com/products/nutella/jsonp_callback');
+      // TODO hardcode user_id
+  		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/11/jsonp_callback');
   // TODO: check empty json
   }])
   .controller('FacebookCtrl', function ($scope) {
