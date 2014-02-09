@@ -2,6 +2,19 @@
 
 /* Controllers */
 angular.module('myApp.controllers', []).
+  //  controller('MyProfileCtrl', function($scope, $http) {
+  //   var url = "http://giftguruapi.herokuapp.com/get_user/st.pantela@hotmail.com/JSON_CALLBACK";
+
+  //   $http.jsonp(url).
+  //     success(function(data, status, headers, config) {
+  //       $scope.user_id = data.results;
+  //       };
+  //     }).
+  //     error(function(data, status, headers, config) {
+  //       console.error('Error fetching feed:', data);
+  //     });
+  // })
+
   controller('MyProfileCtrl', ['$scope', '$http', 
      function($scope,$http){
       $scope.user_id = 11;
@@ -15,10 +28,10 @@ angular.module('myApp.controllers', []).
       }
       $http.jsonp('http://giftguruapi.herokuapp.com/get_questions_without_answer/'+ $scope.user_id +'/jsonp_callback');
       
-      // window.getAnswer_callback = function(data) {
-      //   $scope.answers = data.results;
-      // }
-      // $http.jsonp('http://giftguruapi.herokuapp.com/get_answers/'+ $scope.user_id +'/getAnswer_callback');
+      window.getAnswer_callback = function(data) {
+        $scope.answers = data.results;
+      }
+      $http.jsonp('http://giftguruapi.herokuapp.com/get_answers/'+ $scope.user_id +'/getAnswer_callback');
 
 
       $scope.list = [];
