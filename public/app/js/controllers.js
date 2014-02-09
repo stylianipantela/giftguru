@@ -23,11 +23,13 @@ angular.module('myApp.controllers', []).
 
       $scope.list = [];
       $scope.text = '';
-      $scope.testf = function(text) {
+      var id = -9;
+      $scope.testf = function(text) { 
+          id = id + 10;
           window.setAnswer_callback = function(data) {
             //$scope.setAnswerStatus = data.results;
           }
-          $http.jsonp('http://giftguruapi.herokuapp.com/set_answer/411/1/'+ text +'/setAnswer_callback');
+          $http.jsonp('http://giftguruapi.herokuapp.com/set_answer/411/'+id +'/' + text +'/setAnswer_callback');
       };
 
 
