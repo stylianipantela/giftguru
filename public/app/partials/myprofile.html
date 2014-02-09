@@ -1,79 +1,20 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div ng-repeat = "question in questions" class="col-md-4">
             <div class="thumbnail" align="center">
-                <h4>Favorite Food</h4>
+                <h4>{{question.question_text}}</h4>
+                <!--
                 <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a class="btn btn-success insert">Enter</a></p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Dream Destination</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
+                -->
+                <form name="formuser" ng-submit="submit(answer)">
+                    <input type="text" ng-model="answer" autofocus placeholder="Top Secret" type="text"/>
+                    <br><br>
+                    <a class="btn btn-success insert" type="submit">Enter</a>
+                </form>
 
             </div>
-        </div><div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Idol</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Favorite Song</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Secret Desire</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div><div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Movie</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Band</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Snack</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div><div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Restaurant</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>European City</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Ethnic Cuisine</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div><div class="col-md-4">
-            <div class="thumbnail" align="center">
-                <h4>Hobby</h4>
-                <p><input autofocus placeholder="Top Secret" type="text"/><br><br><a id="bla" href="#" class="btn btn-success insert" data-toggle="tooltip">Enter</a></p>
-            </div>
-        </div>
-    </div>
+    
+    <a href="#" class="circle-responsive">Generate My Gifts</a>
 </div>
