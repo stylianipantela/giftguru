@@ -19,12 +19,18 @@ angular.module('myApp.controllers', []).
       }
       $http.jsonp('http://giftguruapi.herokuapp.com/get_answers/{{user_id}}/userid_callback');
       
-      $scope.submit = function(answer) {
-        window.setAnswer_callback = function(data) {
-          $scope.set_answer = data.results;
+      $scope.list = [];
+      $scope.text = '';
+      $scope.submit = function() {
+        if (this.text) {
+          this.list.push(this.text);
+          this.text = '';
+          window.setAnswer_callback = function(data) {
+            $scope.setAnswerStatus = data.results;
+          }
+          // $http.jsonp('http://giftguruapi.herokuapp.com/set_answers/{{user_id}}/1/{{this.text}}/setAnswer_callback');
         }
-        $http.jsonp('http://giftguruapi.herokuapp.com/set_answer/{{user_id}}/1/{{answer}}/setAnswer_callback');
-      }
+  };
   }])
   
   .controller('RecResultCtrl', ['$scope', '$routeParams', '$http', 
