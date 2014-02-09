@@ -10,9 +10,7 @@ angular.module('myApp.controllers', []).
 
   	function($scope, $routeParams, $http){
       window.jsonp_callback = function(data) {
-        $scope.gifts1 = data.results;
-        $scope.gifts2 = data.results;
-        $scope.gifts3 = data.results;
+        $scope.gifts = data.results;
       }
   		$http.jsonp('http://giftguruapi.herokuapp.com/products/nutella/jsonp_callback');
   // TODO: check empty json
