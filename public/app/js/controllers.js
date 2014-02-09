@@ -26,12 +26,12 @@ angular.module('myApp.controllers', []).
       window.jsonp_callback = function(data) {
         $scope.questions = data.results;
       }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_questions_without_answer/'+ $scope.user_id +'/jsonp_callback');
+      $http.jsonp('http://giftguruapi.herokuapp.com/get_questions_without_answer/11/jsonp_callback');
       
       window.getAnswer_callback = function(data) {
         $scope.answers = data.results;
       }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_answers/'+ $scope.user_id +'/getAnswer_callback');
+      $http.jsonp('http://giftguruapi.herokuapp.com/get_answers/11/getAnswer_callback');
 
 
       $scope.list = [];
