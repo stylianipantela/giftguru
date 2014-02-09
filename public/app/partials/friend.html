@@ -1,24 +1,18 @@
-<!-- <div class="container">
+<div class="container">
     <div class="row">
-    <ul>
-      <li ng-repeat = "gift in gifts.results" class="thumbnail" align="center"><br>
-      	<h4>  {{gift.title}} </h4>
-      	<p>
-      		<a href="#/gift/{{gift.id}}" target="_blank">
-      			<img ng-src="{{gift.imgUrl}}" width="80%" height="80%" alt="">
-      		</a>
-      	</p>
-      	<p>  {{gift.price}} </p>
-      	<p>
-      		<a href="#" class="btn btn-success" title="Email"><span class="glyphicon glyphicon-envelope"></span></a> 
-       		<a href="#" class="btn btn-info" title="More Info"><span class="glyphicon glyphicon-info-sign"></span></a>
-      		<a href="#" class="btn btn-danger" title="Like"><span class="glyphicon glyphicon-heart"></span></a>
-       		<a href="#" class="btn btn-warning" title="Staspan"><span class="glyphicon glyphicon-star"></span></a>
-       	</p>  
-      </li>
-  </ul>
+      <div ng-repeat = "gift in gifts" class="col-md-4" align="center">
+        <div class="thumbnail">
+          <br>
+        	<h4>  {{gift.title}} </h4>
+        	<p><a href="#/gift/{{gift.id}}" target="_blank"><img ng-src="{{gift.imgUrl}}" width="50%" height="50%" alt=""></a></p>
+        	<p>  {{gift.price}} </p>
+        	<p>
+        	<a href="#" class="btn btn-success" title="Email"><span class="glyphicon glyphicon-envelope"></span></a> 
+         	<a href="#" class="btn btn-info" title="More Info"><span class="glyphicon glyphicon-info-sign"></span></a>
+        	<a href="#" class="btn btn-danger" title="Like"><span class="glyphicon glyphicon-heart"></span></a>
+         	<a href="#" class="btn btn-warning" title="Staspan"><span class="glyphicon glyphicon-star"></span></a>
+         	</p>  
+         </div>
+      </div>
    </div>  
-</div> -->
-
-{{gifts | json}}
-Hello!
+</div>

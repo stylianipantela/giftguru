@@ -1,11 +1,6 @@
 'use strict';
 
 /* Controllers */
-function jsonp_callback2 (data) {
-    // returning from async callbacks is (generally) meaningless
-    console.log(data);
-}
-
 angular.module('myApp.controllers', []).
   controller('MyCtrl1', [function() {
   }])
@@ -16,11 +11,11 @@ angular.module('myApp.controllers', []).
 
   	function($scope, $routeParams, $http){
       window.jsonp_callback = function(data) {
-        $scope.gifts = data.results;
+        $scope.gifts1 = data.results;
+        $scope.gifts2 = data.results;
+        $scope.gifts3 = data.results;
       }
-  		$http.jsonp('http://giftguruapi.herokuapp.com/products/nutella/jsonp_callback').success(function(data) {
-        console.log("hello");
-      });
+  		$http.jsonp('http://giftguruapi.herokuapp.com/products/nutella/jsonp_callback');
       }])
   	// TODO: check empty json
   .controller('MyCtrl2', [function() {
