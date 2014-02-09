@@ -1,5 +1,6 @@
-<h4 align="center"> Fill in the remaining questions to feed our Recommender </h4>
 <div class="container">
+    <h4 align="left"> Fill in the remaining questions to feed our Recommender </h4>
+
     <div class="row">
         <div ng-repeat = "question in questions" class="col-md-4">
             <div class="thumbnail" align="center">
@@ -7,11 +8,23 @@
                 <form ng-submit="submit()">
                   <input type="text" ng-model="text" name="text" />
                   <br><br>
-                  <input class="btn btn-success insert" type="submit" id="submit" value="Submit" />
-                  <pre>list={{user_id}}</pre>
+                  <input ng-click="insertValue(question.question_id)" class="btn btn-success insert" type="submit" id="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <h4 align="left"> Check out your answers </h4> -->
+
+    <div class="row">
+        <div ng-repeat = "answer in answers" class="col-md-4">
+            <div class="thumbnail" align="center">
+                <h4>{{answer.question_text}}</h4><br>
+                <form ng-submit="submit()">
+                  {{answer.answer_text}}
+                  <br><br>
+                  <input class="btn btn-danger remove" type="submit" value="Remove" />
                 </form>
             </div>
         </div>
     </div>
 </div>
-
