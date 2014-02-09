@@ -1,26 +1,7 @@
 <div data-ng-controller="MainController">
+
     <div class="container">
-
-    <div>
-    <table class = "table table-stripled">
-    	<thead>
-	        <tr>
-	            <td><strong>Friend Name</strong></td>
-	            <td>Friend Picture</td>
-	        </tr>
-    	</thead>
-    	
-
-    	<tbody>
-			<tr ng-repeat = "friend in friends.data">
-				<td> {{friend.name}} </td>
-				<td> <img ng-src='https://graph.facebook.com/{{friend.id}}/picture'> </td>
-			</tr>
-		</tbody>
-	</table>
-	</div>
-
-      <div class="row">
+ <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
           <div>
             <div class="alert alert-info" data-ng-show="salutation">Hello, {{user.name}}</div>
@@ -35,7 +16,37 @@
           </div>
           
         </div>
-      </div>
+</div>
+	<br><br><br>
+    Search: <input ng-model="query">
+    Sort by:
+    <select ng-model="orderProp">
+    	<option value="birthday"> Birthday </option>
+    	<option value = "name"> Name </option>
+    </select>
+    <table class = "table table-stripled">
+    	<thead>
+	        <tr>
+	            <td><strong>Friend Name</strong></td>
+	            <td>Friend Picture</td>
+	            <td>Friend Birthday </td>
+	            <td>Friend Movie </td>
+	        </tr>
+    	</thead>
+    	
+
+    	<tbody>
+			<tr ng-repeat = "friend in friends.data | filter: query | orderBy: orderProp">
+				<td> <a href="#/friend/{{friend.id}}"> {{friend.name}}  </a> </td>
+				<td> <img ng-src='https://graph.facebook.com/{{friend.id}}/picture'> </td>
+				<td> {{friend.birthday}} </td>
+				<td> {{friend.id}} </td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+
+     
     </div>
     
   </div>
