@@ -3,6 +3,11 @@
     <div class="container">
 
     Search: <input ng-model="query">
+    Sort by:
+    <select ng-model="orderProp">
+    	<option value="birthday"> Birthday </option>
+    	<option value = "name"> Name </option>
+    </select>
     <table class = "table table-stripled">
     	<thead>
 	        <tr>
@@ -15,7 +20,7 @@
     	
 
     	<tbody>
-			<tr ng-repeat = "friend in friends.data | filter: query">
+			<tr ng-repeat = "friend in friends.data | filter: query | orderBy: orderProp">
 				<td> {{friend.name}} </td>
 				<td> <img ng-src='https://graph.facebook.com/{{friend.id}}/picture'> </td>
 				<td> {{friend.birthday}} </td>
