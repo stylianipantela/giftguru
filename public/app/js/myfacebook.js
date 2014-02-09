@@ -87,6 +87,14 @@ var facebookApp = angular.module('facebookApp', ['facebook']);
             });
             
           });
+
+          Facebook.api('/me/friends?fields=id,name,birthday', 
+            function(response) {
+              $scope.$apply(function() {
+                $scope.friends = response;
+            });
+            
+          });
         };
       
       /**
@@ -133,7 +141,7 @@ var facebookApp = angular.module('facebookApp', ['facebook']);
   /**
    * Just for debugging purposes.
    * Shows objects in a pretty way
-   */
+   
   facebookApp.directive('debug', function() {
     return {
       restrict: 'E',
@@ -149,5 +157,5 @@ var facebookApp = angular.module('facebookApp', ['facebook']);
       }
     }
   })
-  
+  */
   ;
