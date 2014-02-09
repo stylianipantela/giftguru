@@ -12,10 +12,14 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/about', 
+    {templateUrl: 'partials/about.html', controller: 'MyProfileCtrl'});
   $routeProvider.when('/myprofile', 
   	{templateUrl: 'partials/myprofile.html', controller: 'MyProfileCtrl'});
   $routeProvider.when('/friend', 
-  	{templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
+    {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
+  $routeProvider.when('/friend/:user_id', 
+    {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
   $routeProvider.when('/facebook', 
     {templateUrl: 'partials/facebook.html', controller: 'FacebookCtrl'});
   $routeProvider.otherwise({redirectTo: '/myprofile'});
