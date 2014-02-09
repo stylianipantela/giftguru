@@ -5,15 +5,15 @@ angular.module('myApp.controllers', []).
   controller('MyProfileCtrl', ['$scope', '$http', 
      function($scope,$http){
       $scope.user_id = 11;
-      window.userid_callback = function(data) {
-        $scope.user_id = data.results;
-      }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_user/st.pantela@hotmail.com/userid_callback');
+      // window.userid_callback = function(data) {
+      //   $scope.user_id = data.results;
+      // }
+      // $http.jsonp('http://giftguruapi.herokuapp.com/get_user/st.pantela@hotmail.com/userid_callback');
       
       window.jsonp_callback = function(data) {
         $scope.questions = data.results;
       }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_questions_without_answer/'+ $scope.user_id +'/jsonp_callback');
+      $http.jsonp('http://giftguruapi.herokuapp.com/get_questions_without_answer/11/jsonp_callback');
       
       // window.getAnswer_callback = function(data) {
       //   $scope.answers = data.results;
@@ -23,14 +23,13 @@ angular.module('myApp.controllers', []).
 
       $scope.list = [];
       $scope.text = '';
-      $scope.submit = function() {
-        if (this.text) {
+      $scope.testf = function(text) {
           window.setAnswer_callback = function(data) {
-            $scope.setAnswerStatus = data.results;
+            //$scope.setAnswerStatus = data.results;
           }
-          $http.jsonp('http://giftguruapi.herokuapp.com/set_answer/'+ $scope.user_id + '/'+ $this.text +'/setAnswer_callback');
-        }
+          $http.jsonp('http://giftguruapi.herokuapp.com/set_answer/411/1/'+ text +'/setAnswer_callback');
       };
+
 
   }])
   
