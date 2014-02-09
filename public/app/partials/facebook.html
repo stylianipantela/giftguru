@@ -1,5 +1,5 @@
 <div data-ng-controller="MainController">
-{{movies}}
+
     <div class="container">
 
     Search: <input ng-model="query">
@@ -8,7 +8,8 @@
 	        <tr>
 	            <td><strong>Friend Name</strong></td>
 	            <td>Friend Picture</td>
-	            <td>Friend Likes </td>
+	            <td>Friend Birthday </td>
+	            <td>Friend Movie </td>
 	        </tr>
     	</thead>
     	
@@ -17,7 +18,8 @@
 			<tr ng-repeat = "friend in friends.data | filter: query">
 				<td> {{friend.name}} </td>
 				<td> <img ng-src='https://graph.facebook.com/{{friend.id}}/picture'> </td>
-				<td>  </td>
+				<td> {{friend.birthday}} </td>
+				<td> {{friend.id}} </td>
 			</tr>
 		</tbody>
 	</table>

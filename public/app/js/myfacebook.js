@@ -71,7 +71,7 @@ var facebookApp = angular.module('facebookApp', ['facebook']);
             $scope.me();
           }
         
-        }, {scope: 'email,user_likes'});
+        }, {scope: 'email,user_likes,friends_birthday,friends_likes'});
        };
        
        /**
