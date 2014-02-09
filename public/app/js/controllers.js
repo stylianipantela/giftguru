@@ -7,17 +7,17 @@ angular.module('myApp.controllers', []).
       window.jsonp_callback = function(data) {
         $scope.questions = data.results;
       }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_questions/jsonp_callback');
+      $http.jsonp('http://giftguruapi.herokuapp.com/get_questions_without_answer/11/jsonp_callback');
       
       window.userid_callback = function(data) {
         $scope.user_id = data.results;
       }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_user/test9393@hotmail.com/userid_callback');
+      $http.jsonp('http://giftguruapi.herokuapp.com/get_user/st.pantela@hotmail.com/userid_callback');
       
       window.getAnswer_callback = function(data) {
         $scope.answers = data.results;
       }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_answers/{{user_id}}/userid_callback');
+      $http.jsonp('http://giftguruapi.herokuapp.com/get_answers/11/userid_callback');
       
       $scope.list = [];
       $scope.text = '';
