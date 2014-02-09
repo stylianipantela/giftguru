@@ -34,13 +34,13 @@ angular.module('myApp.controllers', []).
   }])
   
   .controller('RecResultCtrl', ['$scope', '$routeParams', '$http', 
-
   	function($scope, $routeParams, $http){
+      $scope.user_id = $routeParams.user_id;
       window.jsonp_callback = function(data) {
         $scope.gifts = data.results;
       }
       // TODO hardcode user_id
-  		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/11/jsonp_callback');
+  		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/'+ $scope.user_id +'/jsonp_callback');
   // TODO: check empty json
   }])
   .controller('FacebookCtrl', function ($scope) {
