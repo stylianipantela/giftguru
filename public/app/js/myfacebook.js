@@ -71,7 +71,7 @@ var facebookApp = angular.module('facebookApp', ['facebook']);
             $scope.me();
           }
         
-        });
+        }, {scope: 'email,user_likes'});
        };
        
        /**
@@ -95,6 +95,18 @@ var facebookApp = angular.module('facebookApp', ['facebook']);
             });
             
           });
+
+          Facebook.api('/me/movies', 
+            function(response) {
+              $scope.$apply(function() {
+                $scope.movies = response;
+            });
+            
+          });
+
+          FB.api('/me/permissions', function(r) {
+            console.log(r)
+          })
         };
       
       /**

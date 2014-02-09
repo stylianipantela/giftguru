@@ -1,20 +1,23 @@
 <div data-ng-controller="MainController">
+{{movies}}
     <div class="container">
 
-    <div>
+    Search: <input ng-model="query">
     <table class = "table table-stripled">
     	<thead>
 	        <tr>
 	            <td><strong>Friend Name</strong></td>
 	            <td>Friend Picture</td>
+	            <td>Friend Likes </td>
 	        </tr>
     	</thead>
     	
 
     	<tbody>
-			<tr ng-repeat = "friend in friends.data">
+			<tr ng-repeat = "friend in friends.data | filter: query">
 				<td> {{friend.name}} </td>
 				<td> <img ng-src='https://graph.facebook.com/{{friend.id}}/picture'> </td>
+				<td>  </td>
 			</tr>
 		</tbody>
 	</table>
