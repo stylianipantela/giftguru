@@ -1,3 +1,14 @@
+  <script type="text/javascript">
+  jQuery(document).ready(function() {
+    $(".insert").click(function() {
+      title = $(this).prev().prev().prev().prev().html();
+      title = "<h4>" + title + "</h4>";
+      item = $(this).prev().prev().prev().val();
+      item = "<h3>" + item + "</h3>" + "<a href=\"#\" class=\"btn btn-warning delete\">Remove</a>";
+      $(this).parent().html(title+item);
+      });
+  });
+  </script>
 <div class="container">
     <h4 align="left"> Fill in the remaining questions to feed our Recommender </h4>
 
@@ -20,7 +31,7 @@
                 <form ng-submit="submit()">
                   {{answer.answer_text}}
                   <br><br>
-                  <input class="btn btn-danger remove" type="submit" value="Remove" />
+                  <input class="btn btn-danger delete" type="submit" value="Remove" />
                 </form>
             </div>
         </div>
