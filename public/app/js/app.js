@@ -20,7 +20,7 @@ angular.module('myApp', [
     {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
   $routeProvider.when('/friend/:user_id', 
     {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
-  $routeProvider.when('/facebook', 
-    {templateUrl: 'partials/facebook.html', controller: 'FacebookCtrl'});
+  // $routeProvider.when('/facebook', 
+  //   {templateUrl: 'partials/facebook.html', controller: 'FacebookCtrl'});
   $routeProvider.otherwise({redirectTo: '/myprofile'});
 }]);
