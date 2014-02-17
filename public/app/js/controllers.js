@@ -1,12 +1,17 @@
 'use strict';
 
 /* Controllers */
-angular.module('myApp.controllers', []).
+angular.module('myApp.controllers', [])
 
-  controller('MyProfileCtrl', ['$scope', '$http', 
-     function($scope,$http){
+
+  .controller('MainCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
+      $scope.user = FBUser;
+  }])
+  
+  .controller('MyProfileCtrl', ['$scope', '$http', 'FBUser',
+     function($scope,$http, FBUser){
+      $scope.user = FBUser;
       var url = 'http://giftguruapi.herokuapp.com/get_user/lily9393@163.com/JSON_CALLBACK';
-
       function updateQA () {
         var qnurl = 'http://giftguruapi.herokuapp.com/get_questions_without_answer/' +$scope.user_id +'/JSON_CALLBACK';
         $http.jsonp(qnurl).success(function(data) {
@@ -41,6 +46,22 @@ angular.module('myApp.controllers', []).
   		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/'+ $scope.user_id +'/jsonp_callback');
   // TODO: check empty json
   }])
-  .controller('FacebookCtrl', function ($scope) {
-    
+
+  .controller('FacebookCtrl', function ($scope, facebookService) {
+    var fbConfig = {
+      method: 'feed',
+      name: 'enter a name here...',
+      //link: 'a link for your post...',
+      //picture: 'an image to include',
+      caption: 'a short caption...',
+      description: 'a slightly longer description...'
+    };
+
+   facebookService.post(fbConfig).then(
+      function (success) {
+        // the feed post was successful! celebrate!
+      },
+      function (failure) {
+        // womp womp :-(
+      });
   });

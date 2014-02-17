@@ -5,15 +5,15 @@
 angular.module('myApp', [
   'ngRoute',
   'phonecatAnimations',
-  'facebookApp',
+  //'facebookApp',
   'myApp.filters',
   'myApp.services',
   'myApp.directives',
   'myApp.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
+])
+.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/about', 
-    {templateUrl: 'partials/about.html', controller: 'MyProfileCtrl'});
+    {templateUrl: 'partials/about.html', controller: 'MainCtrl'});
   $routeProvider.when('/myprofile', 
   	{templateUrl: 'partials/myprofile.html', controller: 'MyProfileCtrl'});
   $routeProvider.when('/friend', 
