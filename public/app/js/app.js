@@ -5,7 +5,7 @@
 angular.module('myApp', [
   'ngRoute',
   'phonecatAnimations',
-  'facebookApp',
+  //'facebookApp',
   'myApp.filters',
   'myApp.services',
   'myApp.directives',
