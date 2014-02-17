@@ -1,17 +1,7 @@
-  <script type="text/javascript">
-  jQuery(document).ready(function() {
-    $(".insert").click(function() {
-      title = $(this).prev().prev().prev().prev().html();
-      title = "<h4>" + title + "</h4>";
-      item = $(this).prev().prev().prev().val();
-      item = "<h3>" + item + "</h3>" + "<a href=\"#\" class=\"btn btn-warning delete\">Remove</a>";
-      $(this).parent().html(title+item);
-      });
-  });
-  </script>
 <div class="container">
+
     <span>User logged in: {{user.authorized}}</span>
-    <h4 align="left"> Fill in the remaining questions to feed our Recommender </h4>
+    <h4 align="left"> Answer the following questions </h4>
 
     <div class="row">
         <div ng-repeat = "question in questions" class="col-md-4">
@@ -19,23 +9,23 @@
                 <h4>{{question.question_text}}</h4>
                   <input type="text" ng-model="text" name="text" />
                   <br><br>
-                  <input ng-click="testf(text)" class="btn btn-success insert" type="submit" id="submit" value="Submit" />
+                  <input ng-click="submitAnswer(question.question_id, text)" class="btn btn-success insert" type="submit" id="submit" value="Submit" />
             </div>
         </div>
     </div>
-    <!-- <h4 align="left"> Check out your answers </h4> -->
+
+    <h4 align="left"> Check out your answers </h4>
 
     <div class="row">
         <div ng-repeat = "answer in answers" class="col-md-4">
             <div class="thumbnail" align="center">
                 <h4>{{answer.question_text}}</h4><br>
-                <form ng-submit="submit()">
                   {{answer.answer_text}}
                   <br><br>
-                  <input class="btn btn-danger delete" type="submit" value="Remove" />
-                </form>
+                  <input ng-click="deleteAnswer(answer.question_id)" class="btn btn-danger delete" type="submit" value="Remove" />
             </div>
         </div>
     </div>
-    <a href ="#/friend/411"> generate my gifts </a>
+    <a href ="#/friend/{{user_id}}" align="center"><button class="btn btn-info" href="">Generate my gifts </button></a>
 </div>
+
