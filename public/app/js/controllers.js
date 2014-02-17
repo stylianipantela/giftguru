@@ -2,47 +2,36 @@
 
 /* Controllers */
 angular.module('myApp.controllers', []).
-  //  controller('MyProfileCtrl', function($scope, $http) {
-  //   var url = "http://giftguruapi.herokuapp.com/get_user/st.pantela@hotmail.com/JSON_CALLBACK";
-
-  //   $http.jsonp(url).
-  //     success(function(data, status, headers, config) {
-  //       $scope.user_id = data.results;
-  //       };
-  //     }).
-  //     error(function(data, status, headers, config) {
-  //       console.error('Error fetching feed:', data);
-  //     });
-  // })
 
   controller('MyProfileCtrl', ['$scope', '$http', 
      function($scope,$http){
-      $scope.user_id = 11;
-      // window.userid_callback = function(data) {
-      //   $scope.user_id = data.results;
-      // }
-      // $http.jsonp('http://giftguruapi.herokuapp.com/get_user/st.pantela@hotmail.com/userid_callback');
+      // $scope.user_id = 11;
+      var url = 'http://giftguruapi.herokuapp.com/get_user/st.pantela@hotmail.com/JSON_CALLBACK'
+      $http.jsonp(url).success(function(data) {
+          //$scope.$apply(function(scope) {
+            $scope.user_id = data.results;
+            console.log("inside"+$scope.user_id);
+          //}) 
+      });
+      console.log("outside"+$scope.user_id);
       
-      window.jsonp_callback = function(data) {
-        $scope.questions = data.results;
-      }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_questions_without_answer/11/jsonp_callback');
-      
-      window.getAnswer_callback = function(data) {
-        $scope.answers = data.results;
-      }
-      $http.jsonp('http://giftguruapi.herokuapp.com/get_answers/11/getAnswer_callback');
+      var qnurl = 'http://giftguruapi.herokuapp.com/get_questions_without_answer/' +$scope.user_id +'/JSON_CALLBACK'
+      $http.jsonp(qnurl).success(function(data) {
+          $scope.questions = data.results;
+      });
 
+      var ansurl = 'http://giftguruapi.herokuapp.com/get_answers/' + $scope.user_id +'/JSON_CALLBACK'
+      $http.jsonp(ansurl).success(function(data) {
+          $scope.answers = data.results;
+      });
 
-      $scope.list = [];
-      $scope.text = '';
       var id = -9;
       $scope.testf = function(text) { 
           id = id + 10;
           window.setAnswer_callback = function(data) {
             //$scope.setAnswerStatus = data.results;
           }
-          $http.jsonp('http://giftguruapi.herokuapp.com/set_answer/411/'+id +'/' + text +'/setAnswer_callback');
+          $http.jsonp('http://giftguruapi.herokuapp.com/set_answer/411/'+$scope.user_id +'/' + text +'/setAnswer_callback');
       };
 
 
