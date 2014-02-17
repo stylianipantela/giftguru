@@ -6,7 +6,8 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('myApp.services', [])
-  
+
+// referred to http://plnkr.co/edit/NAPFuwrUylcyUjejWm6N?p=preview  
 .service('facebook', ['$rootScope', '$window', function ($rootScope, $window) {
 
   this.askFacebookForAuthentication = function (fail, success) {
@@ -77,7 +78,7 @@ angular.module('myApp.services', [])
           fail('Login unsuccessful');
         }
       });
-    });
+    }, {scope: 'email,user_likes,friends_birthday,friends_likes'});
   };
 
   this.logout = function () {
@@ -87,6 +88,39 @@ angular.module('myApp.services', [])
       });
     });
   };
+
+  /**
+   * me 
+   */
+   this.me = function() {
+     facebook.FB.api('/me', function(response) {
+       /**
+        * Using $scope.$apply since this happens outside angular framework.
+        */
+       $rootScope.$apply(function() {
+         that.me = response;
+       });
+       
+   
+     /*Facebook.api('/me/friends?fields=id,name,birthday', 
+       function(response) {
+         $scope.$apply(function() {
+           $scope.friends = response;
+       });
+       
+   
+     Facebook.api('/me/movies', 
+       function(response) {
+         $scope.$apply(function() {
+           $scope.movies = response;
+       });
+       
+   
+     FB.api('/me/permissions', function(r) {
+       console.log(r)
+     })*/
+   });
+ };
 }]);
 
 
