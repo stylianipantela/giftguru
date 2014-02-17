@@ -4,13 +4,16 @@
 angular.module('myApp.controllers', [])
 
 
-  .controller('MainCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
-      $scope.user = FBUser;
+  // .controller('MainCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
+  .controller('MainCtrl', ['$scope', function($scope) {
+      //$scope.user = FBUser;
   }])
   
-  .controller('MyProfileCtrl', ['$scope', '$http', 'FBUser',
-     function($scope,$http, FBUser){
-      $scope.user = FBUser;
+  // .controller('MyProfileCtrl', ['$scope', '$http', 'FBUser',
+  .controller('MyProfileCtrl', ['$scope', '$http',
+     function($scope,$http){
+     //function($scope,$http, FBUser){
+      //$scope.user = FBUser;
       var url = 'http://giftguruapi.herokuapp.com/get_user/lily9393@163.com/JSON_CALLBACK';
       function updateQA () {
         var qnurl = 'http://giftguruapi.herokuapp.com/get_questions_without_answer/' +$scope.user_id +'/JSON_CALLBACK';
@@ -46,7 +49,8 @@ angular.module('myApp.controllers', [])
   		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/'+ $scope.user_id +'/jsonp_callback');
   // TODO: check empty json
   }])
+  ;
 
-  .controller('FacebookCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
-      $scope.user = FBUser;
-  }]);
+  // .controller('FacebookCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
+  //     //$scope.user = FBUser;
+  // }]);
