@@ -47,21 +47,6 @@ angular.module('myApp.controllers', [])
   // TODO: check empty json
   }])
 
-  .controller('FacebookCtrl', function ($scope, facebookService) {
-    var fbConfig = {
-      method: 'feed',
-      name: 'enter a name here...',
-      //link: 'a link for your post...',
-      //picture: 'an image to include',
-      caption: 'a short caption...',
-      description: 'a slightly longer description...'
-    };
-
-   facebookService.post(fbConfig).then(
-      function (success) {
-        // the feed post was successful! celebrate!
-      },
-      function (failure) {
-        // womp womp :-(
-      });
-  });
+  .controller('FacebookCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
+      $scope.user = FBUser;
+  }]);

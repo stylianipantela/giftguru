@@ -7,7 +7,7 @@
 		"Oh no! She already has that!" or "Oh no! He looks confused and unhappy!"<br><br>
 
 		Forget about it!<br>
-		Now, you will find what your friends really want. Introducing Giftingooru.<br><br>
+		Now, you will find what your friends really want. Introducing Giftinguru.<br><br>
 
 		Based on a few clicks regarding your person of interest's personality traits, we provide you with hand selected matches 
 		that will make you laugh and make you the best gift giver ever. Through our gift gooru's selections, we present to you 
@@ -17,5 +17,6 @@
 	</p>
 	 <div class="btn btn-info" ng-hide="user.authorized" ng-click="user.login()">Login with Facebook</div>
   	<div class="btn btn-info" ng-show="user.authorized" ng-click="user.logout()">Logout</div>
+  	<div class="btn btn-info" ng-show="user.authorized" ng-click="user.me()">get my info!</div>
 	<span>User logged in: {{user.authorized}} {{user}}</span>
 </div>
