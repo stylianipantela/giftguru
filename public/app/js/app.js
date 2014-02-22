@@ -14,6 +14,8 @@ angular.module('myApp', [
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/about', 
     {templateUrl: 'partials/about.html', controller: 'MainCtrl'});
+  $routeProvider.when('/index/:user_id', 
+    {templateUrl: 'partials/sideview.html', controller: 'MainCtrl'});
   $routeProvider.when('/myprofile', 
   	{templateUrl: 'partials/myprofile.html', controller: 'MyProfileCtrl'});
   $routeProvider.when('/friend', 
