@@ -1,0 +1,58 @@
+<div class = "container-fluid">
+	<div class = "row">
+		<div class = "col-sm-3 col-md-3 sidebar">
+          <ul class="nav nav-sidebar" ng-repeat = "question in questions">
+            <li> 
+                <div class="row">
+                  <div class = "col-md-8">
+                  {{question.question_text}}:   <input type="text" ng-model="text" name="text" />
+                  </div>
+                  
+                  <div class = "col-md-4">
+                  <button class="btn btn-info"> <span ng-click="submitAnswer(question.question_id, text)" class="glyphicon glyphicon-plus"> </span> </button>
+                  </div>
+               </div>
+            </li>
+          </ul>
+
+          <ul class="nav nav-sidebar" ng-repeat = "answer in answers">
+             <li>
+             	<div class="row">
+             	  <div class = "col-md-8">	
+             	    {{answer.question_text}}:  {{answer.answer_text}}
+             	   </div>
+
+             	   <div class = "col-md-4">
+             	   <button class="btn btn-info"> <span ng-click="deleteAnswer(answer.question_id)" class="glyphicon glyphicon-minus"> </span> </button>
+                  </div>
+              </div>
+              </li>
+           </ul>
+
+           <a href ="#/friend/{{user_id}}" align="center"><button class="btn btn-info" href="">Generate my gifts </button></a>
+        </div>
+        <!-- end of sidebar -->
+    
+		<div class = "col-sm-9 col-sm-offset-3 col-md-9 col-mid-offset-2 main">
+			 <div ng-repeat = "question in gifts" class="row" align="left">
+      			<h4> Based on your friend's like of {{question.question_text }}</h4>
+                <div ng-repeat = "rec in question.recs" align="center">
+                  <div class="col-md-4">
+                    <div class="thumbnail">
+                      <br>
+                      <h4>  {{rec.title}} </h4>
+                    	<p><a href="{{rec.pageUrl}}" target="_blank"><img ng-src="{{rec.imgUrl}}" width="50%" height="50%" alt=""></a></p>
+                    	<p>  {{rec.price}} </p>
+                    	<p>
+                    	<a href="#" class="btn" title="Email"><span class="glyphicon glyphicon-envelope"></span></a> 
+                     	<a href="#" class="btn" title="More Info"><span class="glyphicon glyphicon-info-sign"></span></a>
+                    	<a href="#" class="btn" title="Like"><span class="glyphicon glyphicon-heart"></span></a>
+                      <a href="#" class="btn">Claim</a>
+                     	</p>  
+                    </div>
+                  </div>
+                </div> 
+		    </div>
+	    </div>
+	</div> <!-- row -->
+</div> <!-- container -->
