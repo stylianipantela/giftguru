@@ -1,6 +1,7 @@
 <div class = "container-fluid">
 	<div class = "row">
 		<div class = "col-sm-3 col-md-3 sidebar">
+          <h4> Your input for your friend </h4>
           <ul class="nav nav-sidebar" ng-repeat = "question in questions">
             <li> 
                 <div class="row">
@@ -9,12 +10,13 @@
                   </div>
                   
                   <div class = "col-md-4">
-                  <button class="btn btn-info"> <span ng-click="submitAnswer(question.question_id, text)" class="glyphicon glyphicon-plus"> </span> </button>
+                  <i class="btn btn-my" title="Like"><span ng-click="submitAnswer(question.question_id, text)" class="glyphicon glyphicon-plus-sign"></span></i>
                   </div>
                </div>
             </li>
           </ul>
-
+     	  
+     	  <h4> Your friend's Facebook likes </h4>
           <ul class="nav nav-sidebar" ng-repeat = "answer in answers">
              <li>
              	<div class="row">
@@ -23,7 +25,7 @@
              	   </div>
 
              	   <div class = "col-md-4">
-             	   <button class="btn btn-info"> <span ng-click="deleteAnswer(answer.question_id)" class="glyphicon glyphicon-minus"> </span> </button>
+             	   <i class="btn btn-my" title="Like"><span ng-click="deleteAnswer(answer.question_id)" class="glyphicon glyphicon-minus-sign"></span></i>
                   </div>
               </div>
               </li>
@@ -35,7 +37,7 @@
     
 		<div class = "col-sm-9 col-sm-offset-3 col-md-9 col-mid-offset-2 main">
 			 <div ng-repeat = "question in gifts" class="row" align="left">
-      			<h4> Based on your friend's like of {{question.question_text }}</h4>
+      			<h4> Based on your friend's like of "{{question.question_text }}"</h4>
                 <div ng-repeat = "rec in question.recs" align="center">
                   <div class="col-md-4">
                     <div class="thumbnail">
