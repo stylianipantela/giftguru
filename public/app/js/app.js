@@ -24,5 +24,5 @@ angular.module('myApp', [
     {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
   // $routeProvider.when('/facebook', 
   //   {templateUrl: 'partials/facebook.html', controller: 'FacebookCtrl'});
-  $routeProvider.otherwise({redirectTo: '/myprofile'});
+  $routeProvider.otherwise({redirectTo: '/index/11'});
 }]);
