@@ -5,8 +5,59 @@ angular.module('myApp.controllers', [])
 
 
   // .controller('MainCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
-  .controller('MainCtrl', ['$scope', function($scope) {
-      //$scope.user = FBUser;
+  // combined recCtrl and myProfile Ctrl
+  .controller('MainCtrl', ['$scope', '$routeParams', '$http', 
+    function($scope, $routeParams, $http){
+      
+      $scope.user_id = $routeParams.user_id;
+      $scope.name = "Stella"
+
+      $http.get('../storedresults.json').success(function(data) {
+        $scope.storedgifts = data;
+      });
+
+      $http.get('../storedanswer.json').success(function(data) {
+        $scope.storedanswers = data;
+      });
+      
+      function recResult() {
+          var recurl = 'http://giftguruapi.herokuapp.com/get_recs/'+ $scope.user_id +'/JSON_CALLBACK';
+          $http.jsonp(recurl).success(function(data) {
+              $scope.gifts = data.results;
+          });
+      }
+      
+      // TODO: check empty json
+      
+      // get questions and answers
+      function updateQA () {
+          var qnurl = 'http://giftguruapi.herokuapp.com/get_questions_without_answer/' +$scope.user_id +'/JSON_CALLBACK';
+          $http.jsonp(qnurl).success(function(data) {
+              $scope.questions = data.results;
+          });
+          var ansurl = 'http://giftguruapi.herokuapp.com/get_answers/' + $scope.user_id +'/JSON_CALLBACK';
+          $http.jsonp(ansurl).success(function(data) {
+              $scope.answers = data.results;
+          });
+      }
+
+      updateQA();
+      recResult();
+    
+      // // show gift results
+      // window.jsonp_callback = function(data) {
+      //     $scope.gifts = data.results;
+      // }
+
+      $scope.submitAnswer = function(question_id, text) { 
+        var url = 'http://giftguruapi.herokuapp.com/set_answer/'+ $scope.user_id +'/'+ question_id +'/' + text +'/JSON_CALLBACK';
+        $http.jsonp(url).success(function(data) { updateQA();});
+      };
+
+      $scope.deleteAnswer = function(question_id) { 
+        var url = 'http://giftguruapi.herokuapp.com/delete_answer/'+ $scope.user_id +'/'+ question_id + '/JSON_CALLBACK';
+        $http.jsonp(url).success(function(data) { updateQA();});
+      };
   }])
   
   // .controller('MyProfileCtrl', ['$scope', '$http', 'FBUser',
