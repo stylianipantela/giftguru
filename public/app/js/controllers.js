@@ -6,8 +6,8 @@ angular.module('myApp.controllers', [])
 
   // .controller('MainCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
   // combined recCtrl and myProfile Ctrl
-  .controller('MainCtrl', ['$scope', '$rootScope', '$routeParams', '$http', 'srvAuth',
-    function($scope, $rootScope, $routeParams, $http, Facebook){
+  .controller('MainCtrl', ['$scope', '$routeParams', '$http',
+    function($scope, $routeParams, $http){
       
       $scope.user_id = $routeParams.user_id;
       $scope.name = "Stella"
@@ -59,10 +59,10 @@ angular.module('myApp.controllers', [])
         $http.jsonp(url).success(function(data) { updateQA();});
       };
 
-      $scope.getFriends = function() {
-        console.log($rootScope);
-        Facebook.getUserFriends();
-      };
+      // $scope.getFriends = function() {
+      //   console.log($rootScope);
+      //   Facebook.getUserFriends();
+      // };
   }])
 
   
