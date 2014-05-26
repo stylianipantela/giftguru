@@ -2,125 +2,90 @@
 
 /* Services */
 
-
 // Demonstrate how to register services
 // In this case it is a simple value service.
+// angular.module('myApp.services', [])
+
 angular.module('myApp.services', [])
 
-// referred to http://plnkr.co/edit/NAPFuwrUylcyUjejWm6N?p=preview  
-// .service('facebook', ['$rootScope', '$window', function ($rootScope, $window) {
+.service('srvAuth', function ($rootScope) {
+        this.watchLoginChange = function() {
+			var _self = this;
+			console.log("inwatchLoginchange");
+			FB.Event.subscribe('auth.authResponseChange', function(response) {
 
-//   this.askFacebookForAuthentication = function (fail, success) {
-//     FB.login(function (response) {
-//       $rootScope.$apply(function () {
-//         if (response.authResponse) {
-//           FB.api('/me', success);
-//         } else {
-//           fail('User cancelled login or did not fully authorize.');
-//         }
-//       });
-//     });
-//   };
+				if (response.status === 'connected') {
+					
+					/* 
+					 The user is already logged, 
+					 is possible retrieve his personal info
+					*/
+					_self.getUserInfo();
 
-//   this.getLoginStatus = function () {
-//     FB.getLoginStatus(function (response) {
-//       return response;
-//     });
-//   };
+					/*
+					 This is also the point where you should create a 
+					 session for the current user.
+					 For this purpose you can use the data inside the 
+					 response.authResponse object.
+					*/
+				} 
+				else {
+					/*
+					 The user is not logged to the app, or into Facebook:
+		 			 destroy the session on the server.
+					*/
+					FB.login(function(response) {
+			           // handle the response
+			           _self.getUserInfo();
+			         }, {scope: 'user_likes, friends_likes, user_friends'});
+					 
+				}
 
-//   this.FB = $window.FB;
+			});
+		};
 
-// }])
+		this.login = function() {
+			FB.login(function(response) {
+	           // handle the response
+	         }, {scope: 'user_likes, friends_likes, user_friends'});
+		};
 
-// /* --------------- FB API MODELS ------------------ */
-// .service('FBUser', ['$log', '$rootScope', 'facebook', function ($log, $rootScope, facebook) {
-//   var that = this;
+		this.getUserInfo = function() {
+			console.log("user_info");
+			var _self = this;
+			FB.api('/me', function(response) {
+				console.log($rootScope, "in user info");
+				$rootScope.$apply(function() { 
+					$rootScope.user = _self.user = response; 
+				});
+			});
+		};
 
-//   this.authorized = false;
+		this.getUserFriends = function() {
+			console.log("user friends");
+			var _self = this;
+			FB.api("me/friends",{
+			    fields:'id',
+			    // limit:10
+			  },function(response){
+			      // if (response && !response.error) {
+			        /* handle the result */
+			        console.log($rootScope.user);
+			        console.log(response, "friends");
+			      // }
+			    }
 
-//   facebook.FB.Event.subscribe('auth.authResponseChange', function (response) {
-//     $log.info("Event: auth.authResponseChange");
-//     if (response.authResponse) {
-//       if (response.status === 'connected') {
-//         // User logged in and authorized
-//         $log.info('User logged in and authorized');
-//         $rootScope.$apply(function () {
-//           that.authorized = true;
-//         });
-//         // DO WORK
-//       } else if (response.status === 'not_authorized') {
-//         // User logged in but has not authorized app
-//         $log.info('User logged in');
-//         $rootScope.$apply(function () {
-//           that.authorized = false;
-//         });
-//       } else {
-//         // User logged out
-//         $log.info('User logged out');
-//         $rootScope.$apply(function () {
-//           that.authorized = false;
-//         });
-//       }
-//     } else {
-//       $log.info('No valid authResponse found, user logged out');
-//       $rootScope.$apply(function () {
-//         that.authorized = false;
-//       });
-//     }
-//     });
+			);
 
-//   this.login = function (success, fail) {
-//     facebook.FB.login(function (response) {
-//       $rootScope.$apply(function () {
-//         if (response.authResponse) {
-//           success(response);
-//         } else {
-//           fail('Login unsuccessful');
-//         }
-//       });
-//     }, {scope: 'email,user_likes,friends_birthday,friends_likes'});
-//   };
+		}
+		this.logout =  function() {
+			var _self = this;
+			FB.logout(function(response) {
+				$rootScope.$apply(function() { 
+					$rootScope.user = _self.user = {}; 
+				});	
+			});
+		}
 
-//   this.logout = function () {
-//     facebook.FB.logout(function () {
-//       $rootScope.$apply(function () {
-//         that.authorized = false;
-//       });
-//     });
-//   };
-
-//   /**
-//    * me 
-//    */
-//    this.me = function() {
-//      facebook.FB.api('/me', function(response) {
-//        /**
-//         * Using $scope.$apply since this happens outside angular framework.
-//         */
-//        $rootScope.$apply(function() {
-//          that.me = response;
-//        });
-       
-   
-//      /*Facebook.api('/me/friends?fields=id,name,birthday', 
-//        function(response) {
-//          $scope.$apply(function() {
-//            $scope.friends = response;
-//        });
-       
-   
-//      Facebook.api('/me/movies', 
-//        function(response) {
-//          $scope.$apply(function() {
-//            $scope.movies = response;
-//        });
-       
-   
-//      FB.api('/me/permissions', function(r) {
-//        console.log(r)
-//      })*/
-//    });
-//  };
-// }]);
-
+});
 

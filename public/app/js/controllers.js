@@ -100,8 +100,27 @@ angular.module('myApp.controllers', [])
   		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/'+ $scope.user_id +'/jsonp_callback');
   // TODO: check empty json
   }])
-  ;
+  // https://github.com/Terumi/AngularJS-Facebook-Login/blob/master/js/ctrl.js
 
-  // .controller('FacebookCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
-  //     //$scope.user = FBUser;
-  // }]);
+  .controller('FcbCtrl', ['$scope', '$rootScope', '$http', '$location', 'srvAuth', 
+
+    function($scope, $rootScope, $http, $location, Facebook) {
+        
+        $scope.login = function () {
+            Facebook.login();
+        };
+
+
+        $scope.getInfo = function () {
+          FB.api('/me', function (response) {
+              console.log('Good to see you, ' + response.name + '.');
+          });
+        }
+
+        $scope.getFriends = function() {
+          console.log($rootScope);
+          Facebook.getUserFriends();
+
+        };
+
+    }]);
