@@ -6,8 +6,8 @@ angular.module('myApp.controllers', [])
 
   // .controller('MainCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
   // combined recCtrl and myProfile Ctrl
-  .controller('MainCtrl', ['$scope', '$routeParams', '$http', 
-    function($scope, $routeParams, $http){
+  .controller('MainCtrl', ['$scope', '$rootScope', '$routeParams', '$http', 'srvAuth',
+    function($scope, $rootScope, $routeParams, $http, Facebook){
       
       $scope.user_id = $routeParams.user_id;
       $scope.name = "Stella"
@@ -58,7 +58,13 @@ angular.module('myApp.controllers', [])
         var url = 'http://giftguruapi.herokuapp.com/delete_answer/'+ $scope.user_id +'/'+ question_id + '/JSON_CALLBACK';
         $http.jsonp(url).success(function(data) { updateQA();});
       };
+
+      $scope.getFriends = function() {
+        console.log($rootScope);
+        Facebook.getUserFriends();
+      };
   }])
+
   
   // .controller('MyProfileCtrl', ['$scope', '$http', 'FBUser',
   .controller('MyProfileCtrl', ['$scope', '$http',
