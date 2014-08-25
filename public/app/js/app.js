@@ -10,8 +10,9 @@ var app = angular.module('myApp', [
 
 ]);
 
-app.run(['$rootScope', '$window', 'srvAuth', 
-  function($rootScope, $window, sAuth) {
+// Initialize the facebook javascript SDK
+app.run(['$rootScope', '$location', '$window', 'FacebookService', 
+  function($rootScope, $location, $window, Facebook) {
   $rootScope.user = {};
 
   $window.fbAsyncInit = function() {
@@ -25,7 +26,7 @@ app.run(['$rootScope', '$window', 'srvAuth',
       xfbml: true 
     });
 
-    sAuth.watchLoginChange();
+    Facebook.watchLoginChange();
   };
 
   // Are you familiar to IIFE ( http://bit.ly/iifewdb ) ?
@@ -56,20 +57,31 @@ app.run(['$rootScope', '$window', 'srvAuth',
 
 // Declare app level module which depends on filters, and services
 app.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/about', 
-    {templateUrl: 'partials/about.html', controller: 'MainCtrl'});
-  // this is my dashboard
-  $routeProvider.when('/index/:user_id', 
-    {templateUrl: 'partials/sideview.html', controller: 'MainCtrl'});
+  // $routeProvider.when('/about', 
+  //   {templateUrl: 'partials/about.html', controller: 'MainCtrl'});
+  // $routeProvider.when('/index/:user_id', 
+  //   {templateUrl: 'partials/sideview.html', controller: 'MainCtrl'});
+  // $routeProvider.when('/friend', 
+  //   {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
+  // $routeProvider.when('/friend/:user_id', 
+  //   {templateUrl: 'partials/friend.html'
+  //   ,controller: 'RecResultCtrl'
+  //   ,access: { isFree: true }
+  //   });
   $routeProvider.when('/myprofile', 
-  	{templateUrl: 'partials/myprofile.html', controller: 'MyProfileCtrl'});
-  $routeProvider.when('/friend', 
-    {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
-  $routeProvider.when('/friend/:user_id', 
-    {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
-  $routeProvider.when('/fcb', 
-    {templateUrl: 'partials/fcb.html', controller: 'FcbCtrl'});
-  // $routeProvider.when('/facebook', 
-  //   {templateUrl: 'partials/facebook.html', controller: 'FacebookCtrl'});
-  $routeProvider.otherwise({redirectTo: '/index/11'});
+  	{templateUrl: 'partials/myprofile.html'
+    ,controller: 'MyProfileCtrl'
+    ,access: { isFree: true }
+  });
+  $routeProvider.when('/login', 
+    {templateUrl: 'partials/login.html'
+    ,controller: 'FcbCtrl'
+    ,access: { isFree: true }
+    });
+
+  
+
+  $routeProvider.otherwise({redirectTo: '/login'});
 }]);
+
+

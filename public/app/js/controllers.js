@@ -59,10 +59,7 @@ angular.module('myApp.controllers', [])
         $http.jsonp(url).success(function(data) { updateQA();});
       };
 
-      // $scope.getFriends = function() {
-      //   console.log($rootScope);
-      //   Facebook.getUserFriends();
-      // };
+
   }])
 
   
@@ -106,21 +103,29 @@ angular.module('myApp.controllers', [])
   		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/'+ $scope.user_id +'/jsonp_callback');
   // TODO: check empty json
   }])
+
+
   // https://github.com/Terumi/AngularJS-Facebook-Login/blob/master/js/ctrl.js
+  // stella: actually works do not remove
+  // facebook service handles login, if it succeeds we also verify the user in the db
+  // and save the user credentials in the UserService
+  .controller('FcbCtrl', 
+    ['$scope', '$rootScope', '$http', '$location', 'FacebookService', 'UserService',
 
-  .controller('FcbCtrl', ['$scope', '$rootScope', '$http', '$location', 'srvAuth', 
-
-    function($scope, $rootScope, $http, $location, Facebook) {
+    function($scope, $rootScope, $http, $location, Facebook, User) {
         
         $scope.login = function () {
-            Facebook.login();
+          Facebook.login();
+          // User.isLogged = true;
         };
+
+        $scope.logout = function () {
+          Facebook.logout();
+        }
 
 
         $scope.getInfo = function () {
-          FB.api('/me', function (response) {
-              console.log('Good to see you, ' + response.name + '.');
-          });
+          Facebook.getUserInfo();
         }
 
         $scope.getFriends = function() {
@@ -130,3 +135,6 @@ angular.module('myApp.controllers', [])
         };
 
     }]);
+
+
+
