@@ -14,6 +14,7 @@ var app = angular.module('myApp', [
 app.run(['$rootScope', '$location', '$window', 'FacebookService', 'UserService', 
   function($rootScope, $location, $window, Facebook, User) {
     $rootScope.user = {};
+    $rootScope.friends = [];
 
     $window.fbAsyncInit = function() {
       // Executed when the SDK is loaded
@@ -76,29 +77,34 @@ app.config(['$routeProvider', function($routeProvider) {
   //   {templateUrl: 'partials/sideview.html', controller: 'MainCtrl'});
   // $routeProvider.when('/friend', 
   //   {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
-  // $routeProvider.when('/friend/:user_id', 
-  //   {templateUrl: 'partials/friend.html'
-  //   ,controller: 'RecResultCtrl'
-  //   ,access: { isFree: true }
-  //   });
-  $routeProvider.when('/dashboard', 
-  	{templateUrl: 'partials/dashboard.html'
-    ,controller: 'MainCtrl'
-    ,access: { isFree: false }
+
+  $routeProvider.when('/recs/:user_id', 
+  {templateUrl: 'partials/recs.html'
+  ,controller: 'RecResultCtrl'
+  ,access: { isFree: false }
   });
 
   $routeProvider.when('/myprofile', 
     {templateUrl: 'partials/myprofile.html'
     ,controller: 'MyProfileCtrl'
-    ,access: { isFree: true }
+    ,access: { isFree: false }
   });
+
+  $routeProvider.when('/friends', 
+    {templateUrl: 'partials/friends.html'
+    ,controller: 'FriendsCtrl'
+    ,access: { isFree: false }
+  });
+
 
   $routeProvider.when('/login', 
     {templateUrl: 'partials/login.html'
     ,controller: 'FcbCtrl'
     ,access: { isFree: true }
     });
-  $routeProvider.otherwise({redirectTo: '/dashboard'}); // 404 errors go to login
+
+
+  $routeProvider.otherwise({redirectTo: '/login'}); // 404 errors go to login
 }]);
 
 

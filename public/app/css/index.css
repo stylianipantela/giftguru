@@ -32,8 +32,8 @@
 .footer {
   position: relative;
   margin-top: 100px;
-  height: 150px;
+  margin-bottom: 0;
+  height: 80;
   clear:both;
-  padding-top:20px;
   text-align: center;
 } 

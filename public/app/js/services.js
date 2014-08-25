@@ -20,20 +20,8 @@ angular.module('myApp.services', [])
 		FB.Event.subscribe('auth.authResponseChange', function(response) {
 			if (response.status === 'connected') {
 				
-				/* 
-				 The user is already logged, 
-				 is possible retrieve his personal info
-				*/
 				_self.getUserInfo();
 				$rootScope.showLoginButton = false;
-
-
-				/*
-				 This is also the point where you should create a 
-				 session for the current user.
-				 For this purpose you can use the data inside the 
-				 response.authResponse object.
-				*/
 			} 
 			else {
 				/*
@@ -58,26 +46,26 @@ angular.module('myApp.services', [])
 		FB.api('/me', function(response) {
 			$rootScope.$apply(function() { 
 				$rootScope.user = _self.user = response; 
+				console.log($rootScope.user);
 			});
 		});
 	};
 
 	this.getUserFriends = function() {
-		console.log("user friends");
 		var _self = this;
-		FB.api("me/friends",{
-		    fields:'id',
-		    // limit:10
-		  },function(response){
-		      // if (response && !response.error) {
+		FB.api('me/friends?fields=installed,first_name,last_name,picture,id',
+			function(response){
+		      if (response && !response.error) {
 		        /* handle the result */
-		        console.log($rootScope.user);
-		        console.log(response, "friends");
-		      // }
+		        $rootScope.$apply(function() { 
+					$rootScope.friends = response.data.filter(function (index) {
+						return !(typeof index.installed === 'undefined');
+					}); 
+				});	
+
+		      }
 		    }
-
 		);
-
 	};
 
 	this.logout =  function() {

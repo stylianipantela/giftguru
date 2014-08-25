@@ -9,9 +9,6 @@ angular.module('myApp.controllers', [])
   .controller('MainCtrl', ['$scope', '$rootScope', '$routeParams', '$http', 'FacebookService', 'UserService',
 
     function($scope, $rootScope, $routeParams, $http, Facebook, User){
-      
-      $scope.user_id = $routeParams.user_id;
-      $scope.name = "Stella"
 
       // $http.get('../storedresults.json').success(function(data) {
       //   $scope.storedgifts = data;
@@ -71,42 +68,71 @@ angular.module('myApp.controllers', [])
 
 
   }])
-.controller('MyProfileCtrl', ['$scope', '$http',
-   function($scope,$http){
-    var url = 'http://giftguruapi.herokuapp.com/get_user/lily9393@163.com/JSON_CALLBACK';
-    function updateQA () {
-      var qnurl = 'http://giftguruapi.herokuapp.com/get_questions_without_answer/' +$scope.user_id +'/JSON_CALLBACK';
-      $http.jsonp(qnurl).success(function(data) {
-          $scope.questions = data.results;
+
+  .controller('MyProfileCtrl', ['$scope', '$rootScope', '$routeParams', '$http', 'FacebookService', 'UserService',
+    function($scope, $rootScope, $routeParams, $http, Facebook, User){
+      var url = 'http://giftguruapi.herokuapp.com/get_user/' + $scope.user.id + '/JSON_CALLBACK';
+      function updateQA () {
+        var qnurl = 'http://giftguruapi.herokuapp.com/get_questions_without_answer/' +$scope.user_id +'/JSON_CALLBACK';
+        $http.jsonp(qnurl).success(function(data) {
+            $scope.questions = data.results;
+        });
+        var ansurl = 'http://giftguruapi.herokuapp.com/get_answers/' + $scope.user_id +'/JSON_CALLBACK';
+        $http.jsonp(ansurl).success(function(data) {
+            $scope.answers = data.results;
+        });
+      }
+      $http.jsonp(url).success(function(data) {
+        console.log(data, "data");
+        $scope.user_id = data.results;
+        updateQA();
+        $scope.submitAnswer = function(question_id, text) { 
+          var url = 'http://giftguruapi.herokuapp.com/set_answer/'+ $scope.user_id +'/'+ question_id +'/' + text +'/JSON_CALLBACK';
+          $http.jsonp(url).success(function(data) { updateQA();});
+        };
+        $scope.deleteAnswer = function(question_id) { 
+          var url = 'http://giftguruapi.herokuapp.com/delete_answer/'+ $scope.user_id +'/'+ question_id + '/JSON_CALLBACK';
+          $http.jsonp(url).success(function(data) { updateQA();});
+        };
       });
-      var ansurl = 'http://giftguruapi.herokuapp.com/get_answers/' + $scope.user_id +'/JSON_CALLBACK';
-      $http.jsonp(ansurl).success(function(data) {
-          $scope.answers = data.results;
-      });
-    }
-    $http.jsonp(url).success(function(data) {
-      $scope.user_id = data.results;
-      updateQA();
-      $scope.submitAnswer = function(question_id, text) { 
-        var url = 'http://giftguruapi.herokuapp.com/set_answer/'+ $scope.user_id +'/'+ question_id +'/' + text +'/JSON_CALLBACK';
-        $http.jsonp(url).success(function(data) { updateQA();});
-      };
-      $scope.deleteAnswer = function(question_id) { 
-        var url = 'http://giftguruapi.herokuapp.com/delete_answer/'+ $scope.user_id +'/'+ question_id + '/JSON_CALLBACK';
-        $http.jsonp(url).success(function(data) { updateQA();});
-      };
-    });
-}])
+
+      $scope.logout = function () {
+          Facebook.logout();
+          if ($rootScope.showLoginButton) {
+            User.isLogged = false;
+          }
+        }
+  }])
   
-  .controller('RecResultCtrl', ['$scope', '$routeParams', '$http', 
-  	function($scope, $routeParams, $http){
-      $scope.user_id = $routeParams.user_id;
+  .controller('RecResultCtrl', ['$scope', '$rootScope', '$routeParams', '$http', 'FacebookService', 'UserService',
+    function($scope, $rootScope, $routeParams, $http, Facebook, User){
+      // $http.get('../storedresults.json').success(function(data) {
+      //   $scope.gifts = data;
+      // });
       window.jsonp_callback = function(data) {
         $scope.gifts = data.results;
       }
       // TODO hardcode user_id
-  		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/'+ $scope.user_id +'/jsonp_callback');
-  // TODO: check empty json
+  		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/'+ $routeParams.user_id +'/jsonp_callback');
+    
+    $scope.logout = function () {
+      Facebook.logout();
+      if ($rootScope.showLoginButton) {
+        User.isLogged = false;
+      }
+    }
+  }])
+  .controller('FriendsCtrl', ['$scope', '$rootScope', '$routeParams', '$http', 'FacebookService', 'UserService',
+    function($scope, $rootScope, $routeParams, $http, Facebook, User){
+    
+    Facebook.getUserFriends();
+
+    $scope.logout = function () {
+      Facebook.logout();
+      if ($rootScope.showLoginButton) {
+        User.isLogged = false;
+      }
+    }
   }])
 
 
@@ -123,7 +149,6 @@ angular.module('myApp.controllers', [])
           Facebook.login();
           if (!$rootScope.showLoginButton) {
             User.isLogged = true;
-            console.log(User, 0);
           }
         };
 
