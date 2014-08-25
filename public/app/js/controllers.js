@@ -6,19 +6,20 @@ angular.module('myApp.controllers', [])
 
   // .controller('MainCtrl', ['$scope', 'FBUser',function($scope, FBUser) {
   // combined recCtrl and myProfile Ctrl
-  .controller('MainCtrl', ['$scope', '$routeParams', '$http',
-    function($scope, $routeParams, $http){
+  .controller('MainCtrl', ['$scope', '$rootScope', '$routeParams', '$http', 'FacebookService', 'UserService',
+
+    function($scope, $rootScope, $routeParams, $http, Facebook, User){
       
       $scope.user_id = $routeParams.user_id;
       $scope.name = "Stella"
 
-      $http.get('../storedresults.json').success(function(data) {
-        $scope.storedgifts = data;
-      });
+      // $http.get('../storedresults.json').success(function(data) {
+      //   $scope.storedgifts = data;
+      // });
 
-      $http.get('../storedanswer.json').success(function(data) {
-        $scope.storedanswers = data;
-      });
+      // $http.get('../storedanswer.json').success(function(data) {
+      //   $scope.storedanswers = data;
+      // });
       
       function recResult() {
           var recurl = 'http://giftguruapi.herokuapp.com/get_recs/'+ $scope.user_id +'/JSON_CALLBACK';
@@ -59,39 +60,43 @@ angular.module('myApp.controllers', [])
         $http.jsonp(url).success(function(data) { updateQA();});
       };
 
-
-  }])
-
-  
-  // .controller('MyProfileCtrl', ['$scope', '$http', 'FBUser',
-  .controller('MyProfileCtrl', ['$scope', '$http',
-     function($scope,$http){
-     //function($scope,$http, FBUser){
-      //$scope.user = FBUser;
-      var url = 'http://giftguruapi.herokuapp.com/get_user/lily9393@163.com/JSON_CALLBACK';
-      function updateQA () {
-        var qnurl = 'http://giftguruapi.herokuapp.com/get_questions_without_answer/' +$scope.user_id +'/JSON_CALLBACK';
-        $http.jsonp(qnurl).success(function(data) {
-            $scope.questions = data.results;
-        });
-        var ansurl = 'http://giftguruapi.herokuapp.com/get_answers/' + $scope.user_id +'/JSON_CALLBACK';
-        $http.jsonp(ansurl).success(function(data) {
-            $scope.answers = data.results;
-        });
+      $scope.logout = function () {
+        Facebook.logout();
+        if ($rootScope.showLoginButton) {
+          User.isLogged = false;
+          // $location.path('/login');
+          window.location.replace("/#/login");
+        }
       }
-      $http.jsonp(url).success(function(data) {
-        $scope.user_id = data.results;
-        updateQA();
-        $scope.submitAnswer = function(question_id, text) { 
-          var url = 'http://giftguruapi.herokuapp.com/set_answer/'+ $scope.user_id +'/'+ question_id +'/' + text +'/JSON_CALLBACK';
-          $http.jsonp(url).success(function(data) { updateQA();});
-        };
-        $scope.deleteAnswer = function(question_id) { 
-          var url = 'http://giftguruapi.herokuapp.com/delete_answer/'+ $scope.user_id +'/'+ question_id + '/JSON_CALLBACK';
-          $http.jsonp(url).success(function(data) { updateQA();});
-        };
-      });
+
+
   }])
+.controller('MyProfileCtrl', ['$scope', '$http',
+   function($scope,$http){
+    var url = 'http://giftguruapi.herokuapp.com/get_user/lily9393@163.com/JSON_CALLBACK';
+    function updateQA () {
+      var qnurl = 'http://giftguruapi.herokuapp.com/get_questions_without_answer/' +$scope.user_id +'/JSON_CALLBACK';
+      $http.jsonp(qnurl).success(function(data) {
+          $scope.questions = data.results;
+      });
+      var ansurl = 'http://giftguruapi.herokuapp.com/get_answers/' + $scope.user_id +'/JSON_CALLBACK';
+      $http.jsonp(ansurl).success(function(data) {
+          $scope.answers = data.results;
+      });
+    }
+    $http.jsonp(url).success(function(data) {
+      $scope.user_id = data.results;
+      updateQA();
+      $scope.submitAnswer = function(question_id, text) { 
+        var url = 'http://giftguruapi.herokuapp.com/set_answer/'+ $scope.user_id +'/'+ question_id +'/' + text +'/JSON_CALLBACK';
+        $http.jsonp(url).success(function(data) { updateQA();});
+      };
+      $scope.deleteAnswer = function(question_id) { 
+        var url = 'http://giftguruapi.herokuapp.com/delete_answer/'+ $scope.user_id +'/'+ question_id + '/JSON_CALLBACK';
+        $http.jsonp(url).success(function(data) { updateQA();});
+      };
+    });
+}])
   
   .controller('RecResultCtrl', ['$scope', '$routeParams', '$http', 
   	function($scope, $routeParams, $http){
@@ -116,11 +121,17 @@ angular.module('myApp.controllers', [])
         
         $scope.login = function () {
           Facebook.login();
-          // User.isLogged = true;
+          if (!$rootScope.showLoginButton) {
+            User.isLogged = true;
+            console.log(User, 0);
+          }
         };
 
         $scope.logout = function () {
           Facebook.logout();
+          if ($rootScope.showLoginButton) {
+            User.isLogged = false;
+          }
         }
 
 

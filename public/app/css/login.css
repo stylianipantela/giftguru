@@ -32,3 +32,7 @@ body {
 .login-container a:hover {
     color: white;
 }
+
+.footer {
+  color: white;
+}

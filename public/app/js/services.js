@@ -18,7 +18,6 @@ angular.module('myApp.services', [])
 		var _self = this;
 		console.log("inwatchLoginchange");
 		FB.Event.subscribe('auth.authResponseChange', function(response) {
-
 			if (response.status === 'connected') {
 				
 				/* 
@@ -27,6 +26,7 @@ angular.module('myApp.services', [])
 				*/
 				_self.getUserInfo();
 				$rootScope.showLoginButton = false;
+
 
 				/*
 				 This is also the point where you should create a 
@@ -40,7 +40,7 @@ angular.module('myApp.services', [])
 				 The user is not logged to the app, or into Facebook:
 	 			 destroy the session on the server.
 				*/
-				$rootScope.showLoginButton = true;
+				$rootScope.showLoginButton = true;				
 			}
 
 		});
@@ -56,7 +56,6 @@ angular.module('myApp.services', [])
 		console.log("user_info");
 		var _self = this;
 		FB.api('/me', function(response) {
-			console.log($rootScope, "in user info");
 			$rootScope.$apply(function() { 
 				$rootScope.user = _self.user = response; 
 			});
@@ -79,7 +78,8 @@ angular.module('myApp.services', [])
 
 		);
 
-	}
+	};
+
 	this.logout =  function() {
 		console.log("logging out");
 		var _self = this;
@@ -88,8 +88,9 @@ angular.module('myApp.services', [])
 				$rootScope.user = _self.user = {}; 
 			});	
 		});
-	}
+	};
 
+	this.isLogged = false;
 })
 
 .service('UserService', [function() {
