@@ -78,7 +78,7 @@ app.config(['$routeProvider', function($routeProvider) {
   // $routeProvider.when('/friend', 
   //   {templateUrl: 'partials/friend.html', controller: 'RecResultCtrl'});
 
-  $routeProvider.when('/recs/:user_id', 
+  $routeProvider.when('/recs/:fb_id', 
   {templateUrl: 'partials/recs.html'
   ,controller: 'RecResultCtrl'
   ,access: { isFree: false }

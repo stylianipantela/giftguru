@@ -109,12 +109,13 @@ angular.module('myApp.controllers', [])
       // $http.get('../storedresults.json').success(function(data) {
       //   $scope.gifts = data;
       // });
-      window.jsonp_callback = function(data) {
+  		var recs_url = 'http://giftguruapi.herokuapp.com/get_recs/'+ $routeParams.fb_id +'/JSON_CALLBACK';
+      $http.jsonp(recs_url).success(function(data) {
+        console.log(data);
         $scope.gifts = data.results;
-      }
-      // TODO hardcode user_id
-  		$http.jsonp('http://giftguruapi.herokuapp.com/get_recs/'+ $routeParams.user_id +'/jsonp_callback');
-    
+      });
+
+
     $scope.logout = function () {
       Facebook.logout();
       if ($rootScope.showLoginButton) {
